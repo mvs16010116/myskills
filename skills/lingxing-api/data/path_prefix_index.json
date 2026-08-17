@@ -1,0 +1,5641 @@
+{
+  "/api/auth-server": [
+    {
+      "title": "获取 access-token和refresh-token",
+      "api_path": "/api/auth-server/oauth/access-token",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Authorization/GetToken.md",
+      "category_l1": "授权",
+      "category_l2": "获取接口令牌-access_token",
+      "category_l3": ""
+    },
+    {
+      "title": "续约接口令牌",
+      "api_path": "/api/auth-server/oauth/refresh",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Authorization/RefreshToken.md",
+      "category_l1": "授权",
+      "category_l2": "续约接口令牌",
+      "category_l3": ""
+    }
+  ],
+  "/erp/sc": [
+    {
+      "title": "查询ERP用户信息列表",
+      "api_path": "/erp/sc/data/account/lists",
+      "method": "GET",
+      "doc_path": "docs_raw/docs/BasicData/AccoutLists.md",
+      "category_l1": "基础数据",
+      "category_l2": "查询ERP用户信息列表",
+      "category_l3": ""
+    },
+    {
+      "title": "查询亚马逊市场列表",
+      "api_path": "/erp/sc/data/seller/allMarketplace",
+      "method": "GET",
+      "doc_path": "docs_raw/docs/BasicData/AllMarketplace.md",
+      "category_l1": "基础数据",
+      "category_l2": "查询亚马逊市场列表",
+      "category_l3": ""
+    },
+    {
+      "title": "下载附件",
+      "api_path": "/erp/sc/routing/common/file/download",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/BasicData/AttachmentDownload.md",
+      "category_l1": "基础数据",
+      "category_l2": "下载附件",
+      "category_l3": ""
+    },
+    {
+      "title": "查询亚马逊概念店铺列表",
+      "api_path": "/erp/sc/data/seller/conceptLists",
+      "method": "GET",
+      "doc_path": "docs_raw/docs/BasicData/ConceptSellerLists.md",
+      "category_l1": "基础数据",
+      "category_l2": "查询亚马逊概念店铺列表",
+      "category_l3": ""
+    },
+    {
+      "title": "查询汇率",
+      "api_path": "/erp/sc/routing/finance/currency/currencyMonth",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/BasicData/Currency.md",
+      "category_l1": "基础数据",
+      "category_l2": "查询汇率",
+      "category_l3": ""
+    },
+    {
+      "title": "批量修改店铺名称",
+      "api_path": "/erp/sc/data/seller/batchEditSellerName",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/BasicData/SellerBatchRename.md",
+      "category_l1": "基础数据",
+      "category_l2": "批量修改店铺名称",
+      "category_l3": ""
+    },
+    {
+      "title": "查询亚马逊店铺列表",
+      "api_path": "/erp/sc/data/seller/lists",
+      "method": "GET",
+      "doc_path": "docs_raw/docs/BasicData/SellerLists.md",
+      "category_l1": "基础数据",
+      "category_l2": "查询亚马逊店铺列表",
+      "category_l3": ""
+    },
+    {
+      "title": "查询亚马逊国家下地区列表",
+      "api_path": "/erp/sc/data/worldState/lists",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/BasicData/WorldStateLists.md",
+      "category_l1": "基础数据",
+      "category_l2": "查询亚马逊国家下地区列表",
+      "category_l3": ""
+    },
+    {
+      "title": "查询货件装箱信息",
+      "api_path": "/erp/sc/routing/fba/shipment/boxInfo",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/BoxInfo.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "查询货件装箱信息（旧）"
+    },
+    {
+      "title": "生成已发货的发货单",
+      "api_path": "/erp/sc/storage/shipment/createSendedOrder",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/CreateSendedOrder.md",
+      "category_l1": "FBA",
+      "category_l2": "发货单",
+      "category_l3": "生成已发货的发货单"
+    },
+    {
+      "title": "地址簿-发货地址创建",
+      "api_path": "/erp/sc/routing/fba/shipment/createShipFromAddress",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/CreateShipFromAddress.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "地址簿-发货地址创建"
+    },
+    {
+      "title": "创建FBA发货计划",
+      "api_path": "/erp/sc/routing/storage/shipment/createShipmentPlan",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/CreateShipmentPlan.md",
+      "category_l1": "FBA",
+      "category_l2": "发货计划",
+      "category_l3": "创建FBA发货计划"
+    },
+    {
+      "title": "查询FBA到货接收明细",
+      "api_path": "/erp/sc/data/fba_report/receivedInventory",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/FBAReceivedInventory.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "查询FBA到货接收明细"
+    },
+    {
+      "title": "查询货件列表",
+      "api_path": "/erp/sc/data/fba_report/shipmentList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/FBAShipmentList.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "查询货件列表"
+    },
+    {
+      "title": "查询FBA商品信息列表",
+      "api_path": "/erp/sc/routing/fba/shipment/getFbaProductList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/GetFbaProductList.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "查询FBA商品信息列表（旧）"
+    },
+    {
+      "title": "获取发货单头程物流信息-其他费类型",
+      "api_path": "/erp/sc/routing/fba/shipment/getHeadLogisticsFeeTypes",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/GetHeadLogisticsFeeTypes.md",
+      "category_l1": "FBA",
+      "category_l2": "发货单",
+      "category_l3": "获取发货单头程物流-其他费类型"
+    },
+    {
+      "title": "查询发货单列表",
+      "api_path": "/erp/sc/routing/storage/shipment/getInboundShipmentList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/GetInboundShipmentList.md",
+      "category_l1": "FBA",
+      "category_l2": "发货单",
+      "category_l3": "查询FBA发货单列表"
+    },
+    {
+      "title": "批量查询发货单详情",
+      "api_path": "/erp/sc/routing/storage/shipment/getInboundShipmentListMwsDetailList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/GetInboundShipmentListMwsDetailList.md",
+      "category_l1": "FBA",
+      "category_l2": "发货单",
+      "category_l3": "批量查询FBA发货单详情"
+    },
+    {
+      "title": "获取发货单头程物流信息-承运商信息",
+      "api_path": "/erp/sc/routing/fba/shipment/getSeaTrackSupplierCarriers",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/GetSeaTrackSupplierCarriers.md",
+      "category_l1": "FBA",
+      "category_l2": "发货单",
+      "category_l3": "获取发货单头程物流-承运商信息"
+    },
+    {
+      "title": "FBA发货单发货",
+      "api_path": "/erp/sc/storage/shipment/sendGoods",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/SendGoods.md",
+      "category_l1": "FBA",
+      "category_l2": "发货单",
+      "category_l3": "FBA发货单发货"
+    },
+    {
+      "title": "地址簿-发货地址列表",
+      "api_path": "/erp/sc/routing/fba/shipment/shipFromAddressList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/ShipFromAddressList.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "地址簿-发货地址列表"
+    },
+    {
+      "title": "发货单分配库存",
+      "api_path": "/erp/sc/routing/storage/shipment/lockStock",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/ShipmentLockStock.md",
+      "category_l1": "FBA",
+      "category_l2": "发货单",
+      "category_l3": "发货单分配库存"
+    },
+    {
+      "title": "查询FBA发货计划",
+      "api_path": "/erp/sc/data/fba_report/shipmentPlanLists",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/ShipmentPlanLists.md",
+      "category_l1": "FBA",
+      "category_l2": "发货计划",
+      "category_l3": "查询FBA发货计划"
+    },
+    {
+      "title": "同步亚马逊货件到ERP",
+      "api_path": "/erp/sc/routing/fba/shipment/syncShipment",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/SyncShipment.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "同步亚马逊货件到ERP"
+    },
+    {
+      "title": "更新发货单自定义成本",
+      "api_path": "/erp/sc/routing/storage/shipment/updateCustomCost",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/UpdateCustomCost.md",
+      "category_l1": "FBA",
+      "category_l2": "发货单",
+      "category_l3": "更新发货单自定义成本"
+    },
+    {
+      "title": "编辑FBA发货计划",
+      "api_path": "/erp/sc/routing/storage/shipment/updateShipmentPlan",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/UpdatePlanLists.md",
+      "category_l1": "FBA",
+      "category_l2": "发货计划",
+      "category_l3": "编辑FBA发货计划"
+    },
+    {
+      "title": "地址簿-发货地址修改",
+      "api_path": "/erp/sc/routing/fba/shipment/updateShipFromAddress",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/UpdateShipFromAddress.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "地址簿-发货地址修改"
+    },
+    {
+      "title": "修改货件实际状态",
+      "api_path": "/erp/sc/routing/storage/shipment/updateShipmentActualStatus",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/UpdateShipmentActualStatus.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "修改货件实际状态"
+    },
+    {
+      "title": "生成待发货的发货单",
+      "api_path": "/erp/sc/routing/storage/shipment/createReadySendOrder",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/createReadySendOrder.md",
+      "category_l1": "FBA",
+      "category_l2": "发货单",
+      "category_l3": "生成待发货的发货单"
+    },
+    {
+      "title": "查询发货单详情",
+      "api_path": "/erp/sc/routing/storage/shipment/getInboundShipmentListMwsDetail",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/getInboundShipmentListMwsDetail.md",
+      "category_l1": "FBA",
+      "category_l2": "发货单",
+      "category_l3": "查询FBA发货单详情"
+    },
+    {
+      "title": "发货单释放库存",
+      "api_path": "/erp/sc/routing/storage/shipment/releaseStock",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/outboundOrderReleaseStock.md",
+      "category_l1": "FBA",
+      "category_l2": "发货单",
+      "category_l3": "发货单释放库存"
+    },
+    {
+      "title": "查询FBA货件箱子、卡板标签",
+      "api_path": "/erp/sc/storage/shipment/printFbaLabels",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/printFbaLabels.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "查询FBA货件箱子、卡板标签"
+    },
+    {
+      "title": "查询FBA货件商品FNSKU标签",
+      "api_path": "/erp/sc/storage/shipment/printFnskuLabels",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/printFnskuLabels.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "查询FBA货件商品FNSKU标签"
+    },
+    {
+      "title": "发货单创建接口结果查询",
+      "api_path": "/erp/sc/routing/storage/shipment/searchProcessResult",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/searchProcessResult.md",
+      "category_l1": "FBA",
+      "category_l2": "发货单",
+      "category_l3": "发货单创建接口结果查询"
+    },
+    {
+      "title": "编辑发货单",
+      "api_path": "/erp/sc/routing/storage/shipment/updateInboundShipmentListMws",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/updateInboundShipmentListMws.md",
+      "category_l1": "FBA",
+      "category_l2": "发货单",
+      "category_l3": "编辑发货单"
+    },
+    {
+      "title": "更新发货单物流信息",
+      "api_path": "/erp/sc/routing/storage/shipment/updateListLogistics",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/updateListLogistics.md",
+      "category_l1": "FBA",
+      "category_l2": "发货单",
+      "category_l3": "更新发货单物流信息"
+    },
+    {
+      "title": "查询IPI信息",
+      "api_path": "/erp/sc/routing/fbaLimit/restock/getIpiInfo",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBALimit/GetIpiInfo.md",
+      "category_l1": "补货限制",
+      "category_l2": "查询IPI信息",
+      "category_l3": ""
+    },
+    {
+      "title": "查询规则 - ASIN",
+      "api_path": "/erp/sc/routing/fbaSug/asin/getConfig",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBASug/ConfigASIN.md",
+      "category_l1": "补货建议",
+      "category_l2": "查询规则-ASIN",
+      "category_l3": ""
+    },
+    {
+      "title": "查询规则 - MSKU",
+      "api_path": "/erp/sc/routing/fbaSug/msku/getConfig",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBASug/ConfigMSKU.md",
+      "category_l1": "补货建议",
+      "category_l2": "查询规则-MSKU",
+      "category_l3": ""
+    },
+    {
+      "title": "按ASIN查询FBA补货建议图表",
+      "api_path": "/erp/sc/routing/fbaSug/asin/getDailySalesInfoFeature",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBASug/DailySalesInfoFeatureASIN.md",
+      "category_l1": "补货建议",
+      "category_l2": "查询未来销量预测和库存预测-ASIN",
+      "category_l3": ""
+    },
+    {
+      "title": "按MSKU查询FBA补货建议图表",
+      "api_path": "/erp/sc/routing/fbaSug/msku/getDailySalesInfoFeature",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBASug/DailySalesInfoFeatureMSKU.md",
+      "category_l1": "补货建议",
+      "category_l2": "查询未来销量预测和库存预测-MSKU",
+      "category_l3": ""
+    },
+    {
+      "title": "查询补货列表",
+      "api_path": "/erp/sc/routing/restocking/analysis/getSummaryList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBASug/GetSummaryList.md",
+      "category_l1": "补货建议",
+      "category_l2": "查询补货列表",
+      "category_l3": ""
+    },
+    {
+      "title": "查询建议信息-ASIN",
+      "api_path": "/erp/sc/routing/fbaSug/asin/getInfo",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBASug/InfoASIN.md",
+      "category_l1": "补货建议",
+      "category_l2": "查询建议信息-ASIN",
+      "category_l3": ""
+    },
+    {
+      "title": "查询建议信息-MSKU",
+      "api_path": "/erp/sc/routing/fbaSug/msku/getInfo",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBASug/InfoMSKU.md",
+      "category_l1": "补货建议",
+      "category_l2": "查询建议信息-MSKU",
+      "category_l3": ""
+    },
+    {
+      "title": "单个设置规则-ASIN",
+      "api_path": "/erp/sc/routing/fbaSug/asin/setConfig",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBASug/SetConfigASIN.md",
+      "category_l1": "补货建议",
+      "category_l2": "单个设置规则-ASIN",
+      "category_l3": ""
+    },
+    {
+      "title": "单个设置规则-MSKU",
+      "api_path": "/erp/sc/routing/fbaSug/msku/setConfig",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBASug/SetConfigMSKU.md",
+      "category_l1": "补货建议",
+      "category_l2": "单个设置规则-MSKU",
+      "category_l3": ""
+    },
+    {
+      "title": "批量设置规则 - ASIN",
+      "api_path": "/erp/sc/routing/fbaSug/asin/setConfigs",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBASug/SetConfigsASIN.md",
+      "category_l1": "补货建议",
+      "category_l2": "批量设置规则-ASIN",
+      "category_l3": ""
+    },
+    {
+      "title": "批量设置规则 - MSKU",
+      "api_path": "/erp/sc/routing/fbaSug/msku/setConfigs",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBASug/SetConfigsMSKU.md",
+      "category_l1": "补货建议",
+      "category_l2": "批量设置规则-MSKU",
+      "category_l3": ""
+    },
+    {
+      "title": "查询报表型数据明细-ASIN",
+      "api_path": "/erp/sc/routing/fbaSug/asin/getSourceList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBASug/SourceListASIN.md",
+      "category_l1": "补货建议",
+      "category_l2": "查询报表型数据明细-ASIN",
+      "category_l3": ""
+    },
+    {
+      "title": "查询报表型数据明细-MSKU",
+      "api_path": "/erp/sc/routing/fbaSug/msku/getSourceList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBASug/SourceListMSKU.md",
+      "category_l1": "补货建议",
+      "category_l2": "查询报表型数据明细-MSKU",
+      "category_l3": ""
+    },
+    {
+      "title": "查询利润报表（旧） - MSKU",
+      "api_path": "/erp/sc/routing/finance/ProfitState/profitMsku",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/FianceProfitMsku.md",
+      "category_l1": "财务",
+      "category_l2": "查询利润报表（旧）-MSKU",
+      "category_l3": ""
+    },
+    {
+      "title": "查询利润报表（旧） - ASIN（父级）",
+      "api_path": "/erp/sc/routing/finance/ProfitState/profitAsin",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/profitAsin.md",
+      "category_l1": "财务",
+      "category_l2": "查询利润报表（旧）-ASIN（父级）",
+      "category_l3": ""
+    },
+    {
+      "title": "查询利润报表（旧） - ASIN（子级）",
+      "api_path": "/erp/sc/routing/finance/ProfitState/profitAsinSon",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/profitAsinSon.md",
+      "category_l1": "财务",
+      "category_l2": "查询利润报表（旧）-ASIN（子级）",
+      "category_l3": ""
+    },
+    {
+      "title": "查询利润报表（旧）-结算明细",
+      "api_path": "/erp/sc/routing/finance/ProfitState/profitSettlement",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/profitSettlement.md",
+      "category_l1": "财务",
+      "category_l2": "查询利润报表（旧）-结算明细",
+      "category_l3": ""
+    },
+    {
+      "title": "批量添加头程物流方式",
+      "api_path": "/erp/sc/routing/tms/FirstVessel/addChannels",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Logistics/AddChannels.md",
+      "category_l1": "物流",
+      "category_l2": "批量添加头程物流方式",
+      "category_l3": ""
+    },
+    {
+      "title": "批量添加头程物流商",
+      "api_path": "/erp/sc/routing/tms/FirstVessel/addProviders",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Logistics/AddProviders.md",
+      "category_l1": "物流",
+      "category_l2": "批量添加头程物流商",
+      "category_l3": ""
+    },
+    {
+      "title": "查询头程物流渠道列表",
+      "api_path": "/erp/sc/data/local_inventory/channelList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Logistics/ChannelList.md",
+      "category_l1": "物流",
+      "category_l2": "查询头程物流渠道列表",
+      "category_l3": ""
+    },
+    {
+      "title": "查询已启用的自发货物流方式",
+      "api_path": "/erp/sc/routing/wms/WmsLogistics/listUsedLogisticsType",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Logistics/listUsedLogisticsType.md",
+      "category_l1": "物流",
+      "category_l2": "查询已启用的自发货物流方式",
+      "category_l3": ""
+    },
+    {
+      "title": "订单称重",
+      "api_path": "/erp/sc/routing/wms/order/setOrderWeighed",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/setOrderWeighed.md",
+      "category_l1": "多平台",
+      "category_l2": "订单称重",
+      "category_l3": ""
+    },
+    {
+      "title": "查询产品品牌列表",
+      "api_path": "/erp/sc/data/local_inventory/brand",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Product/Brand.md",
+      "category_l1": "产品",
+      "category_l2": "查询产品品牌列表",
+      "category_l3": ""
+    },
+    {
+      "title": "查询产品分类列表",
+      "api_path": "/erp/sc/routing/data/local_inventory/category",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Product/Category.md",
+      "category_l1": "产品",
+      "category_l2": "查询产品分类列表",
+      "category_l3": ""
+    },
+    {
+      "title": "查询本地产品详情",
+      "api_path": "/erp/sc/routing/data/local_inventory/productInfo",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Product/ProductDetails.md",
+      "category_l1": "产品",
+      "category_l2": "查询本地产品详情",
+      "category_l3": ""
+    },
+    {
+      "title": "查询本地产品列表",
+      "api_path": "/erp/sc/routing/data/local_inventory/productList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Product/ProductLists.md",
+      "category_l1": "产品",
+      "category_l2": "查询本地产品列表",
+      "category_l3": ""
+    },
+    {
+      "title": "添加/编辑产品品牌",
+      "api_path": "/erp/sc/storage/brand/set",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Product/SetBrand.md",
+      "category_l1": "产品",
+      "category_l2": "添加/编辑产品品牌",
+      "category_l3": ""
+    },
+    {
+      "title": "添加 / 编辑捆绑产品",
+      "api_path": "/erp/sc/routing/storage/product/setBundled",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Product/SetBundled.md",
+      "category_l1": "产品",
+      "category_l2": "添加/编辑捆绑产品",
+      "category_l3": ""
+    },
+    {
+      "title": "添加 / 编辑产品分类",
+      "api_path": "/erp/sc/routing/storage/category/set",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Product/SetCategory.md",
+      "category_l1": "产品",
+      "category_l2": "添加/编辑产品分类",
+      "category_l3": ""
+    },
+    {
+      "title": "添加/编辑本地产品",
+      "api_path": "/erp/sc/routing/storage/product/set",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Product/SetProduct.md",
+      "category_l1": "产品",
+      "category_l2": "添加/编辑本地产品",
+      "category_l3": ""
+    },
+    {
+      "title": "上传本地产品图片",
+      "api_path": "/erp/sc/routing/storage/product/uploadPictures",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Product/UploadPictures.md",
+      "category_l1": "产品",
+      "category_l2": "上传本地产品图片",
+      "category_l3": ""
+    },
+    {
+      "title": "查询产品属性列表",
+      "api_path": "/erp/sc/routing/storage/attribute/attributeList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Product/attributeList.md",
+      "category_l1": "产品",
+      "category_l2": "查询产品属性列表",
+      "category_l3": ""
+    },
+    {
+      "title": "添加 / 编辑产品属性",
+      "api_path": "/erp/sc/routing/storage/attribute/set",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Product/attributeSet.md",
+      "category_l1": "产品",
+      "category_l2": "添加/编辑产品属性",
+      "category_l3": ""
+    },
+    {
+      "title": "批量查询本地产品详情",
+      "api_path": "/erp/sc/routing/data/local_inventory/batchGetProductInfo",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Product/batchGetProductInfo.md",
+      "category_l1": "产品",
+      "category_l2": "批量查询本地产品详情",
+      "category_l3": ""
+    },
+    {
+      "title": "查询捆绑产品关系列表",
+      "api_path": "/erp/sc/routing/data/local_inventory/bundledProductList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Product/bundledProductList.md",
+      "category_l1": "产品",
+      "category_l2": "查询捆绑产品关系列表",
+      "category_l3": ""
+    },
+    {
+      "title": "查询产品辅料列表",
+      "api_path": "/erp/sc/routing/data/local_inventory/productAuxList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Product/productAuxList.md",
+      "category_l1": "产品",
+      "category_l2": "查询产品辅料列表",
+      "category_l3": ""
+    },
+    {
+      "title": "添加 / 编辑辅料",
+      "api_path": "/erp/sc/routing/storage/product/setAux",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Product/setAux.md",
+      "category_l1": "产品",
+      "category_l2": "添加/编辑辅料",
+      "category_l3": ""
+    },
+    {
+      "title": "查询多属性产品详情",
+      "api_path": "/erp/sc/routing/storage/spu/info",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Product/spuInfo.md",
+      "category_l1": "产品",
+      "category_l2": "查询多属性产品详情",
+      "category_l3": ""
+    },
+    {
+      "title": "查询多属性产品列表",
+      "api_path": "/erp/sc/routing/storage/spu/spuList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Product/spuList.md",
+      "category_l1": "产品",
+      "category_l2": "查询多属性产品列表",
+      "category_l3": ""
+    },
+    {
+      "title": "添加/编辑多属性产品",
+      "api_path": "/erp/sc/routing/storage/spu/set",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Product/spuSet.md",
+      "category_l1": "产品",
+      "category_l2": "添加/编辑多属性产品",
+      "category_l3": ""
+    },
+    {
+      "title": "作废采购单",
+      "api_path": "/erp/sc/routing/purchase/purchase/cancel",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Purchase/Cancel.md",
+      "category_l1": "采购",
+      "category_l2": "作废采购单",
+      "category_l3": ""
+    },
+    {
+      "title": "创建待到货的采购单",
+      "api_path": "/erp/sc/routing/purchase/purchase/createPurchaseOrder",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Purchase/CreatePurchaseOrder.md",
+      "category_l1": "采购",
+      "category_l2": "创建待到货的采购单",
+      "category_l3": ""
+    },
+    {
+      "title": "查询采购单列表",
+      "api_path": "/erp/sc/routing/data/local_inventory/purchaseOrderList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Purchase/PurchaseOrderList.md",
+      "category_l1": "采购",
+      "category_l2": "查询采购单列表",
+      "category_l3": ""
+    },
+    {
+      "title": "采购单下单",
+      "api_path": "/erp/sc/routing/purchase/purchase/setOrders",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Purchase/SetOrders.md",
+      "category_l1": "采购",
+      "category_l2": "采购单下单",
+      "category_l3": ""
+    },
+    {
+      "title": "查询供应商列表",
+      "api_path": "/erp/sc/data/local_inventory/supplier",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Purchase/Supplier.md",
+      "category_l1": "采购",
+      "category_l2": "查询供应商列表",
+      "category_l3": ""
+    },
+    {
+      "title": "添加/修改供应商",
+      "api_path": "/erp/sc/routing/storage/supplier/edit",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Purchase/SupplierEdit.md",
+      "category_l1": "采购",
+      "category_l2": "添加/修改供应商",
+      "category_l3": ""
+    },
+    {
+      "title": "添加采购单物流信息",
+      "api_path": "/erp/sc/routing/purchase/purchase/addLogistics",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Purchase/addLogistics.md",
+      "category_l1": "采购",
+      "category_l2": "添加采购单物流信息",
+      "category_l3": ""
+    },
+    {
+      "title": "查询采购变更单列表",
+      "api_path": "/erp/sc/routing/purchase/purchaseChangeOrder/changeOrderList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Purchase/changeOrderList.md",
+      "category_l1": "采购",
+      "category_l2": "查询采购变更单列表",
+      "category_l3": ""
+    },
+    {
+      "title": "创建已完成的采购变更单",
+      "api_path": "/erp/sc/routing/purchase/purchaseChangeOrder/createPurchaseChangeOrder",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Purchase/createPurchaseChangeOrder.md",
+      "category_l1": "采购",
+      "category_l2": "创建已完成的采购变更单",
+      "category_l3": ""
+    },
+    {
+      "title": "创建待采购的采购计划",
+      "api_path": "/erp/sc/routing/data/local_inventory/createPurchasePlan",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Purchase/createPurchasePlan.md",
+      "category_l1": "采购",
+      "category_l2": "创建待采购的采购计划",
+      "category_l3": ""
+    },
+    {
+      "title": "创建已完成的采购退货单",
+      "api_path": "/erp/sc/routing/purchase/purchase_return_order/createPurchaseReturnOrder",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Purchase/createPurchaseReturnOrder.md",
+      "category_l1": "采购",
+      "category_l2": "创建已完成的采购退货单",
+      "category_l3": ""
+    },
+    {
+      "title": "查询委外订单列表",
+      "api_path": "/erp/sc/routing/purchase/purchaseOutsourceOrder/getOrders",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Purchase/getOrders.md",
+      "category_l1": "采购",
+      "category_l2": "查询委外订单列表",
+      "category_l3": ""
+    },
+    {
+      "title": "查询采购计划列表",
+      "api_path": "/erp/sc/routing/data/local_inventory/getPurchasePlans",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Purchase/getPurchasePlans.md",
+      "category_l1": "采购",
+      "category_l2": "查询采购计划列表",
+      "category_l3": ""
+    },
+    {
+      "title": "查询采购退货单列表",
+      "api_path": "/erp/sc/routing/purchase/purchase_return_order/getPurchaseReturnOrderList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Purchase/getPurchaseReturnOrderList.md",
+      "category_l1": "采购",
+      "category_l2": "查询采购退货单列表",
+      "category_l3": ""
+    },
+    {
+      "title": "查询采购方列表",
+      "api_path": "/erp/sc/routing/data/purchaser/lists",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Purchase/purchaserLists.md",
+      "category_l1": "采购",
+      "category_l2": "查询采购方列表",
+      "category_l3": ""
+    },
+    {
+      "title": "查询亚马逊自发货订单详情",
+      "api_path": "/erp/sc/routing/order/Order/getOrderDetail",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/FBMOrderDetail.md",
+      "category_l1": "销售",
+      "category_l2": "自发货管理",
+      "category_l3": "查询亚马逊自发货订单详情"
+    },
+    {
+      "title": "查询亚马逊自发货订单列表",
+      "api_path": "/erp/sc/routing/order/Order/getOrderList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/FBMOrderList.md",
+      "category_l1": "销售",
+      "category_l2": "自发货管理",
+      "category_l3": "查询亚马逊自发货订单列表"
+    },
+    {
+      "title": "查询亚马逊Listing",
+      "api_path": "/erp/sc/data/mws/listing",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/Listing.md",
+      "category_l1": "销售",
+      "category_l2": "Listing",
+      "category_l3": "查询亚马逊Listing"
+    },
+    {
+      "title": "查询亚马逊订单详情",
+      "api_path": "/erp/sc/data/mws/orderDetail",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/OrderDetail.md",
+      "category_l1": "销售",
+      "category_l2": "平台订单",
+      "category_l3": "查询亚马逊订单详情"
+    },
+    {
+      "title": "查询亚马逊订单列表",
+      "api_path": "/erp/sc/data/mws/orders",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/Orderlists.md",
+      "category_l1": "销售",
+      "category_l2": "平台订单",
+      "category_l3": "查询亚马逊订单列表"
+    },
+    {
+      "title": "批量添加/编辑Listing配对",
+      "api_path": "/erp/sc/storage/product/link",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/Productlink.md",
+      "category_l1": "销售",
+      "category_l2": "Listing",
+      "category_l3": "批量添加/编辑Listing配对"
+    },
+    {
+      "title": "批量修改Listing价格",
+      "api_path": "/erp/sc/listing/ProductPricing/pricingSubmit",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/pricingSubmit.md",
+      "category_l1": "销售",
+      "category_l2": "Listing",
+      "category_l3": "批量修改Listing价格"
+    },
+    {
+      "title": "查询评价管理 4-5星Feedback列表",
+      "api_path": "/erp/sc/cs/feedback/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Service/FeedbackList.md",
+      "category_l1": "客服",
+      "category_l2": "查询评价管理-4-5星Feedback列表",
+      "category_l3": ""
+    },
+    {
+      "title": "查询评价管理 1-3星Feedback列表",
+      "api_path": "/erp/sc/cs/feedback/listMws",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Service/FeedbackListMws.md",
+      "category_l1": "客服",
+      "category_l2": "查询评价管理-1-3星Feedback列表",
+      "category_l3": ""
+    },
+    {
+      "title": "查询邮件详情",
+      "api_path": "/erp/sc/data/mail/detail",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Service/detail.md",
+      "category_l1": "客服",
+      "category_l2": "查询邮件详情",
+      "category_l3": ""
+    },
+    {
+      "title": "查询评价统计-Feedback每日新增数",
+      "api_path": "/erp/sc/cs/feedbackReport/detail",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Service/feedbackDetail.md",
+      "category_l1": "客服",
+      "category_l2": "查询评价统计-Feedback每日新增数",
+      "category_l3": ""
+    },
+    {
+      "title": "查询评价统计-Feedback列表",
+      "api_path": "/erp/sc/cs/feedbackReport/lists",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Service/feedbackLists.md",
+      "category_l1": "客服",
+      "category_l2": "查询评价统计-Feedback列表",
+      "category_l3": ""
+    },
+    {
+      "title": "查询邮件列表",
+      "api_path": "/erp/sc/data/mail/lists",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Service/lists.md",
+      "category_l1": "客服",
+      "category_l2": "查询邮件列表",
+      "category_l3": ""
+    },
+    {
+      "title": "查询评价管理-Review",
+      "api_path": "/erp/sc/v2/data/mws/reviews",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Service/review.md",
+      "category_l1": "客服",
+      "category_l2": "查询评价管理-Review",
+      "category_l3": ""
+    },
+    {
+      "title": "查询评价统计-Review每日新增数",
+      "api_path": "/erp/sc/cs/reviewReport/detail",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Service/reviewDetail.md",
+      "category_l1": "客服",
+      "category_l2": "查询评价统计-Review每日新增数",
+      "category_l3": ""
+    },
+    {
+      "title": "查询评价统计-Review列表",
+      "api_path": "/erp/sc/v2/cs/reviewReport/lists",
+      "method": "GET",
+      "doc_path": "docs_raw/docs/Service/reviewLists.md",
+      "category_l1": "客服",
+      "category_l2": "查询评价统计-Review列表",
+      "category_l3": ""
+    },
+    {
+      "title": "查询亚马逊源报表-FBA可售库存",
+      "api_path": "/erp/sc/data/mws_report/getAfnFulfillableQuantity",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/SourceData/AfnFulfillableQuantity.md",
+      "category_l1": "亚马逊源表数据",
+      "category_l2": "查询亚马逊源报表-FBA可售库存",
+      "category_l3": ""
+    },
+    {
+      "title": "查询亚马逊源报表-所有订单",
+      "api_path": "/erp/sc/data/mws_report/allOrders",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/SourceData/AllOrders.md",
+      "category_l1": "亚马逊源表数据",
+      "category_l2": "查询亚马逊源报表-所有订单",
+      "category_l3": ""
+    },
+    {
+      "title": "查询亚马逊源报表-每日库存",
+      "api_path": "/erp/sc/data/mws_report/dailyInventory",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/SourceData/DailyInventory.md",
+      "category_l1": "亚马逊源表数据",
+      "category_l2": "查询亚马逊源报表-每日库存",
+      "category_l3": ""
+    },
+    {
+      "title": "查询亚马逊源报表-FBA订单",
+      "api_path": "/erp/sc/data/mws_report/fbaOrders",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/SourceData/FbaOrders.md",
+      "category_l1": "亚马逊源表数据",
+      "category_l2": "查询亚马逊源报表-FBA订单",
+      "category_l3": ""
+    },
+    {
+      "title": "查询亚马逊源报表-FBA库存",
+      "api_path": "/erp/sc/data/mws_report/manageInventory",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/SourceData/ManageInventory.md",
+      "category_l1": "亚马逊源表数据",
+      "category_l2": "查询亚马逊源报表-FBA库存",
+      "category_l3": ""
+    },
+    {
+      "title": "查询亚马逊源报表-FBA退货订单",
+      "api_path": "/erp/sc/data/mws_report/refundOrders",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/SourceData/RefundOrders.md",
+      "category_l1": "统计",
+      "category_l2": "查询亚马逊源报表-FBA退货订单",
+      "category_l3": ""
+    },
+    {
+      "title": "查询亚马逊源报表-移除货件（旧）",
+      "api_path": "/erp/sc/data/fba_report/removalLists",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/SourceData/RemovalLists.md",
+      "category_l1": "亚马逊源表数据",
+      "category_l2": "查询亚马逊源报表-移除货件（旧）",
+      "category_l3": ""
+    },
+    {
+      "title": "查询亚马逊源报表-移除订单（新）",
+      "api_path": "/erp/sc/routing/data/order/removalOrderListNew",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/SourceData/RemovalOrderListNew.md",
+      "category_l1": "亚马逊源表数据",
+      "category_l2": "查询亚马逊源报表-移除订单（新）",
+      "category_l3": ""
+    },
+    {
+      "title": "查询亚马逊源报表-移除货件（新）",
+      "api_path": "/erp/sc/statistic/removalShipment/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/SourceData/RemovalShipmentList.md",
+      "category_l1": "亚马逊源表数据",
+      "category_l2": "查询亚马逊源报表-移除货件（新）",
+      "category_l3": ""
+    },
+    {
+      "title": "查询亚马逊源报表-预留库存",
+      "api_path": "/erp/sc/data/mws_report/reservedInventory",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/SourceData/ReservedInventory.md",
+      "category_l1": "亚马逊源表数据",
+      "category_l2": "查询亚马逊源报表-预留库存",
+      "category_l3": ""
+    },
+    {
+      "title": "查询亚马逊源报表-移除订单（旧）",
+      "api_path": "/erp/sc/data/mws_report/removalOrders",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/SourceData/SourceRemovalOrders.md",
+      "category_l1": "亚马逊源表数据",
+      "category_l2": "查询亚马逊源报表-移除订单（旧）",
+      "category_l3": ""
+    },
+    {
+      "title": "查询亚马逊源报表-交易明细",
+      "api_path": "/erp/sc/data/mws_report/transaction",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/SourceData/Transaction.md",
+      "category_l1": "亚马逊源表数据",
+      "category_l2": "查询亚马逊源报表-交易明细",
+      "category_l3": ""
+    },
+    {
+      "title": "查询亚马逊源报表-FBA换货订单",
+      "api_path": "/erp/sc/routing/data/order/fbaExchangeOrderList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/SourceData/fbaExchangeOrderList.md",
+      "category_l1": "亚马逊源表数据",
+      "category_l2": "查询亚马逊源报表-FBA换货订单",
+      "category_l3": ""
+    },
+    {
+      "title": "查询亚马逊源报表—Amazon Fulfilled Shipments",
+      "api_path": "/erp/sc/data/mws_report/getAmazonFulfilledShipmentsList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/SourceData/getAmazonFulfilledShipmentsList.md",
+      "category_l1": "亚马逊源表数据",
+      "category_l2": "查询亚马逊源报表-Amazon Fulfilled Shipments",
+      "category_l3": ""
+    },
+    {
+      "title": "查询亚马逊源报表—库龄表",
+      "api_path": "/erp/sc/routing/fba/fbaStock/getFbaAgeList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/SourceData/getFbaAgeList.md",
+      "category_l1": "亚马逊源表数据",
+      "category_l2": "查询亚马逊源报表-库龄表",
+      "category_l3": ""
+    },
+    {
+      "title": "查询亚马逊源报表——Inventory Event Detail",
+      "api_path": "/erp/sc/data/mws_report/getFbaInventoryEventDetailList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/SourceData/getFbaInventoryEventDetailList.md",
+      "category_l1": "亚马逊源表数据",
+      "category_l2": "查询亚马逊源报表-Inventory Event Detail",
+      "category_l3": ""
+    },
+    {
+      "title": "查询亚马逊源报表—Amazon Fulfilled Shipments v1",
+      "api_path": "/erp/sc/data/mws_report_v1/getAmazonFulfilledShipmentsList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/SourceData/v1getAmazonFulfilledShipmentsList.md",
+      "category_l1": "亚马逊源表数据",
+      "category_l2": "查询亚马逊源报表-Amazon Fulfilled Shipments V1",
+      "category_l3": ""
+    },
+    {
+      "title": "查询亚马逊源表数据--Inventory Event Detail v1",
+      "api_path": "/erp/sc/data/mws_report_v1/getFbaInventoryEventDetailList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/SourceData/v1getFbaInventoryEventDetailList.md",
+      "category_l1": "亚马逊源表数据",
+      "category_l2": "查询亚马逊源报表-Inventory Event Detail V1",
+      "category_l3": ""
+    },
+    {
+      "title": "查询亚马逊销量统计",
+      "api_path": "/erp/sc/data/sales_report/asinDailyLists",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/AsinDailyLists.md",
+      "category_l1": "统计",
+      "category_l2": "查询亚马逊销量统计",
+      "category_l3": ""
+    },
+    {
+      "title": "查询产品表现（旧）",
+      "api_path": "/erp/sc/data/sales_report/asinList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/AsinList.md",
+      "category_l1": "统计",
+      "category_l2": "查询产品表现（旧）",
+      "category_l3": ""
+    },
+    {
+      "title": "创建移除订单",
+      "api_path": "/erp/sc/statistic/removalOrder/createAndCommit",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/CreateRemovalOrder.md",
+      "category_l1": "统计",
+      "category_l2": "创建移除订单",
+      "category_l3": ""
+    },
+    {
+      "title": "查询FBA长期仓储费",
+      "api_path": "/erp/sc/data/fba_report/storageFeeLongTerm",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/FBAStorageFeeLongTerm.md",
+      "category_l1": "统计",
+      "category_l2": "查询FBA长期仓储费",
+      "category_l3": ""
+    },
+    {
+      "title": "查询FBA月仓储费",
+      "api_path": "/erp/sc/data/fba_report/storageFeeMonth",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/FBAStorageFeeMonth.md",
+      "category_l1": "统计",
+      "category_l2": "查询FBA月仓储费",
+      "category_l3": ""
+    },
+    {
+      "title": "库存报表-FBA-历史报表-汇总-明细",
+      "api_path": "/erp/sc/routing/fba/fbaStockReport/getList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/FbaStockReportList.md",
+      "category_l1": "统计",
+      "category_l2": "库存报表-FBA-历史报表-汇总-明细",
+      "category_l3": ""
+    },
+    {
+      "title": "库存报表-本地仓-历史报表-汇总",
+      "api_path": "/erp/sc/routing/inventoryLog/WareHouseReport/getLocalWareHouseSummaryList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/LocalAggregateList.md",
+      "category_l1": "统计",
+      "category_l2": "库存报表-本地仓-历史报表-汇总",
+      "category_l3": ""
+    },
+    {
+      "title": "库存报表-本地仓-历史报表-明细",
+      "api_path": "/erp/sc/routing/inventoryLog/WareHouseReport/getLocalWareHouseDetailList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/LocalDetailList.md",
+      "category_l1": "统计",
+      "category_l2": "库存报表-本地仓-历史报表-明细",
+      "category_l3": ""
+    },
+    {
+      "title": "查询退款量（旧）",
+      "api_path": "/erp/sc/routing/finance/Refund/profitMonthRefund",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/MonthRefund.md",
+      "category_l1": "统计",
+      "category_l2": "查询退款量（旧）",
+      "category_l3": ""
+    },
+    {
+      "title": "库存报表-海外仓-历史报表-汇总",
+      "api_path": "/erp/sc/routing/inventoryLog/WareHouseReport/getOverSeaSummaryList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/OverseasAggregateList.md",
+      "category_l1": "统计",
+      "category_l2": "库存报表-海外仓-历史报表-汇总",
+      "category_l3": ""
+    },
+    {
+      "title": "库存报表-海外仓-历史报表-明细",
+      "api_path": "/erp/sc/routing/inventoryLog/WareHouseReport/getOverSeaDetailList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/OverseasDetailList.md",
+      "category_l1": "统计",
+      "category_l2": "库存报表-海外仓-历史报表-明细",
+      "category_l3": ""
+    },
+    {
+      "title": "查询利润统计（旧）-MSKU",
+      "api_path": "/erp/sc/routing/finance/ProfitStatis/profitMsku",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/ProfitMsku.md",
+      "category_l1": "统计",
+      "category_l2": "查询利润统计（旧）-MSKU",
+      "category_l3": ""
+    },
+    {
+      "title": "查询店铺汇总销量",
+      "api_path": "/erp/sc/data/sales_report/sales",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/StoreSales.md",
+      "category_l1": "统计",
+      "category_l2": "查询店铺汇总销量",
+      "category_l3": ""
+    },
+    {
+      "title": "关键词列表",
+      "api_path": "/erp/sc/routing/tool/toolKeywordRank/getKeywordList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Tools/GetKeywordList.md",
+      "category_l1": "工具",
+      "category_l2": "关键词列表",
+      "category_l3": ""
+    },
+    {
+      "title": "创建待收货/已完成的调拨单",
+      "api_path": "/erp/sc/routing/inventoryReceipt/StorageAllocation/addAllocationOrder",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/AddAllocationOrder.md",
+      "category_l1": "仓库",
+      "category_l2": "出入库",
+      "category_l3": "创建待收货/已完成的调拨单"
+    },
+    {
+      "title": "创建待发货/待收货/已完成的备货单",
+      "api_path": "/erp/sc/routing/owms/inbound/createInbound",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/CreateInbound.md",
+      "category_l1": "仓库",
+      "category_l2": "海外仓",
+      "category_l3": "创建待发货/待收货/已完成的备货单"
+    },
+    {
+      "title": "添加/修改仓库",
+      "api_path": "/erp/sc/storage/wareHouse/edit",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/EditWarehouse.md",
+      "category_l1": "仓库",
+      "category_l2": "仓库设置",
+      "category_l3": "添加/修改仓库"
+    },
+    {
+      "title": "查询FBA库存列表",
+      "api_path": "/erp/sc/routing/fba/fbaStock/fbaList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/FBAStock.md",
+      "category_l1": "仓库",
+      "category_l2": "库存&流水",
+      "category_l3": "查询FBA库存列表"
+    },
+    {
+      "title": "收货单快捷入库",
+      "api_path": "/erp/sc/routing/deliveryReceipt/PurchaseReceiptOrder/fastReceive",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/FastReceive.md",
+      "category_l1": "仓库",
+      "category_l2": "收货质检",
+      "category_l3": "收货单快捷入库"
+    },
+    {
+      "title": "创建已完成的成本补录单",
+      "api_path": "/erp/sc/routing/inventoryReceipt/CostChangeOrder/finishCostChangeOrder",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/FinishCostChangeOrder.md",
+      "category_l1": "仓库",
+      "category_l2": "出入库",
+      "category_l3": "创建已完成的成本补录单"
+    },
+    {
+      "title": "查询批次明细",
+      "api_path": "/erp/sc/routing/data/local_inventory/getBatchDetailList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/GetBatchDetailList.md",
+      "category_l1": "仓库",
+      "category_l2": "库存&流水",
+      "category_l3": "查询批次明细"
+    },
+    {
+      "title": "查询批次流水",
+      "api_path": "/erp/sc/routing/data/local_inventory/getBatchStatementList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/GetBatchStatementList.md",
+      "category_l1": "仓库",
+      "category_l2": "库存&流水",
+      "category_l3": "查询批次流水"
+    },
+    {
+      "title": "查询备货单收货记录",
+      "api_path": "/erp/sc/routing/owms/inbound/getReceiveGoodRecords",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/GetReceiveGoodRecords.md",
+      "category_l1": "仓库",
+      "category_l2": "海外仓",
+      "category_l3": "查询备货单收货记录"
+    },
+    {
+      "title": "查询仓库库存明细",
+      "api_path": "/erp/sc/routing/data/local_inventory/inventoryDetails",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/InventoryDetails.md",
+      "category_l1": "仓库",
+      "category_l2": "库存&流水",
+      "category_l3": "查询仓库库存明细"
+    },
+    {
+      "title": "添加入库单",
+      "api_path": "/erp/sc/routing/storage/storage/orderAdd",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/OrderAdd.md",
+      "category_l1": "仓库",
+      "category_l2": "出入库",
+      "category_l3": "添加入库单"
+    },
+    {
+      "title": "添加出库单",
+      "api_path": "/erp/sc/routing/storage/storage/orderAddOut",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/OrderAddOut.md",
+      "category_l1": "仓库",
+      "category_l2": "出入库",
+      "category_l3": "添加出库单"
+    },
+    {
+      "title": "查询收货单列表",
+      "api_path": "/erp/sc/routing/deliveryReceipt/PurchaseReceiptOrder/getOrderList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/PurchaseReceiptOrderList.md",
+      "category_l1": "仓库",
+      "category_l2": "收货质检",
+      "category_l3": "查询收货单列表"
+    },
+    {
+      "title": "查询质检单列表",
+      "api_path": "/erp/sc/routing/deliveryReceipt/ReceiptOrderQc/getOrderList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/ReceiptOrderQcList.md",
+      "category_l1": "仓库",
+      "category_l2": "收货质检",
+      "category_l3": "查询质检单列表"
+    },
+    {
+      "title": "收货单到货",
+      "api_path": "/erp/sc/routing/deliveryReceipt/PurchaseReceiptOrder/receive",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/Receive.md",
+      "category_l1": "仓库",
+      "category_l2": "收货质检",
+      "category_l3": "收货单到货"
+    },
+    {
+      "title": "海外仓备货单发货",
+      "api_path": "/erp/sc/routing/owms/inbound/sendInbound",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/SendInbound.md",
+      "category_l1": "仓库",
+      "category_l2": "海外仓",
+      "category_l3": "海外仓备货单发货"
+    },
+    {
+      "title": "更新备货单物流信息",
+      "api_path": "/erp/sc/routing/owms/inbound/updateLogistics",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/UpdateLogistics.md",
+      "category_l1": "仓库",
+      "category_l2": "海外仓",
+      "category_l3": "更新备货单物流信息"
+    },
+    {
+      "title": "查询仓库列表",
+      "api_path": "/erp/sc/data/local_inventory/warehouse",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/WarehouseLists.md",
+      "category_l1": "仓库",
+      "category_l2": "仓库设置",
+      "category_l3": "查询仓库列表"
+    },
+    {
+      "title": "查询库存流水（旧）",
+      "api_path": "/erp/sc/routing/data/local_inventory/wareHouseStatement",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/WarehouseStatement.md",
+      "category_l1": "仓库",
+      "category_l2": "库存&流水",
+      "category_l3": "查询库存流水（旧）"
+    },
+    {
+      "title": "查询库存流水（新）",
+      "api_path": "/erp/sc/routing/inventoryLog/WareHouseInventory/wareHouseCenterStatement",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/WarehouseStatementNew.md",
+      "category_l1": "仓库",
+      "category_l2": "库存&流水",
+      "category_l3": "查询库存流水（新）"
+    },
+    {
+      "title": "查询销售出库单列表",
+      "api_path": "/erp/sc/routing/wms/order/wmsOrderList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/WmsOrderList.md",
+      "category_l1": "仓库",
+      "category_l2": "发货",
+      "category_l3": "查询销售出库单列表"
+    },
+    {
+      "title": "创建已完成的数量调整单",
+      "api_path": "/erp/sc/routing/inventoryReceipt/StorageAdjustment/addAdjustmentOrder",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/addAdjustmentOrder.md",
+      "category_l1": "仓库",
+      "category_l2": "出入库",
+      "category_l3": "创建已完成的数量调整单"
+    },
+    {
+      "title": "创建已完成的换标调整单",
+      "api_path": "/erp/sc/routing/inventoryReceipt/StorageAdjustment/addRebrandAdjustmentOrder",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/addRebrandAdjustmentOrder.md",
+      "category_l1": "仓库",
+      "category_l2": "出入库",
+      "category_l3": "创建已完成的换标调整单"
+    },
+    {
+      "title": "创建已完成的SKU调整单",
+      "api_path": "/erp/sc/routing/inventoryReceipt/StorageAdjustment/addSkuAdjustmentOrder",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/addSkuAdjustmentOrder.md",
+      "category_l1": "仓库",
+      "category_l2": "出入库",
+      "category_l3": "创建已完成的SKU调整单"
+    },
+    {
+      "title": "创建加工单 / 拆分单",
+      "api_path": "/erp/sc/routing/inventoryReceipt/StorageProcess/addStorageProcessOrder",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/addStorageProcessOrder.md",
+      "category_l1": "仓库",
+      "category_l2": "出入库",
+      "category_l3": "创建加工单 / 拆分单"
+    },
+    {
+      "title": "添加仓位",
+      "api_path": "/erp/sc/routing/storage/wareHouseBin/create",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/binCreate.md",
+      "category_l1": "仓库",
+      "category_l2": "仓库设置",
+      "category_l3": "添加仓位"
+    },
+    {
+      "title": "创建已完成的盘点单",
+      "api_path": "/erp/sc/routing/inventoryReceipt/InventoryCheck/addOrder",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/checkAddOrder.md",
+      "category_l1": "仓库",
+      "category_l2": "出入库",
+      "category_l3": "创建已完成的盘点单"
+    },
+    {
+      "title": "查询盘点单详情",
+      "api_path": "/erp/sc/routing/inventoryReceipt/InventoryCheck/getOrderDetail",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/checkGetOrderDetail.md",
+      "category_l1": "仓库",
+      "category_l2": "出入库",
+      "category_l3": "查询盘点单详情"
+    },
+    {
+      "title": "查询盘点单列表",
+      "api_path": "/erp/sc/routing/inventoryReceipt/InventoryCheck/getOrderList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/checkGetOrderList.md",
+      "category_l1": "仓库",
+      "category_l2": "出入库",
+      "category_l3": "查询盘点单列表"
+    },
+    {
+      "title": "查询备货单装箱信息",
+      "api_path": "/erp/sc/routing/owms/inbound/getPackingData",
+      "method": "GET",
+      "doc_path": "docs_raw/docs/Warehouse/getPackingData.md",
+      "category_l1": "仓库",
+      "category_l2": "海外仓",
+      "category_l3": "查询备货单装箱信息"
+    },
+    {
+      "title": "加工单列表",
+      "api_path": "/erp/sc/routing/inventoryReceipt/StorageProcess/getOrderLists",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/getProcessOrderLists.md",
+      "category_l1": "仓库",
+      "category_l2": "出入库",
+      "category_l3": "加工单列表"
+    },
+    {
+      "title": "查询调整单列表",
+      "api_path": "/erp/sc/routing/inventoryReceipt/StorageAdjustment/getStorageAdjustOrderList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/getStorageAdjustOrderList.md",
+      "category_l1": "仓库",
+      "category_l2": "出入库",
+      "category_l3": "查询调整单列表"
+    },
+    {
+      "title": "查询调拨单列表",
+      "api_path": "/erp/sc/routing/inventoryReceipt/StorageAllocation/getStorageAllocationList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/getStorageAllocationList.md",
+      "category_l1": "仓库",
+      "category_l2": "出入库",
+      "category_l3": "查询调拨单列表"
+    },
+    {
+      "title": "备货单分批收货",
+      "api_path": "/erp/sc/routing/owms/inbound/batchesReceipt",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/inboundBatchesReceipt.md",
+      "category_l1": "仓库",
+      "category_l2": "海外仓",
+      "category_l3": "备货单分批收货"
+    },
+    {
+      "title": "备货单结束到货",
+      "api_path": "/erp/sc/routing/owms/inbound/completeReceipt",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/inboundCompleteReceipt.md",
+      "category_l1": "仓库",
+      "category_l2": "海外仓",
+      "category_l3": "备货单结束到货"
+    },
+    {
+      "title": "获取自定义入库类型",
+      "api_path": "/erp/sc/routing/storage/inbound/getCustomTypes",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/inboundGetCustomTypes.md",
+      "category_l1": "仓库",
+      "category_l2": "出入库",
+      "category_l3": "获取自定义入库类型"
+    },
+    {
+      "title": "查询入库单列表",
+      "api_path": "/erp/sc/routing/storage/inbound/getOrders",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/inboundgetOrders.md",
+      "category_l1": "仓库",
+      "category_l2": "出入库",
+      "category_l3": "查询入库单列表"
+    },
+    {
+      "title": "查询仓位库存明细",
+      "api_path": "/erp/sc/routing/data/local_inventory/inventoryBinDetails",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/inventoryBinDetails.md",
+      "category_l1": "仓库",
+      "category_l2": "库存&流水",
+      "category_l3": "查询仓位库存明细"
+    },
+    {
+      "title": "查询海外仓备货单列表",
+      "api_path": "/erp/sc/routing/owms/inbound/listInbound",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/listInbound.md",
+      "category_l1": "仓库",
+      "category_l2": "海外仓",
+      "category_l3": "查询海外仓备货单列表"
+    },
+    {
+      "title": "获取备货单号",
+      "api_path": "/erp/sc/routing/owms/inbound/listOrderNos",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/listOrderNos.md",
+      "category_l1": "仓库",
+      "category_l2": "海外仓",
+      "category_l3": "获取备货单号"
+    },
+    {
+      "title": "查询系统产品与第三方海外仓产品映射列表",
+      "api_path": "/erp/sc/routing/owms/inbound/matchSkuList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/matchSkuList.md",
+      "category_l1": "仓库",
+      "category_l2": "海外仓",
+      "category_l3": "查询系统产品与第三方海外仓产品映射列表"
+    },
+    {
+      "title": "获取自定义出库类型",
+      "api_path": "/erp/sc/routing/storage/outbound/getCustomTypes",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/outboundGetCustomTypes.md",
+      "category_l1": "仓库",
+      "category_l2": "出入库",
+      "category_l3": "获取自定义出库类型"
+    },
+    {
+      "title": "查询出库单列表",
+      "api_path": "/erp/sc/routing/storage/outbound/getOrders",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/outboundgetOrders.md",
+      "category_l1": "仓库",
+      "category_l2": "出入库",
+      "category_l3": "查询出库单列表"
+    },
+    {
+      "title": "获取第三方箱唛",
+      "api_path": "/erp/sc/routing/owms/inbound/packageLabel",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/packageLabel.md",
+      "category_l1": "仓库",
+      "category_l2": "海外仓",
+      "category_l3": "获取第三方箱唛"
+    },
+    {
+      "title": "上传备货单装箱信息",
+      "api_path": "/erp/sc/routing/owms/inbound/packing",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/packing.md",
+      "category_l1": "仓库",
+      "category_l2": "海外仓",
+      "category_l3": "上传备货单装箱信息"
+    },
+    {
+      "title": "获取第三方SKU标签PDF文件",
+      "api_path": "/erp/sc/routing/owms/inbound/productLabel",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/productLabel.md",
+      "category_l1": "仓库",
+      "category_l2": "海外仓",
+      "category_l3": "获取第三方SKU标签PDF文件"
+    },
+    {
+      "title": "调拨单全部收货",
+      "api_path": "/erp/sc/routing/inventoryReceipt/StorageAllocation/receiveAllocationOrder",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/receiveAllocationOrder.md",
+      "category_l1": "仓库",
+      "category_l2": "出入库",
+      "category_l3": "调拨单全部收货"
+    },
+    {
+      "title": "查询移除入库单列表",
+      "api_path": "/erp/sc/routing/owms/removalInbound/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/removalInboundList.md",
+      "category_l1": "仓库",
+      "category_l2": "海外仓",
+      "category_l3": "查询移除入库单列表"
+    },
+    {
+      "title": "设置包裹尺寸",
+      "api_path": "/erp/sc/routing/wms/order/setOrderPackageSize",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/setOrderPackageSize.md",
+      "category_l1": "仓库",
+      "category_l2": "发货",
+      "category_l3": "设置包裹尺寸"
+    },
+    {
+      "title": "创建待调拨的调拨单",
+      "api_path": "/erp/sc/routing/inventoryReceipt/StorageAllocation/submitAllocationOrder",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/submitAllocationOrder.md",
+      "category_l1": "仓库",
+      "category_l2": "出入库",
+      "category_l3": "创建待调拨的调拨单"
+    },
+    {
+      "title": "启用、禁用仓位",
+      "api_path": "/erp/sc/routing/storage/wareHouseBin/switchStatus",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/switchStatus.md",
+      "category_l1": "仓库",
+      "category_l2": "仓库设置",
+      "category_l3": "启用、禁用仓位"
+    },
+    {
+      "title": "更新备货单",
+      "api_path": "/erp/sc/routing/owms/inbound/updateInbound",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/updateInbound.md",
+      "category_l1": "仓库",
+      "category_l2": "海外仓",
+      "category_l3": "更新备货单"
+    },
+    {
+      "title": "查询仓位流水",
+      "api_path": "/erp/sc/routing/data/local_inventory/wareHouseBinStatement",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/wareHouseBinStatement.md",
+      "category_l1": "仓库",
+      "category_l2": "库存&流水",
+      "category_l3": "查询仓位流水"
+    },
+    {
+      "title": "查询本地仓位列表",
+      "api_path": "/erp/sc/routing/data/local_inventory/warehouseBin",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/warehouseBin.md",
+      "category_l1": "仓库",
+      "category_l2": "仓库设置",
+      "category_l3": "查询本地仓位列表"
+    },
+    {
+      "title": "查询销售出库单物流面单",
+      "api_path": "/erp/sc/routing/wms/order/getWmsLogisticsLabels",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/wmsOrderGetWmsLogisticsLabels.md",
+      "category_l1": "仓库",
+      "category_l2": "发货",
+      "category_l3": "查询销售出库单物流面单"
+    }
+  ],
+  "/basicOpen/settings": [
+    {
+      "title": "修改我的汇率",
+      "api_path": "/basicOpen/settings/exchangeRate/update",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/BasicData/ExchangeRateUpdate.md",
+      "category_l1": "基础数据",
+      "category_l2": "修改我的汇率",
+      "category_l3": ""
+    },
+    {
+      "title": "查询预警消息列表-商品",
+      "api_path": "/basicOpen/settings/warningMessage/goodsList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Tools/warningMessageGoodsList.md",
+      "category_l1": "工具",
+      "category_l2": "查询预警消息列表-商品",
+      "category_l3": ""
+    },
+    {
+      "title": "查询预警消息列表-库存",
+      "api_path": "/basicOpen/settings/warningMessage/inventoryList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Tools/warningMessageInventoryList.md",
+      "category_l1": "工具",
+      "category_l2": "查询预警消息列表-库存",
+      "category_l3": ""
+    }
+  ],
+  "/basicOpen/multiplatform": [
+    {
+      "title": "获取国家下的州、省编码",
+      "api_path": "/basicOpen/multiplatform/profit/report/stateList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/BasicData/StateList.md",
+      "category_l1": "基础数据",
+      "category_l2": "获取国家下的州、省编码",
+      "category_l3": ""
+    },
+    {
+      "title": "查询TikTok-推广广告-广告帐号",
+      "api_path": "/basicOpen/multiplatform/ads/queryCommonAdvertiserList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/Tiktok-CommonAdvertiserList_4.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "查询TikTok-GMV MAX-店铺列表",
+      "api_path": "/basicOpen/multiplatform/ads/queryGmvStoreList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/Tiktok-GmvStoreList_8.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "分页查询广告活动报告列表",
+      "api_path": "/basicOpen/multiplatform/ads/shopee/campaign/report/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/shopeeCampaignReportList.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "分页查询店铺报告列表",
+      "api_path": "/basicOpen/multiplatform/ads/shopee/store/report/list",
+      "method": "POST SS",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/shopeeStoreReportList.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "查询TikTok-推广广告-广告组",
+      "api_path": "/basicOpen/multiplatform/ads/queryTiktokAdGroupList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/tiktok-AdGroupList_12.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "查询TikTok-推广广告-广告",
+      "api_path": "/basicOpen/multiplatform/ads/queryTiktokAdList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/tiktok-AdList_13.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "查询TikTok-推广广告-广告帐号",
+      "api_path": "/basicOpen/multiplatform/ads/queryAdvertiserList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/tiktok-AdvertiserList_2.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "查询TikTok-推广广告-广告系列",
+      "api_path": "/basicOpen/multiplatform/ads/queryTiktokCampaignList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/tiktok-CampaignList_14.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "查询TikTok-GMV MAX-广告帐号",
+      "api_path": "/basicOpen/multiplatform/ads/queryGmvAdvertiserReportList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/tiktok-GmvAdvertiserReportList_5.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "查询TikTok-GMV MAX-推广系列",
+      "api_path": "/basicOpen/multiplatform/ads/queryGmvCampaignReportList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/tiktok-GmvCampaignReportList_6.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "查询TikTok-GMV MAX-广告商品",
+      "api_path": "/basicOpen/multiplatform/ads/queryGmvItemGroupReportList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/tiktok-GmvItemGroupReportList_7.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "查询沃尔玛-广告 - SV广告 - 广告组",
+      "api_path": "/basicOpen/multiplatform/ads/queryAdGroupSvList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/walmart-AdGroupSvList_1.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "查询沃尔玛-广告 - SP广告 - 广告活动",
+      "api_path": "/basicOpen/multiplatform/ads/queryCampaignSpList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/walmart-CampaignSpList_3.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "查询沃尔玛-广告 - SP广告 - 广告组",
+      "api_path": "/basicOpen/multiplatform/ads/queryGroupSpList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/walmart-GroupSpList_9.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "查询沃尔玛-广告 - SP广告 - 页面类型",
+      "api_path": "/basicOpen/multiplatform/ads/queryPageTypeSPList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/walmart-PageTypeSPList_10.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "查询沃尔玛-广告 - SV广告 - 页面类型",
+      "api_path": "/basicOpen/multiplatform/ads/queryReportPageTypeSvList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/walmart-ReportPageTypeSvList_11.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "查询沃尔玛-广告 - SB广告 - 广告组",
+      "api_path": "/basicOpen/multiplatform/ads/reportAdGroupSbList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/walmart-reportAdGroupSbList_15.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "查询沃尔玛-广告 - SB广告 - 广告",
+      "api_path": "/basicOpen/multiplatform/ads/reportAdItemSbList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/walmart-reportAdItemSbList_16.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "查询沃尔玛-广告 - SP广告 - 广告",
+      "api_path": "/basicOpen/multiplatform/ads/reportAdItemSpList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/walmart-reportAdItemSpList_17.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "查询沃尔玛-广告 - SV广告 - 广告",
+      "api_path": "/basicOpen/multiplatform/ads/reportAdItemSvList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/walmart-reportAdItemSvList_18.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "查询沃尔玛-广告 - SB广告 - 广告活动",
+      "api_path": "/basicOpen/multiplatform/ads/reportCampaignSbList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/walmart-reportCampaignSbList_19.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "查询沃尔玛-广告 - SV广告 - 广告活动",
+      "api_path": "/basicOpen/multiplatform/ads/reportCampaignSvList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/walmart-reportCampaignSvList_20.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "查询沃尔玛-广告 - SB广告 - 关键词",
+      "api_path": "/basicOpen/multiplatform/ads/reportKeywordSbList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/walmart-reportKeywordSbList_21.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "查询沃尔玛-广告 - SP广告 - 关键词",
+      "api_path": "/basicOpen/multiplatform/ads/reportKeywordSpList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/walmart-reportKeywordSpList_22.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "查询沃尔玛-广告 - SV广告 - 关键词",
+      "api_path": "/basicOpen/multiplatform/ads/reportKeywordSvList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/walmart-reportKeywordSvList_23.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "查询沃尔玛-广告 - SB广告 - 页面类型",
+      "api_path": "/basicOpen/multiplatform/ads/reportPageTypeSbList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/walmart-reportPageTypeSbList_24.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "查询沃尔玛-广告 - SB广告 - 平台",
+      "api_path": "/basicOpen/multiplatform/ads/reportPlatformSbList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/walmart-reportPlatformSbList_25.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "查询沃尔玛-广告 - SP广告 - 平台",
+      "api_path": "/basicOpen/multiplatform/ads/reportPlatformSpList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/walmart-reportPlatformSpList_26.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "查询沃尔玛-广告 - SV广告 - 平台",
+      "api_path": "/basicOpen/multiplatform/ads/reportPlatformSvList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/walmart-reportPlatformSvList_27.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "查询沃尔玛-词 - 沃尔玛热门搜索词",
+      "api_path": "/basicOpen/multiplatform/ads/reportSearchTrendsList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/walmart-reportSearchTrendsList_28.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "查询AliExpress在线商品 - 托管模式",
+      "api_path": "/basicOpen/multiplatform/aliexpress/list/v2",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/AliexpressListV2.md",
+      "category_l1": "多平台",
+      "category_l2": "查询AliExpress在线商品列表 - 托管模式",
+      "category_l3": ""
+    },
+    {
+      "title": "多平台-查询Coupang库存",
+      "api_path": "/basicOpen/multiplatform/coupang/stockSearch",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/CoupangStockList.md",
+      "category_l1": "多平台",
+      "category_l2": "查询Coupang库存",
+      "category_l3": ""
+    },
+    {
+      "title": "删除暂存货件",
+      "api_path": "/basicOpen/multiplatform/deleteCargoStorage",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/DeleteCargoStorage.md",
+      "category_l1": "多平台",
+      "category_l2": "删除暂存货件",
+      "category_l3": ""
+    },
+    {
+      "title": "多平台-查询FBS库存",
+      "api_path": "/basicOpen/multiplatform/fbs/stockSearch",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/FbsStockList.md",
+      "category_l1": "多平台",
+      "category_l2": "查询FBS库存",
+      "category_l3": ""
+    },
+    {
+      "title": "多平台-查询FBT库存",
+      "api_path": "/basicOpen/multiplatform/fbt/stockSearch/v2",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/FbtStockList.md",
+      "category_l1": "多平台",
+      "category_l2": "查询FBT库存",
+      "category_l3": ""
+    },
+    {
+      "title": "查询Temu库存",
+      "api_path": "/basicOpen/multiplatform/fbt/stockSearch",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/FbtStockSearch.md",
+      "category_l1": "多平台",
+      "category_l2": "查询Temu库存",
+      "category_l3": ""
+    },
+    {
+      "title": "查询FULL库存",
+      "api_path": "/basicOpen/multiplatform/full/stockSearch",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/FullList.md",
+      "category_l1": "多平台",
+      "category_l2": "查询FULL库存",
+      "category_l3": ""
+    },
+    {
+      "title": "多平台-查询Line在线商品",
+      "api_path": "/basicOpen/multiplatform/line/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/LineList.md",
+      "category_l1": "多平台",
+      "category_l2": "查询Line在线商品",
+      "category_l3": ""
+    },
+    {
+      "title": "查询平台仓发货单列表v2",
+      "api_path": "/basicOpen/multiplatform/query/shippingList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/QueryShippingListV2.md",
+      "category_l1": "多平台",
+      "category_l2": "查询平台仓发货单列表v2",
+      "category_l3": ""
+    },
+    {
+      "title": "查询Shein在线商品",
+      "api_path": "/basicOpen/multiplatform/shein/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/SheinList.md",
+      "category_l1": "多平台",
+      "category_l2": "查询Shein在线商品",
+      "category_l3": ""
+    },
+    {
+      "title": "查询Shopify在线商品",
+      "api_path": "/basicOpen/multiplatform/shopify/variantList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/ShopifyVariantList.md",
+      "category_l1": "多平台",
+      "category_l2": "查询Shopify在线商品-子体数据",
+      "category_l3": ""
+    },
+    {
+      "title": "查询Temu货件",
+      "api_path": "/basicOpen/multiplatform/temu/cargo",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/TemuCargo.md",
+      "category_l1": "多平台",
+      "category_l2": "查询Temu货件",
+      "category_l3": ""
+    },
+    {
+      "title": "查询Temu在线商品",
+      "api_path": "/basicOpen/multiplatform/temu/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/TemuList.md",
+      "category_l1": "多平台",
+      "category_l2": "查询Temu在线商品",
+      "category_l3": ""
+    },
+    {
+      "title": "查询TikTok在线商品",
+      "api_path": "/basicOpen/multiplatform/tiktok/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/TikTokList.md",
+      "category_l1": "多平台",
+      "category_l2": "查询TikTok在线商品",
+      "category_l3": ""
+    },
+    {
+      "title": "多平台-查询wayfair库存",
+      "api_path": "/basicOpen/multiplatform/wayfair/stockSearch",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/WayfairStockList.md",
+      "category_l1": "多平台",
+      "category_l2": "查询Wayfair库存",
+      "category_l3": ""
+    },
+    {
+      "title": "查询WFS货件可添加商品列表",
+      "api_path": "/basicOpen/multiplatform/cargo/addCargoGoods/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/addCargoGoodsList.md",
+      "category_l1": "多平台",
+      "category_l2": "查询WFS货件可添加商品列表",
+      "category_l3": ""
+    },
+    {
+      "title": "查询退件地址列表",
+      "api_path": "/basicOpen/multiplatform/address/returnAddressList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/addressReturnAddressList.md",
+      "category_l1": "多平台",
+      "category_l2": "查询退件地址列表",
+      "category_l3": ""
+    },
+    {
+      "title": "查询AliExpress在线商品 - 自运营",
+      "api_path": "/basicOpen/multiplatform/aliExpress/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/aliexpressList.md",
+      "category_l1": "多平台",
+      "category_l2": "查询AliExpress在线商品列表 - 自运营",
+      "category_l3": ""
+    },
+    {
+      "title": "查询eBay在线商品列表",
+      "api_path": "/basicOpen/multiplatform/ebay/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/eBayList.md",
+      "category_l1": "多平台",
+      "category_l2": "查询eBay在线商品列表",
+      "category_l3": ""
+    },
+    {
+      "title": "WFS货件暂存",
+      "api_path": "/basicOpen/multiplatform/cargo/storage",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/multiplatformCargoStorage.md",
+      "category_l1": "多平台",
+      "category_l2": "WFS货件暂存",
+      "category_l3": ""
+    },
+    {
+      "title": "查询结算利润（利润报表）-msku",
+      "api_path": "/basicOpen/multiplatform/profit/report/msku",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/profitReportMsku.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "查询结算利润（利润报表）-订单",
+      "api_path": "/basicOpen/multiplatform/profit/report/order",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/profitReportOrder.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "查询结算利润（利润报表）-店铺（旧版）",
+      "api_path": "/basicOpen/multiplatform/profit/report/seller",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/profitReportSeller.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "查询结算利润（利润报表）-sku",
+      "api_path": "/basicOpen/multiplatform/profit/report/sku",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/profitReportSku.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "查询平台仓发货单详情",
+      "api_path": "/basicOpen/multiplatform/query/shippingDetail",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/shippingDetailByCode.md",
+      "category_l1": "多平台",
+      "category_l2": "查询平台仓发货单详情",
+      "category_l3": ""
+    },
+    {
+      "title": "平台仓发货单分配库存",
+      "api_path": "/basicOpen/multiplatform/allocate/stock",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/shippingOrderAllocate.md",
+      "category_l1": "多平台",
+      "category_l2": "平台仓发货单分配库存",
+      "category_l3": ""
+    },
+    {
+      "title": "平台仓发货单发货",
+      "api_path": "/basicOpen/multiplatform/shippingList/delivery",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/shippingOrderDelivery.md",
+      "category_l1": "多平台",
+      "category_l2": "平台仓发货单发货",
+      "category_l3": ""
+    },
+    {
+      "title": "平台仓发货单拣货",
+      "api_path": "/basicOpen/multiplatform/shippingList/picking",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/shippingOrderPicking.md",
+      "category_l1": "多平台",
+      "category_l2": "平台仓发货单拣货",
+      "category_l3": ""
+    },
+    {
+      "title": "查询Walmart在线商品",
+      "api_path": "/basicOpen/multiplatform/walmart/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/walmartList.md",
+      "category_l1": "多平台",
+      "category_l2": "查询Walmart在线商品列表",
+      "category_l3": ""
+    },
+    {
+      "title": "查询Walmart Review列表",
+      "api_path": "/basicOpen/multiplatform/walmart/queryCommentList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/WalmartCommentList.md",
+      "category_l1": "多平台",
+      "category_l2": "查询Walmart Review列表",
+      "category_l3": ""
+    }
+  ],
+  "/amzStaServer/openapi": [
+    {
+      "title": "取消STA任务",
+      "api_path": "/amzStaServer/openapi/inbound-plan/cancelInboundPlan",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/CancelSTATask.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "取消STA任务"
+    },
+    {
+      "title": "确认货件方案",
+      "api_path": "/amzStaServer/openapi/inbound-shipment/confirmPlacementOption",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/ConfirmShipmentPlan.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "确认货件方案"
+    },
+    {
+      "title": "创建STA任务",
+      "api_path": "/amzStaServer/openapi/inbound-plan/createInboundPlan",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/CreateSTATask.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "创建STA任务"
+    },
+    {
+      "title": "生成可选送达时间",
+      "api_path": "/amzStaServer/openapi/inbound-shipment/generateDeliveryDateList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/GenerateDeliveryDateList.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "生成可选送达时间"
+    },
+    {
+      "title": "生成货件方案",
+      "api_path": "/amzStaServer/openapi/inbound-shipment/generatePlacementOptions",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/GenerateShipmentPlan.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "生成货件方案"
+    },
+    {
+      "title": "生成承运方式",
+      "api_path": "/amzStaServer/openapi/inbound-shipment/generateTransportList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/GenerateTransportList.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "生成承运方式"
+    },
+    {
+      "title": "查询可选送达时间",
+      "api_path": "/amzStaServer/openapi/inbound-shipment/getDeliveryDateList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/GetDeliveryDateList.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "查询可选送达时间"
+    },
+    {
+      "title": "获取商品预处理信息",
+      "api_path": "/amzStaServer/openapi/inbound-packing/getPrepDetails",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/GetPrepareDetails.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "获取商品预处理信息"
+    },
+    {
+      "title": "查询承运方式",
+      "api_path": "/amzStaServer/openapi/inbound-shipment/getTransportList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/GetTransportList.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "查询承运方式"
+    },
+    {
+      "title": "查询包装组",
+      "api_path": "/amzStaServer/openapi/inbound-packing/listPackingGroupItems",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/ListPackingGroupItems.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "查询包装组"
+    },
+    {
+      "title": "查询货件装箱信息",
+      "api_path": "/amzStaServer/openapi/inbound-shipment/listShipmentBoxes",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/ListShipmentBoxes.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "查询货件装箱信息"
+    },
+    {
+      "title": "查询异步任务状态",
+      "api_path": "/amzStaServer/openapi/task-plan/operate",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/Operate.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "查询异步任务状态"
+    },
+    {
+      "title": "查询STA任务包装组装箱信息",
+      "api_path": "/amzStaServer/openapi/inbound-plan/listInboundPlanGroupPacking",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/QuerySTATaskBoxInformation.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "查询STA任务包装组装箱信息"
+    },
+    {
+      "title": "查询STA任务列表",
+      "api_path": "/amzStaServer/openapi/inbound-plan/page",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/QuerySTATaskList.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "查询STA任务列表"
+    },
+    {
+      "title": "保存装箱信息",
+      "api_path": "/amzStaServer/openapi/inbound-packing/setLocalPackingInformation",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/SavePackingInfomation.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "保存装箱信息"
+    },
+    {
+      "title": "查询货件详情",
+      "api_path": "/amzStaServer/openapi/inbound-shipment/shipmentDetailList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/ShipmentDetailList.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "查询货件详情"
+    },
+    {
+      "title": "查询货件方案",
+      "api_path": "/amzStaServer/openapi/inbound-shipment/shipmentPreView",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/ShipmentPreView.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "查询货件方案"
+    },
+    {
+      "title": "查询STA任务详情",
+      "api_path": "/amzStaServer/openapi/inbound-plan/detail",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/StaTaskDetail.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "查询STA任务详情"
+    },
+    {
+      "title": "提交送达时间",
+      "api_path": "/amzStaServer/openapi/inbound-shipment/commitStaDeliverTime",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/SubDeliveryTime.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "提交送达时间"
+    },
+    {
+      "title": "提交装箱信息",
+      "api_path": "/amzStaServer/openapi/inbound-packing/setPackingInformation",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/SubPackingInformation.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "提交装箱信息"
+    },
+    {
+      "title": "提交货件配送服务",
+      "api_path": "/amzStaServer/openapi/inbound-shipment/setDeliveryService",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/SubShipmentDistributionService.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "提交货件配送服务"
+    },
+    {
+      "title": "同步STA任务到ERP",
+      "api_path": "/amzStaServer/openapi/inbound-plan/gatherInboundPlan",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/SynchronizeSTATask.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "同步STA任务到ERP"
+    },
+    {
+      "title": "修改货件装箱信息",
+      "api_path": "/amzStaServer/openapi/inbound-packing/updateShipmentPacking",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/UpdateShipmentPacking.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "修改货件装箱信息"
+    },
+    {
+      "title": "上传货件跟踪号",
+      "api_path": "/amzStaServer/openapi/inbound-shipment/updateShipmentTrack",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/UpdateShipmentTrack.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "上传货件跟踪号"
+    },
+    {
+      "title": "查询货件方案的装箱信息",
+      "api_path": "/amzStaServer/openapi/inbound-packing/getInboundPackingBoxInfo",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/getInboundPackingBoxInfo.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "查询货件方案的装箱信息"
+    },
+    {
+      "title": "取消AWD入库任务",
+      "api_path": "/amzStaServer/openapi/awd/inbound-plan/cancel",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/awdInboundPlanCancel.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "取消AWD入库任务"
+    },
+    {
+      "title": "确认AWD入库任务",
+      "api_path": "/amzStaServer/openapi/awd/inbound-plan/confirmInboundPlan",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/awdInboundPlanConfirmInboundPlan.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "确认AWD入库任务"
+    },
+    {
+      "title": "创建AWD入库任务",
+      "api_path": "/amzStaServer/openapi/awd/inbound-plan/createInboundPlan",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/awdInboundPlanCreatePlan.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "创建AWD入库任务"
+    },
+    {
+      "title": "查询AWD入库任务详情",
+      "api_path": "/amzStaServer/openapi/awd/inbound-plan/detail",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/awdInboundPlanDetail.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "查询AWD入库任务详情"
+    },
+    {
+      "title": "查询AWD入库任务列表",
+      "api_path": "/amzStaServer/openapi/awd/inbound-plan/page",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/awdInboundPlanPage.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "查询AWD入库任务列表"
+    },
+    {
+      "title": "更新AWD入库任务",
+      "api_path": "/amzStaServer/openapi/awd/inbound-plan/updateInboundPlan",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/awdInboundPlanUpdateInboundPlan.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "更新AWD入库任务"
+    },
+    {
+      "title": "查询AWD入库货件详情",
+      "api_path": "/amzStaServer/openapi/awd/inbound-shipment/detail",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/awdInboundShipmentDetail.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "查询AWD入库货件详情"
+    },
+    {
+      "title": "查询AWD入库货件列表",
+      "api_path": "/amzStaServer/openapi/awd/inbound-shipment/page",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/awdInboundShipmentPage.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "查询AWD入库货件列表"
+    },
+    {
+      "title": "更新AWD货件跟踪编号",
+      "api_path": "/amzStaServer/openapi/awd/inbound-shipment/updateShipmentInfo",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/awdInboundShipmentUpdateShipmentInfo.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "更新AWD货件跟踪编号"
+    },
+    {
+      "title": "打印AWD入库货件箱子标签",
+      "api_path": "/amzStaServer/openapi/awd/inbound-shipment/uploadPacking",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/awdInboundShipmentUploadPacking.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "打印AWD入库货件箱子标签"
+    }
+  ],
+  "/basicOpen/openapi": [
+    {
+      "title": "FBA仓发货计划锁库存",
+      "api_path": "/basicOpen/openapi/fba/allocateStorage",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/FbaPlanStorageAllocate.md",
+      "category_l1": "FBA",
+      "category_l2": "发货计划",
+      "category_l3": "FBA仓发货计划锁库存"
+    },
+    {
+      "title": "FBA仓发货计划释放库存",
+      "api_path": "/basicOpen/openapi/fba/releaseStorage",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/FbaPlanStorageRelease.md",
+      "category_l1": "FBA",
+      "category_l2": "发货计划",
+      "category_l3": "FBA仓发货计划释放库存"
+    },
+    {
+      "title": "FBA-作废发货单",
+      "api_path": "/basicOpen/openapi/fbaShipment/shipmentSn/invalid",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/InvalidShipmentSn.md",
+      "category_l1": "FBA",
+      "category_l2": "发货单",
+      "category_l3": "作废发货单"
+    },
+    {
+      "title": "地址簿-配送地址详情",
+      "api_path": "/basicOpen/openapi/fbaShipment/shoppingAddress",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/ShoppingAddress.md",
+      "category_l1": "FBA",
+      "category_l2": "FBA货件（STA）",
+      "category_l3": "地址簿-配送地址详情"
+    },
+    {
+      "title": "VC发货单-确认发货",
+      "api_path": "/basicOpen/openapi/getInvoice/invoice/batchSendGoods",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBA/VcBatchSendGoods.md",
+      "category_l1": "VC",
+      "category_l2": "VC发货单-确认发货",
+      "category_l3": ""
+    },
+    {
+      "title": "查询补货限制列表",
+      "api_path": "/basicOpen/openapi/replenishmentRestriction/page/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/FBALimit/replenishmentRestrictionList.md",
+      "category_l1": "补货限制",
+      "category_l2": "查询补货限制列表",
+      "category_l3": ""
+    },
+    {
+      "title": "审核发货",
+      "api_path": "/basicOpen/openapi/multiplatform/order/review",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/BatchReview.md",
+      "category_l1": "多平台",
+      "category_l2": "审核发货",
+      "category_l3": ""
+    },
+    {
+      "title": "预发货",
+      "api_path": "/basicOpen/openapi/multiplatform/order/preShipment",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/PreShipment.md",
+      "category_l1": "多平台",
+      "category_l2": "预发货",
+      "category_l3": ""
+    },
+    {
+      "title": "多平台-Shopify售后订单列表",
+      "api_path": "/basicOpen/openapi/multiplatform/shopify/returnOrder/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/ShopifyReturnOrderList.md",
+      "category_l1": "多平台",
+      "category_l2": "售后订单",
+      "category_l3": "多平台-Shopify售后订单列表"
+    },
+    {
+      "title": "多平台-Temu售后订单列表",
+      "api_path": "/basicOpen/openapi/multiplatform/temu/returnOrder/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/TemuReturnOrderList.md",
+      "category_l1": "多平台",
+      "category_l2": "售后订单",
+      "category_l3": "多平台-Temu售后订单列表"
+    },
+    {
+      "title": "多平台-TikTok售后订单列表",
+      "api_path": "/basicOpen/openapi/multiplatform/tiktok/returnOrder/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/TiktokReturnOrderList.md",
+      "category_l1": "多平台",
+      "category_l2": "售后订单",
+      "category_l3": "多平台-TikTok售后订单列表"
+    },
+    {
+      "title": "多平台-Walmart售后订单列表",
+      "api_path": "/basicOpen/openapi/multiplatform/walmart/returnOrder/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/WalmartReturnOrderList.md",
+      "category_l1": "多平台",
+      "category_l2": "售后订单",
+      "category_l3": "多平台-Walmart售后订单列表"
+    },
+    {
+      "title": "刊登管理-获取运费模板",
+      "api_path": "/basicOpen/openapi/publish/manage/getMerchantShippingGroup",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/GetMerchantShippingGroup.md",
+      "category_l1": "销售",
+      "category_l2": "刊登管理",
+      "category_l3": "获取运费模板"
+    },
+    {
+      "title": "多渠道订单-交易明细",
+      "api_path": "/basicOpen/openapi/salesOrder/multi-channel/list/transaction",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/MutilChannelTransactionDetail.md",
+      "category_l1": "销售",
+      "category_l2": "平台订单",
+      "category_l3": "查询多渠道订单-交易明细"
+    },
+    {
+      "title": "刊登管理-查询 Amazon 子分类",
+      "api_path": "/basicOpen/openapi/publish/manage/categoryChildren",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/PublishManageCategoryChildren.md",
+      "category_l1": "销售",
+      "category_l2": "刊登管理",
+      "category_l3": "查询 Amazon 子分类"
+    },
+    {
+      "title": "刊登管理-查询 Amazon 根分类",
+      "api_path": "/basicOpen/openapi/publish/manage/categoryRoot",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/PublishManageCategoryRoot.md",
+      "category_l1": "销售",
+      "category_l2": "刊登管理",
+      "category_l3": "查询 Amazon 根分类"
+    },
+    {
+      "title": "刊登管理-获取指定 productType 的 JSON Schema",
+      "api_path": "/basicOpen/openapi/publish/manage/getProductType",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/PublishManageGetProductType.md",
+      "category_l1": "销售",
+      "category_l2": "刊登管理",
+      "category_l3": "获取指定 productType 的 JSON Schema"
+    },
+    {
+      "title": "订单退款",
+      "api_path": "/basicOpen/openapi/salesOrder/refundOrder",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/RefundOrder.md",
+      "category_l1": "仓库",
+      "category_l2": "收货质检",
+      "category_l3": "订单退款"
+    },
+    {
+      "title": "FBA费差异-异常订单-订单",
+      "api_path": "/basicOpen/openapi/sale/fbaFeeDifference/order/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/fbaFeeDifferenceList.md",
+      "category_l1": "销售",
+      "category_l2": "Listing",
+      "category_l3": "FBA费差异-异常订单-订单"
+    },
+    {
+      "title": "FBA费差异-异常订单-MSKU",
+      "api_path": "/basicOpen/openapi/sale/fbaFeeDifference/msku/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/fbaFeeDifferenceMskuList.md",
+      "category_l1": "销售",
+      "category_l2": "Listing",
+      "category_l3": "FBA费差异-异常订单-MSKU"
+    },
+    {
+      "title": "查询评论管理 - Review(新)",
+      "api_path": "/basicOpen/openapi/service/v3/data/mws/reviews",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Service/reviewV2.md",
+      "category_l1": "客服",
+      "category_l2": "查询评价管理-Review(新)",
+      "category_l3": ""
+    },
+    {
+      "title": "查询亚马逊源报表-盘存记录",
+      "api_path": "/basicOpen/openapi/mwsReport/adjustmentList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/SourceData/AdjustmentList.md",
+      "category_l1": "亚马逊源表数据",
+      "category_l2": "查询亚马逊源报表- 盘存记录",
+      "category_l3": ""
+    },
+    {
+      "title": "查询亚马逊赔偿报告列表",
+      "api_path": "/basicOpen/openapi/mwsReport/reimbursementList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/ReimbursementList.md",
+      "category_l1": "统计",
+      "category_l2": "查询亚马逊赔偿报告列表",
+      "category_l3": ""
+    },
+    {
+      "title": "查询VC发货单详情",
+      "api_path": "/basicOpen/openapi/getInvoice/detail",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/VC/vcDeliverDetail.md",
+      "category_l1": "VC",
+      "category_l2": "查询VC发货单详情",
+      "category_l3": ""
+    },
+    {
+      "title": "查询VC发货单列表",
+      "api_path": "/basicOpen/openapi/getInvoice/page/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/VC/vcDeliverPageList.md",
+      "category_l1": "VC",
+      "category_l2": "查询VC发货单列表",
+      "category_l3": ""
+    },
+    {
+      "title": "查询AWD库存列表",
+      "api_path": "/basicOpen/openapi/storage/awdWarehouseDetail",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/AwdWarehouseDetail.md",
+      "category_l1": "仓库",
+      "category_l2": "库存&流水",
+      "category_l3": "查询AWD库存列表"
+    },
+    {
+      "title": "删除发货单",
+      "api_path": "/basicOpen/openapi/fbaShipment/deleteShipmentList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/DeleteFbaShipmentList.md",
+      "category_l1": "FBA",
+      "category_l2": "发货单",
+      "category_l3": "删除发货单"
+    },
+    {
+      "title": "查询FBA库存列表-v2",
+      "api_path": "/basicOpen/openapi/storage/fbaWarehouseDetail",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/FBAStock_v2.md",
+      "category_l1": "仓库",
+      "category_l2": "库存&流水",
+      "category_l3": "查询FBA库存列表v2"
+    },
+    {
+      "title": "查询加工计划列表",
+      "api_path": "/basicOpen/openapi/workOrder/processPlanList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/WorkOrderPlanList.md",
+      "category_l1": "采购",
+      "category_l2": "查询加工计划列表",
+      "category_l3": ""
+    }
+  ],
+  "/bd/profit": [
+    {
+      "title": "立即重算-利润报表数据",
+      "api_path": "/bd/profit/report/open/report/settle/compute/manual",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/ComputeManual.md",
+      "category_l1": "财务",
+      "category_l2": "立即重算-利润报表数据",
+      "category_l3": ""
+    },
+    {
+      "title": "查询利润报表-ASIN",
+      "api_path": "/bd/profit/report/open/report/asin/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/bdASIN.md",
+      "category_l1": "财务",
+      "category_l2": "查询利润报表-ASIN",
+      "category_l3": ""
+    },
+    {
+      "title": "查询利润报表-MSKU",
+      "api_path": "/bd/profit/report/open/report/msku/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/bdMSKU.md",
+      "category_l1": "财务",
+      "category_l2": "查询利润报表-MSKU",
+      "category_l3": ""
+    },
+    {
+      "title": "查询利润报表-订单",
+      "api_path": "/bd/profit/report/open/report/order/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/bdOrder.md",
+      "category_l1": "财务",
+      "category_l2": "查询利润报表-订单",
+      "category_l3": ""
+    },
+    {
+      "title": "查询利润报表-父ASIN",
+      "api_path": "/bd/profit/report/open/report/parent/asin/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/bdParentASIN.md",
+      "category_l1": "财务",
+      "category_l2": "查询利润报表-父ASIN",
+      "category_l3": ""
+    },
+    {
+      "title": "查询利润报表-SKU",
+      "api_path": "/bd/profit/report/open/report/sku/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/bdSKU.md",
+      "category_l1": "财务",
+      "category_l2": "查询利润报表-SKU",
+      "category_l3": ""
+    },
+    {
+      "title": "查询利润报表-店铺",
+      "api_path": "/bd/profit/report/open/report/seller/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/bdSeller.md",
+      "category_l1": "财务",
+      "category_l2": "查询利润报表-店铺",
+      "category_l3": ""
+    },
+    {
+      "title": "查询利润报表-店铺月度汇总",
+      "api_path": "/bd/profit/report/open/report/seller/summary/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/bdSellerSummary.md",
+      "category_l1": "财务",
+      "category_l2": "查询利润报表-店铺月度汇总",
+      "category_l3": ""
+    },
+    {
+      "title": "查询利润统计-ASIN",
+      "api_path": "/bd/profit/statistics/open/asin/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/statisticsOpenASIN.md",
+      "category_l1": "统计",
+      "category_l2": "查询利润统计-ASIN",
+      "category_l3": ""
+    },
+    {
+      "title": "查询利润统计-MSKU",
+      "api_path": "/bd/profit/statistics/open/msku/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/statisticsOpenMSKU.md",
+      "category_l1": "统计",
+      "category_l2": "查询利润统计-MSKU",
+      "category_l3": ""
+    },
+    {
+      "title": "查询利润统计-店铺",
+      "api_path": "/bd/profit/statistics/open/seller/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/statisticsOpenSeller.md",
+      "category_l1": "统计",
+      "category_l2": "查询利润统计-店铺",
+      "category_l3": ""
+    }
+  ],
+  "/cost/center": [
+    {
+      "title": "查询FBA成本计价流水",
+      "api_path": "/cost/center/api/cost/stream",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/CostStream.md",
+      "category_l1": "财务",
+      "category_l2": "查询FBA成本计价流水",
+      "category_l3": ""
+    },
+    {
+      "title": "查询发货结算报告",
+      "api_path": "/cost/center/api/settlement/report",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/SettlementReport.md",
+      "category_l1": "财务",
+      "category_l2": "查询发货结算报告",
+      "category_l3": ""
+    },
+    {
+      "title": "查询库存分类账detail数据",
+      "api_path": "/cost/center/ods/detail/query",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/centerOdsDetailQuery.md",
+      "category_l1": "财务",
+      "category_l2": "查询库存分类账detail数据",
+      "category_l3": ""
+    },
+    {
+      "title": "查询库存分类账summary数据",
+      "api_path": "/cost/center/ods/summary/query",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/summaryQuery.md",
+      "category_l1": "财务",
+      "category_l2": "查询库存分类账summary数据",
+      "category_l3": ""
+    },
+    {
+      "title": "库存报表-FBA-新版-汇总",
+      "api_path": "/cost/center/openApi/fba/gather/query",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/FbaStockAggregateListNew.md",
+      "category_l1": "统计",
+      "category_l2": "库存报表-FBA-新版-汇总",
+      "category_l3": ""
+    },
+    {
+      "title": "库存报表-FBA-新版-明细",
+      "api_path": "/cost/center/openApi/fba/detail/query",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/FbaStockDetailListNew.md",
+      "category_l1": "统计",
+      "category_l2": "库存报表-FBA-新版-明细",
+      "category_l3": ""
+    }
+  ],
+  "/basicOpen/finance": [
+    {
+      "title": "查询订单利润-MSKU",
+      "api_path": "/basicOpen/finance/mreport/OrderProfit",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/OrderProfitListMSKU.md",
+      "category_l1": "统计",
+      "category_l2": "查询订单利润-MSKU",
+      "category_l3": ""
+    },
+    {
+      "title": "利润报表-列表配置查询",
+      "api_path": "/basicOpen/finance/profitReport/config",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/ProfitReportConfig.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "查询收款单列表",
+      "api_path": "/basicOpen/finance/queryReceiptFundsList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/QueryReceiptFundsList.md",
+      "category_l1": "财务",
+      "category_l2": "查询收款单列表",
+      "category_l3": ""
+    },
+    {
+      "title": "查询请款单列表",
+      "api_path": "/basicOpen/finance/requestFunds/order/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/RequestFundsOrderList.md",
+      "category_l1": "财务",
+      "category_l2": "查询请款单列表",
+      "category_l3": ""
+    },
+    {
+      "title": "利润报表-明细列表查询",
+      "api_path": "/basicOpen/finance/settlement/profitList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/SettlementProfitList.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "回款明细-LazadaPayout",
+      "api_path": "/basicOpen/finance/lazada/payout/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/lazadaPayoutList.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "账单明细-LazadaSettlement",
+      "api_path": "/basicOpen/finance/lazada/settlement/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/lazadaSettlementList.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "查询利润报表 - 订单维度transaction视图",
+      "api_path": "/basicOpen/finance/profitReport/order/transcation/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/profitReportOrderTranscationList.md",
+      "category_l1": "财务",
+      "category_l2": "查询利润报表 - 订单维度transaction视图",
+      "category_l3": ""
+    },
+    {
+      "title": "查询请款池-其他应付款",
+      "api_path": "/basicOpen/finance/requestFundsPool/customFee/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/requestFundsPoolCustomFeeList.md",
+      "category_l1": "财务",
+      "category_l2": "查询请款池-其他应付款",
+      "category_l3": ""
+    },
+    {
+      "title": "查询请款池 - 货款月结",
+      "api_path": "/basicOpen/finance/requestFundsPool/inbound/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/requestFundsPoolInboundList.md",
+      "category_l1": "财务",
+      "category_l2": "查询请款池-货款月结",
+      "category_l3": ""
+    },
+    {
+      "title": "查询请款池-物流请款",
+      "api_path": "/basicOpen/finance/requestFundsPool/logistics/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/requestFundsPoolLogisticsList.md",
+      "category_l1": "财务",
+      "category_l2": "查询请款池-物流请款",
+      "category_l3": ""
+    },
+    {
+      "title": "查询请款池-其他费用",
+      "api_path": "/basicOpen/finance/requestFundsPool/otherFee/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/requestFundsPoolOtherFeeList.md",
+      "category_l1": "财务",
+      "category_l2": "查询请款池-其他费用",
+      "category_l3": ""
+    },
+    {
+      "title": "查询请款池 - 货款预付款",
+      "api_path": "/basicOpen/finance/requestFundsPool/prepay/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/requestFundsPoolPrepayList.md",
+      "category_l1": "财务",
+      "category_l2": "查询请款池-货款预付款",
+      "category_l3": ""
+    },
+    {
+      "title": "查询请款池 - 货款现结",
+      "api_path": "/basicOpen/finance/requestFundsPool/purchase/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/requestFundsPoolPurchaseList.md",
+      "category_l1": "财务",
+      "category_l2": "查询请款池-货款现结",
+      "category_l3": ""
+    },
+    {
+      "title": "账单明细-ShopeeAdjustment",
+      "api_path": "/basicOpen/finance/shopee/adjustment/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/shopeeAdjustmentList.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "账单明细-ShopeeIncome",
+      "api_path": "/basicOpen/finance/shopee/income/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/shopeeIncomeList.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "回款明细-ShopeePayout",
+      "api_path": "/basicOpen/finance/shopee/payout/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/shopeePayoutList.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    }
+  ],
+  "/bd/sp": [
+    {
+      "title": "查询settlement下载URL",
+      "api_path": "/bd/sp/api/open/settlement/export/url/get",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/SettlementExportUrlGet.md",
+      "category_l1": "财务",
+      "category_l2": "查询settlement下载URL",
+      "category_l3": ""
+    },
+    {
+      "title": "应收报告-列表查询",
+      "api_path": "/bd/sp/api/open/monthly/receivable/report/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/receivableReportList.md",
+      "category_l1": "财务",
+      "category_l2": "应收报告-列表查询",
+      "category_l3": ""
+    },
+    {
+      "title": "应收报告-详情-列表",
+      "api_path": "/bd/sp/api/open/monthly/receivable/report/list/detail",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/reportListDetail.md",
+      "category_l1": "财务",
+      "category_l2": "应收报告-详情-列表",
+      "category_l3": ""
+    },
+    {
+      "title": "应收报告-详情-基础信息",
+      "api_path": "/bd/sp/api/open/monthly/receivable/report/list/detail/info",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/reportListDetailInfo.md",
+      "category_l1": "财务",
+      "category_l2": "应收报告-详情-基础信息",
+      "category_l3": ""
+    },
+    {
+      "title": "查询结算中心 - 结算汇总",
+      "api_path": "/bd/sp/api/open/settlement/summary/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/settlementSummaryList.md",
+      "category_l1": "财务",
+      "category_l2": "查询结算中心-结算汇总",
+      "category_l3": ""
+    },
+    {
+      "title": "查询结算中心 - 交易明细",
+      "api_path": "/bd/sp/api/open/settlement/transaction/detail/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/settlementTransactionList.md",
+      "category_l1": "财务",
+      "category_l2": "查询结算中心-交易明细",
+      "category_l3": ""
+    }
+  ],
+  "/bd/fee": [
+    {
+      "title": "创建费用单",
+      "api_path": "/bd/fee/management/open/feeManagement/otherFee/create",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/feeManagementCreate.md",
+      "category_l1": "财务",
+      "category_l2": "创建费用单",
+      "category_l3": ""
+    },
+    {
+      "title": "删除费用单",
+      "api_path": "/bd/fee/management/open/feeManagement/otherFee/delete",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/feeManagementDelete.md",
+      "category_l1": "财务",
+      "category_l2": "删除费用单",
+      "category_l3": ""
+    },
+    {
+      "title": "作废费用单",
+      "api_path": "/bd/fee/management/open/feeManagement/otherFee/discard",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/feeManagementDiscard.md",
+      "category_l1": "财务",
+      "category_l2": "作废费用单",
+      "category_l3": ""
+    },
+    {
+      "title": "编辑费用单",
+      "api_path": "/bd/fee/management/open/feeManagement/otherFee/edit",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/feeManagementEdit.md",
+      "category_l1": "财务",
+      "category_l2": "编辑费用单",
+      "category_l3": ""
+    },
+    {
+      "title": "查询费用明细列表",
+      "api_path": "/bd/fee/management/open/feeManagement/otherFee/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/feeManagementList.md",
+      "category_l1": "财务",
+      "category_l2": "查询费用明细列表",
+      "category_l3": ""
+    },
+    {
+      "title": "查询费用类型列表",
+      "api_path": "/bd/fee/management/open/feeManagement/otherFee/type",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Finance/feeManagementType.md",
+      "category_l1": "财务",
+      "category_l2": "查询费用类型列表",
+      "category_l3": ""
+    }
+  ],
+  "/basicOpen/logistics": [
+    {
+      "title": "头程对账列表",
+      "api_path": "/basicOpen/logistics/headLogisticsReconciliation/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Logistics/HeadLogisticsReconciliationList.md",
+      "category_l1": "物流",
+      "category_l2": "头程对账列表",
+      "category_l3": ""
+    },
+    {
+      "title": "FBM物流对账-确认/批量确认",
+      "api_path": "/basicOpen/logistics/logisticsBill/confirm",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Logistics/LogisticsBillConfirm.md",
+      "category_l1": "物流",
+      "category_l2": "FBM物流对账-确认/批量确认",
+      "category_l3": ""
+    },
+    {
+      "title": "查询物流-头程物流商",
+      "api_path": "/basicOpen/logistics/headLogisticsProvider/query/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Logistics/QueryHeadLogisticsProvider.md",
+      "category_l1": "物流",
+      "category_l2": "查询头程物流商列表",
+      "category_l3": ""
+    }
+  ],
+  "/basicOpen/businessConfig": [
+    {
+      "title": "查询运输方式列表",
+      "api_path": "/basicOpen/businessConfig/transportMethod/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Logistics/transportMethodList.md",
+      "category_l1": "物流",
+      "category_l2": "查询运输方式列表",
+      "category_l3": ""
+    }
+  ],
+  "/basicOpen/lazadaAd": [
+    {
+      "title": "Lazada广告-受众报告",
+      "api_path": "/basicOpen/lazadaAd/audience/report/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/LazadaAudienceReportList.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "Lazada广告-获取广告活动信息",
+      "api_path": "/basicOpen/lazadaAd/campaign/info",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/LazadaCampaignInfo.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "Lazada广告-广告活动报告",
+      "api_path": "/basicOpen/lazadaAd/campaign/report/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/LazadaCampaignReportList.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "Lazada广告-获取广告商品信息",
+      "api_path": "/basicOpen/lazadaAd/item/info",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/LazadaItemInfo.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "Lazada广告-广告商品报告",
+      "api_path": "/basicOpen/lazadaAd/item/report/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/LazadaItemReportList.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "Lazada广告-关键词报告",
+      "api_path": "/basicOpen/lazadaAd/keyword/report/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/LazadaKeywordReportList.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "Lazada广告-获取店铺信息",
+      "api_path": "/basicOpen/lazadaAd/seller/info",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/LazadaSellerInfo.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "Lazada广告-店铺报告",
+      "api_path": "/basicOpen/lazadaAd/store/report/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/Advertisement/LazadaStoreReportList.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    }
+  ],
+  "/basicOpen/multiplatformFinance": [
+    {
+      "title": "Shopify-查询结算明细列表",
+      "api_path": "/basicOpen/multiplatformFinance/shopify/bill/statement/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/ShopifyBillStatementList.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "Temu全托-EPR费用",
+      "api_path": "/basicOpen/multiplatformFinance/temuFull/epr/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/TemuFullEprList.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "Temu全托-支出详情",
+      "api_path": "/basicOpen/multiplatformFinance/temuFull/fee/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/TemuFullFeeList.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "Temu全托-账务明细",
+      "api_path": "/basicOpen/multiplatformFinance/temuFull/finance/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/TemuFullFinanceList.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "Temu全托-交易结算",
+      "api_path": "/basicOpen/multiplatformFinance/temuFull/transaction/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/TemuFullTransactionList.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "Temu全托-仓储综合服务费",
+      "api_path": "/basicOpen/multiplatformFinance/temuFull/warehouse/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/TemuFullWarehouseList.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "Temu半托-支出详情",
+      "api_path": "/basicOpen/multiplatformFinance/temuHalf/fee/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/TemuHalfFeeList.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "Temu半托-账务明细",
+      "api_path": "/basicOpen/multiplatformFinance/temuHalf/finance/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/TemuHalfFinanceList.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "Temu半托-其他账务",
+      "api_path": "/basicOpen/multiplatformFinance/temuHalf/other/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/TemuHalfOtherList.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "Temu半托-PO明细",
+      "api_path": "/basicOpen/multiplatformFinance/temuHalf/po/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/TemuHalfPoList.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "Temu半托-退货面单费",
+      "api_path": "/basicOpen/multiplatformFinance/temuHalf/return/fee/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/TemuHalfReturnFeeList.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "Temu半托-发货面单费",
+      "api_path": "/basicOpen/multiplatformFinance/temuHalf/ship/fee/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/TemuHalfShipFeeList.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "Temu本土-账务明细",
+      "api_path": "/basicOpen/multiplatformFinance/temuLocal/bill/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/TemuLocalBillList.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "TikTok账单明细",
+      "api_path": "/basicOpen/multiplatformFinance/tiktokBill/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/TiktokBillList.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "Walmart-查询回款明细列表",
+      "api_path": "/basicOpen/multiplatformFinance/walmart/bill/payout/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/WalmartBillPayoutList.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    },
+    {
+      "title": "Walmart-查询结算账单列表",
+      "api_path": "/basicOpen/multiplatformFinance/walmart/bill/statement/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/WalmartBillStatementList.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    }
+  ],
+  "/basicOpen/platformStatistics": [
+    {
+      "title": "查询TikTok产品表现",
+      "api_path": "/basicOpen/platformStatistics/tiktokProductAnalysis/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/TiktokProductAnalysisList.md",
+      "category_l1": "多平台",
+      "category_l2": "统计",
+      "category_l3": "查询TikTok产品表现"
+    },
+    {
+      "title": "查询Walmart产品表现",
+      "api_path": "/basicOpen/platformStatistics/walmartProductAnalysis/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/WalmartProductAnalysisList.md",
+      "category_l1": "多平台",
+      "category_l2": "统计",
+      "category_l3": "查询Walmart产品表现"
+    }
+  ],
+  "/basicOpen/temu": [
+    {
+      "title": "批量TEMU地址解密",
+      "api_path": "/basicOpen/temu/temuAddressDecrypt",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/BatchTemuAddressDecrypt.md",
+      "category_l1": "多平台",
+      "category_l2": "批量TEMU地址解密",
+      "category_l3": ""
+    }
+  ],
+  "/pb/mp": [
+    {
+      "title": "标记订单不发货",
+      "api_path": "/pb/mp/order/v2/cancelOrder",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/CancelOrder.md",
+      "category_l1": "多平台",
+      "category_l2": "标记订单不发货",
+      "category_l3": ""
+    },
+    {
+      "title": "编辑订单",
+      "api_path": "/pb/mp/order/editOrder",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/EditOrderV2.md",
+      "category_l1": "多平台",
+      "category_l2": "编辑订单（新版）",
+      "category_l3": ""
+    },
+    {
+      "title": "快速出库",
+      "api_path": "/pb/mp/order/v2/fastOutbound",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/FastOutboundV2.md",
+      "category_l1": "多平台",
+      "category_l2": "快速出库",
+      "category_l3": ""
+    },
+    {
+      "title": "获取快速出库结果",
+      "api_path": "/pb/mp/order/v2/getFastOutboundResult",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/GetFastOutboundResultV2.md",
+      "category_l1": "多平台",
+      "category_l2": "获取快速出库结果",
+      "category_l3": ""
+    },
+    {
+      "title": "合并订单",
+      "api_path": "/pb/mp/order/v2/mergeOrder",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/MergeOrder.md",
+      "category_l1": "多平台",
+      "category_l2": "合并订单",
+      "category_l3": ""
+    },
+    {
+      "title": "拆分订单",
+      "api_path": "/pb/mp/order/v2/splitOrder",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/SplitOrder.md",
+      "category_l1": "多平台",
+      "category_l2": "拆分订单",
+      "category_l3": ""
+    },
+    {
+      "title": "查询多平台店铺信息",
+      "api_path": "/pb/mp/shop/v2/getSellerList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/StoreInfoV2.md",
+      "category_l1": "多平台",
+      "category_l2": "查询多平台店铺信息",
+      "category_l3": ""
+    },
+    {
+      "title": "更新订单客服备注",
+      "api_path": "/pb/mp/order/setRemark",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/mpOrderUpdateV2.md",
+      "category_l1": "多平台",
+      "category_l2": "更新订单客服备注",
+      "category_l3": ""
+    },
+    {
+      "title": "批量添加、编辑多平台配对关系",
+      "api_path": "/pb/mp/listing/v2/pairMultiPlatform",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/pairMultiPlatformV2.md",
+      "category_l1": "多平台",
+      "category_l2": "批量添加/编辑多平台配对关系",
+      "category_l3": ""
+    },
+    {
+      "title": "查询亚马逊标发结果",
+      "api_path": "/pb/mp/order/getFulfillmentResult",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/GetFulfillmentResult.md",
+      "category_l1": "销售",
+      "category_l2": "自发货管理",
+      "category_l3": "查询亚马逊标发结果"
+    },
+    {
+      "title": "亚马逊订单提交标发",
+      "api_path": "/pb/mp/order/submitFulfillment",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/SubmitFulfillment.md",
+      "category_l1": "销售",
+      "category_l2": "自发货管理",
+      "category_l3": "亚马逊订单提交标发"
+    },
+    {
+      "title": "查询售后工单列表",
+      "api_path": "/pb/mp/returns/workOrder/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Service/AfterSalesWorkOrderList.md",
+      "category_l1": "客服",
+      "category_l2": "查询售后工单列表",
+      "category_l3": ""
+    },
+    {
+      "title": "查询销售退货单列表",
+      "api_path": "/pb/mp/returns/v2/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/ReturnList.md",
+      "category_l1": "仓库",
+      "category_l2": "收货质检",
+      "category_l3": "查询销售退货单列表"
+    }
+  ],
+  "/basicOpen/fbtShipment": [
+    {
+      "title": "查询FBT货件列表",
+      "api_path": "/basicOpen/fbtShipment/cargo/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/FbtCargoList.md",
+      "category_l1": "多平台",
+      "category_l2": "查询FBT货件列表",
+      "category_l3": ""
+    },
+    {
+      "title": "手动同步FBT货件",
+      "api_path": "/basicOpen/fbtShipment/cargo/sync",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/FbtCargoSync.md",
+      "category_l1": "多平台",
+      "category_l2": "手动同步FBT货件",
+      "category_l3": ""
+    }
+  ],
+  "/cepf/warehouse": [
+    {
+      "title": "修改平台仓发货单备注",
+      "api_path": "/cepf/warehouse/api/openApi/editPlatfromShippingRemark",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/ModifyPlatformRemark.md",
+      "category_l1": "多平台",
+      "category_l2": "修改平台仓发货单备注",
+      "category_l3": ""
+    },
+    {
+      "title": "查询平台仓发货单列表",
+      "api_path": "/cepf/warehouse/api/openApi/queryShippingListPage",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/QueryShippingListPage.md",
+      "category_l1": "多平台",
+      "category_l2": "查询平台仓发货单列表",
+      "category_l3": ""
+    },
+    {
+      "title": "查询WFS货件列表",
+      "api_path": "/cepf/warehouse/api/openApi/queryWFSCargoPage",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/QueryWFSCargoPage.md",
+      "category_l1": "多平台",
+      "category_l2": "查询WFS货件列表",
+      "category_l3": ""
+    },
+    {
+      "title": "查询WFS库存列表",
+      "api_path": "/cepf/warehouse/api/openApi/queryWFSInventionPage",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/QueryWFSInventionPage.md",
+      "category_l1": "多平台",
+      "category_l2": "查询WFS库存列表",
+      "category_l3": ""
+    }
+  ],
+  "/cepf/fms": [
+    {
+      "title": "查询报告详情 - Walmart Payment",
+      "api_path": "/cepf/fms/openapi/walmartPayment/queryPage",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/WalmartPaymentQueryPage.md",
+      "category_l1": "多平台",
+      "category_l2": "查询报告详情 - Walmart Payment",
+      "category_l3": ""
+    },
+    {
+      "title": "查询可用报告列表 - Walmart Payment",
+      "api_path": "/cepf/fms/openapi/walmartPayment/queryReport",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/WalmartPaymentQueryReport.md",
+      "category_l1": "多平台",
+      "category_l2": "查询可用报告列表 - Walmart Payment",
+      "category_l3": ""
+    }
+  ],
+  "/cepfPlatformOrder/open-api": [
+    {
+      "title": "查询平台订单列表",
+      "api_path": "/cepfPlatformOrder/open-api/newPlatformOrder/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/newPlatformOrderList.md",
+      "category_l1": "多平台",
+      "category_l2": "查询平台订单列表",
+      "category_l3": ""
+    }
+  ],
+  "/basicOpen/selfShipmentOrder": [
+    {
+      "title": "订单发货",
+      "api_path": "/basicOpen/selfShipmentOrder/deliveryGoods",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/selfShipmentOrderDeliveryGoods.md",
+      "category_l1": "多平台",
+      "category_l2": "订单发货",
+      "category_l3": ""
+    },
+    {
+      "title": "导入面单",
+      "api_path": "/basicOpen/selfShipmentOrder/importLabel",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/UploadTracking.md",
+      "category_l1": "销售",
+      "category_l2": "自发货管理",
+      "category_l3": "导入面单"
+    }
+  ],
+  "/basicOpen/stockOrder": [
+    {
+      "title": "查询Temu平台仓备货单列表",
+      "api_path": "/basicOpen/stockOrder/temu/queryPage",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/MultiPlatform/V2/temuStockOrderQueryPage.md",
+      "category_l1": "多平台",
+      "category_l2": "查询Temu平台仓备货单列表",
+      "category_l3": ""
+    }
+  ],
+  "/listing/publish": [
+    {
+      "title": "创建UPC编码",
+      "api_path": "/listing/publish/api/upc/addCommodityCode",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Product/AddCommodityCode.md",
+      "category_l1": "产品",
+      "category_l2": "创建UPC编码",
+      "category_l3": ""
+    },
+    {
+      "title": "获取UPC编码列表",
+      "api_path": "/listing/publish/api/upc/upcList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Product/UpcList.md",
+      "category_l1": "产品",
+      "category_l2": "查询UPC编码列表",
+      "category_l3": ""
+    },
+    {
+      "title": "刊登管理-查询刊登结果",
+      "api_path": "/listing/publish/openapi/amazon/product/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/ProductList.md",
+      "category_l1": "销售",
+      "category_l2": "刊登管理",
+      "category_l3": "查询刊登结果"
+    },
+    {
+      "title": "刊登管理-提交商品资料",
+      "api_path": "/listing/publish/openapi/amazon/product/publish",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/ProductPublish.md",
+      "category_l1": "销售",
+      "category_l2": "刊登管理",
+      "category_l3": "提交商品资料"
+    },
+    {
+      "title": "查询已有商品信息",
+      "api_path": "/listing/publish/openapi/amazon/product/search",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/QueryProductList.md",
+      "category_l1": "销售",
+      "category_l2": "刊登管理",
+      "category_l3": "查询已有商品信息"
+    }
+  ],
+  "/label/operation": [
+    {
+      "title": "创建产品标签",
+      "api_path": "/label/operation/v1/label/product/create",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Product/CreateProductTag.md",
+      "category_l1": "产品",
+      "category_l2": "创建产品标签",
+      "category_l3": ""
+    },
+    {
+      "title": "删除产品标签",
+      "api_path": "/label/operation/v1/label/product/unmarkLabel",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Product/DelProductTag.md",
+      "category_l1": "产品",
+      "category_l2": "删除产品标签",
+      "category_l3": ""
+    },
+    {
+      "title": "查询产品标签",
+      "api_path": "/label/operation/v1/label/product/list",
+      "method": "GET",
+      "doc_path": "docs_raw/docs/Product/GetProductTag.md",
+      "category_l1": "产品",
+      "category_l2": "查询产品标签",
+      "category_l3": ""
+    },
+    {
+      "title": "标记产品标签",
+      "api_path": "/label/operation/v1/label/product/mark",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Product/SetProductTag.md",
+      "category_l1": "产品",
+      "category_l2": "标记产品标签",
+      "category_l3": ""
+    }
+  ],
+  "/basicOpen/product": [
+    {
+      "title": "查询操作日志",
+      "api_path": "/basicOpen/product/getPagingLogLists",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Product/GetPagingLogLists.md",
+      "category_l1": "产品",
+      "category_l2": "查询操作日志",
+      "category_l3": ""
+    },
+    {
+      "title": "产品管理-查询透明计划商品列表",
+      "api_path": "/basicOpen/product/getTransparencyProductList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Product/getTransparencyProductList.md",
+      "category_l1": "产品",
+      "category_l2": "查询透明计划商品列表",
+      "category_l3": ""
+    },
+    {
+      "title": "产品启用、禁用",
+      "api_path": "/basicOpen/product/productManager/product/operate/batch",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Product/productOperateBatch.md",
+      "category_l1": "产品",
+      "category_l2": "产品启用、禁用",
+      "category_l3": ""
+    }
+  ],
+  "/basicOpen/purchase": [
+    {
+      "title": "作废采购/委外退货单",
+      "api_path": "/basicOpen/purchase/cancelPurchaseReturnOrder",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Purchase/CancelPurchaseReturnOrder.md",
+      "category_l1": "采购",
+      "category_l2": "作废采购/委外退货单",
+      "category_l3": ""
+    },
+    {
+      "title": "编辑采购单备注",
+      "api_path": "/basicOpen/purchase/orderModifyRemark",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Purchase/OrderModifyRemark.md",
+      "category_l1": "采购",
+      "category_l2": "编辑采购单备注",
+      "category_l3": ""
+    },
+    {
+      "title": "编辑采购计划备注（批量）",
+      "api_path": "/basicOpen/purchase/planModifyRemark",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Purchase/PlanModifyRemark.md",
+      "category_l1": "采购",
+      "category_l2": "编辑采购计划备注（批量）",
+      "category_l3": ""
+    },
+    {
+      "title": "作废采购计划",
+      "api_path": "/basicOpen/purchase/planCancel",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Purchase/PurchasePlanCancel.md",
+      "category_l1": "采购",
+      "category_l2": "作废采购计划",
+      "category_l3": ""
+    },
+    {
+      "title": "采购单整单结束到货",
+      "api_path": "/basicOpen/purchase/setOrderFinish",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Purchase/setOrderFinish.md",
+      "category_l1": "采购",
+      "category_l2": "采购单整单结束到货",
+      "category_l3": ""
+    }
+  ],
+  "/basicOpen/listingManage": [
+    {
+      "title": "Listing新增商品标签",
+      "api_path": "/basicOpen/listingManage/bindListingAndTag",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/AddGoodsTag.md",
+      "category_l1": "销售",
+      "category_l2": "Listing",
+      "category_l3": "Listing新增商品标签"
+    },
+    {
+      "title": "Listing删除商品标签",
+      "api_path": "/basicOpen/listingManage/removeListingAndTag",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/DeleteGoodsTag.md",
+      "category_l1": "销售",
+      "category_l2": "Listing",
+      "category_l3": "Listing删除商品标签"
+    },
+    {
+      "title": "解除Listing配对",
+      "api_path": "/basicOpen/listingManage/unLinkListingPairs",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/UnlinkListing.md",
+      "category_l1": "销售",
+      "category_l2": "Listing",
+      "category_l3": "解除Listing配对"
+    },
+    {
+      "title": "查询Listing操作日志列表",
+      "api_path": "/basicOpen/listingManage/listingOperateLog/pageList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/listingOperateLogPageList.md",
+      "category_l1": "销售",
+      "category_l2": "Listing",
+      "category_l3": "查询Listing操作日志列表"
+    },
+    {
+      "title": "查询Listing列表",
+      "api_path": "/basicOpen/listingManage/vcListing/pageList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/VC/listingManageVcListingPageList.md",
+      "category_l1": "VC",
+      "category_l2": "查询VC-Listing列表",
+      "category_l3": ""
+    }
+  ],
+  "/order/amzod": [
+    {
+      "title": "创建亚马逊多渠道订单",
+      "api_path": "/order/amzod/api/createOrder",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/FbaCreateOrder.md",
+      "category_l1": "销售",
+      "category_l2": "平台订单",
+      "category_l3": "创建亚马逊多渠道订单"
+    },
+    {
+      "title": "查询亚马逊多渠道订单详情-物流信息",
+      "api_path": "/order/amzod/api/orderDetails/logisticsInformation",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/LogisticsInformation.md",
+      "category_l1": "销售",
+      "category_l2": "平台订单",
+      "category_l3": "查询亚马逊多渠道订单详情-物流信息"
+    },
+    {
+      "title": "查询亚马逊多渠道订单列表-v2",
+      "api_path": "/order/amzod/api/orderList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/MCFOrderList.md",
+      "category_l1": "销售",
+      "category_l2": "平台订单",
+      "category_l3": "查询亚马逊多渠道订单列表v2"
+    },
+    {
+      "title": "查询亚马逊多渠道订单详情-商品信息",
+      "api_path": "/order/amzod/api/orderDetails/productInformation",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/ProductInformation.md",
+      "category_l1": "销售",
+      "category_l2": "平台订单",
+      "category_l3": "查询亚马逊多渠道订单详情-商品信息"
+    },
+    {
+      "title": "查询亚马逊多渠道订单详情-退货换货信息",
+      "api_path": "/order/amzod/api/orderDetails/returnInformation",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/ReturnInfomation.md",
+      "category_l1": "销售",
+      "category_l2": "平台订单",
+      "category_l3": "查询亚马逊多渠道订单详情-退货换货信息"
+    }
+  ],
+  "/listing/listing": [
+    {
+      "title": "批量获取Listing费用",
+      "api_path": "/listing/listing/open/api/listing/getPrices",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/GetPrices.md",
+      "category_l1": "销售",
+      "category_l2": "Listing",
+      "category_l3": "批量获取Listing费用"
+    },
+    {
+      "title": "批量分配Listing负责人",
+      "api_path": "/listing/listing/open/api/asin/updatePrincipal",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/UpdatePrincipal.md",
+      "category_l1": "销售",
+      "category_l2": "Listing",
+      "category_l3": "批量分配Listing负责人"
+    }
+  ],
+  "/basicOpen/platformOrder": [
+    {
+      "title": "SC订单-设置订单备注",
+      "api_path": "/basicOpen/platformOrder/scOrder/setRemark",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/ScOrderSetRemark.md",
+      "category_l1": "销售",
+      "category_l2": "平台订单",
+      "category_l3": "更新订单备注"
+    },
+    {
+      "title": "VC订单-确认发货【DF】",
+      "api_path": "/basicOpen/platformOrder/vcOrderDf/confirmShipment",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/VC/vcOrderDfConfirmShipment.md",
+      "category_l1": "VC",
+      "category_l2": "VC订单-确认发货【DF】",
+      "category_l3": ""
+    },
+    {
+      "title": "查询VC订单详情【DF】",
+      "api_path": "/basicOpen/platformOrder/vcOrderDf/detail",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/VC/vcOrderDfDetail.md",
+      "category_l1": "VC",
+      "category_l2": "查询VC订单详情【DF】",
+      "category_l3": ""
+    },
+    {
+      "title": "VC订单-打印标签【DF】",
+      "api_path": "/basicOpen/platformOrder/vcOrderDf/getShippingLabel",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/VC/vcOrderDfGetShippingLabel.md",
+      "category_l1": "VC",
+      "category_l2": "VC订单-打印标签【DF】",
+      "category_l3": ""
+    },
+    {
+      "title": "VC订单-请求标签【DF】",
+      "api_path": "/basicOpen/platformOrder/vcOrderDf/submitShippingLabel",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/VC/vcOrderDfSubmitShippingLabel.md",
+      "category_l1": "VC",
+      "category_l2": "VC订单-请求标签【DF】",
+      "category_l3": ""
+    },
+    {
+      "title": "查询VC订单列表",
+      "api_path": "/basicOpen/platformOrder/vcOrder/pageList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/VC/vcOrderPageList.md",
+      "category_l1": "VC",
+      "category_l2": "查询VC订单列表",
+      "category_l3": ""
+    },
+    {
+      "title": "查询VC订单详情【PO】",
+      "api_path": "/basicOpen/platformOrder/vcOrderPo/detail",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/VC/vcOrderPoDetail.md",
+      "category_l1": "VC",
+      "category_l2": "查询VC订单详情【PO】",
+      "category_l3": ""
+    }
+  ],
+  "/basicOpen/FbmManagement": [
+    {
+      "title": "修改 FBM库存&处理时间",
+      "api_path": "/basicOpen/FbmManagement/modifyFbmInventory",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/UpdateFbmInventory.md",
+      "category_l1": "销售",
+      "category_l2": "Listing",
+      "category_l3": "修改FBM库存&处理时间"
+    }
+  ],
+  "/basicOpen/module": [
+    {
+      "title": "查询调价队列",
+      "api_path": "/basicOpen/module/adjustPrice/AdjustPriceManual",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/adjustPriceAdjustPriceManual.md",
+      "category_l1": "销售",
+      "category_l2": "Listing",
+      "category_l3": "查询调价队列"
+    }
+  ],
+  "/basicOpen/b2bPrice": [
+    {
+      "title": "修改B2B价格",
+      "api_path": "/basicOpen/b2bPrice/modifyPrice",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/b2bPriceModifyPrice.md",
+      "category_l1": "销售",
+      "category_l2": "Listing",
+      "category_l3": "修改B2B价格"
+    }
+  ],
+  "/basicOpen/globalTag": [
+    {
+      "title": "添加Listing标签",
+      "api_path": "/basicOpen/globalTag/listing/addTag",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/globalTagAddTag.md",
+      "category_l1": "销售",
+      "category_l2": "Listing",
+      "category_l3": "添加Listing标签"
+    },
+    {
+      "title": "查询Listing标签列表",
+      "api_path": "/basicOpen/globalTag/listing/page/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/globalTagPageList.md",
+      "category_l1": "销售",
+      "category_l2": "Listing",
+      "category_l3": "查询Listing标签列表"
+    },
+    {
+      "title": "删除Listing标签",
+      "api_path": "/basicOpen/globalTag/listing/removeTag",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/globalTagRemoveTag.md",
+      "category_l1": "销售",
+      "category_l2": "Listing",
+      "category_l3": "删除Listing标签"
+    }
+  ],
+  "/basicOpen/vcservice": [
+    {
+      "title": "配对/批量配对",
+      "api_path": "/basicOpen/vcservice/productRelation/batchLink",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/productRelationbatchLink.md",
+      "category_l1": "VC",
+      "category_l2": "配对/批量配对",
+      "category_l3": ""
+    }
+  ],
+  "/promotionApi/open": [
+    {
+      "title": "查询优惠券详情+listing+订单(批量)",
+      "api_path": "/promotionApi/open/promotion/couponAllDetailBatch",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/promotionCouponAllDetailBatch.md",
+      "category_l1": "销售",
+      "category_l2": "促销管理",
+      "category_l3": "查询优惠券详情+listing+订单(批量)"
+    },
+    {
+      "title": "查询管理促销详情+listing+订单(批量)",
+      "api_path": "/promotionApi/open/promotion/managementAllDetailBatch",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/promotionManagementAllDetailBatch.md",
+      "category_l1": "销售",
+      "category_l2": "促销管理",
+      "category_l3": "查询管理促销详情+listing+订单(批量)"
+    },
+    {
+      "title": "查询会员折扣or价格折扣详情+listing+订单(批量)",
+      "api_path": "/promotionApi/open/promotion/primeDiscountAllDetailBatch",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/promotionPrimeDiscountAllDetailBatch.md",
+      "category_l1": "销售",
+      "category_l2": "促销管理",
+      "category_l3": "查询会员折扣or价格折扣详情+listing+订单(批量)"
+    },
+    {
+      "title": "查询秒杀详情+listing+订单(批量)",
+      "api_path": "/promotionApi/open/promotion/secKillAllDetailBatch",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/promotionSecKillAllDetailBatch.md",
+      "category_l1": "销售",
+      "category_l2": "促销管理",
+      "category_l3": "查询秒杀详情+listing+订单(批量)"
+    }
+  ],
+  "/basicOpen/promotion": [
+    {
+      "title": "查询商品折扣详情-列表-优惠卷",
+      "api_path": "/basicOpen/promotion/listingDetailCoupon",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/promotionListingDetailCoupon.md",
+      "category_l1": "销售",
+      "category_l2": "促销管理",
+      "category_l3": "查询商品折扣详情-列表-优惠卷"
+    },
+    {
+      "title": "查询商品折扣详情-列表-管理促销",
+      "api_path": "/basicOpen/promotion/listingDetailManage",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/promotionListingDetailManage.md",
+      "category_l1": "销售",
+      "category_l2": "促销管理",
+      "category_l3": "查询商品折扣详情-列表-管理促销"
+    },
+    {
+      "title": "查询商品折扣详情-列表-会员折扣",
+      "api_path": "/basicOpen/promotion/listingDetailPrimeDiscount",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/promotionListingDetailPrimeDiscount.md",
+      "category_l1": "销售",
+      "category_l2": "促销管理",
+      "category_l3": "查询商品折扣详情-列表-会员折扣"
+    },
+    {
+      "title": "查询商品折扣详情-列表-秒杀",
+      "api_path": "/basicOpen/promotion/listingDetailSecKill",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/promotionListingDetailSecKill.md",
+      "category_l1": "销售",
+      "category_l2": "促销管理",
+      "category_l3": "查询商品折扣详情-列表-秒杀"
+    },
+    {
+      "title": "查询商品折扣列表",
+      "api_path": "/basicOpen/promotion/listingList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/promotionListingList.md",
+      "category_l1": "销售",
+      "category_l2": "促销管理",
+      "category_l3": "查询商品折扣列表"
+    }
+  ],
+  "/basicOpen/promotionalActivities": [
+    {
+      "title": "查询促销活动列表-优惠券",
+      "api_path": "/basicOpen/promotionalActivities/coupon/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/promotionalActivitiesCouponList.md",
+      "category_l1": "销售",
+      "category_l2": "促销管理",
+      "category_l3": "查询促销活动列表-优惠券"
+    },
+    {
+      "title": "查询促销活动列表-管理促销",
+      "api_path": "/basicOpen/promotionalActivities/manage/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/promotionalActivitiesManageList.md",
+      "category_l1": "销售",
+      "category_l2": "促销管理",
+      "category_l3": "查询促销活动列表-管理促销"
+    },
+    {
+      "title": "查询促销活动列表-秒杀",
+      "api_path": "/basicOpen/promotionalActivities/secKill/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/promotionalActivitiesSecKillList.md",
+      "category_l1": "销售",
+      "category_l2": "促销管理",
+      "category_l3": "查询促销活动列表-秒杀"
+    },
+    {
+      "title": "查询促销活动列表-会员折扣/价格折扣",
+      "api_path": "/basicOpen/promotionalActivities/vipDiscount/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Sale/promotionalActivitiesVipDiscountList.md",
+      "category_l1": "销售",
+      "category_l2": "促销管理",
+      "category_l3": "查询促销活动列表-会员折扣"
+    }
+  ],
+  "/bd/crm": [
+    {
+      "title": "查询客户列表（旧）",
+      "api_path": "/bd/crm/open/api/customer/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Service/CustomerList.md",
+      "category_l1": "客服",
+      "category_l2": "查询客户列表（旧）",
+      "category_l3": ""
+    }
+  ],
+  "/basicOpen/customerService": [
+    {
+      "title": "查询店铺绩效详情",
+      "api_path": "/basicOpen/customerService/storeTarget/detail",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Service/PerformanceNoticeDetail.md",
+      "category_l1": "客服",
+      "category_l2": "查询店铺绩效详情",
+      "category_l3": ""
+    },
+    {
+      "title": "查询业绩通知列表",
+      "api_path": "/basicOpen/customerService/performanceNotice/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Service/PerformanceNoticeList.md",
+      "category_l1": "客服",
+      "category_l2": "查询业绩通知列表",
+      "category_l3": ""
+    },
+    {
+      "title": "查询客户列表（新）",
+      "api_path": "/basicOpen/customerService/crm/customer/index",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Service/customerServiceCrmcustomerIndex.md",
+      "category_l1": "客服",
+      "category_l2": "查询客户列表（新）",
+      "category_l3": ""
+    },
+    {
+      "title": "查询RMA管理",
+      "api_path": "/basicOpen/customerService/rmaManage/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Service/customerServiceRmaManageList.md",
+      "category_l1": "客服",
+      "category_l2": "查询RMA管理",
+      "category_l3": ""
+    },
+    {
+      "title": "查询店铺绩效列表",
+      "api_path": "/basicOpen/customerService/storeTarget/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Service/storePerformanceList.md",
+      "category_l1": "客服",
+      "category_l2": "查询店铺绩效列表",
+      "category_l3": ""
+    },
+    {
+      "title": "查询买家之声列表",
+      "api_path": "/basicOpen/customerService/voiceOfBuyer/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Service/voiceOfBuyerList.md",
+      "category_l1": "客服",
+      "category_l2": "查询买家之声列表",
+      "category_l3": ""
+    }
+  ],
+  "/basicOpen/report": [
+    {
+      "title": "报告导出 - 报告下载链接续期",
+      "api_path": "/basicOpen/report/amazonReportExportTask",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/AmazonReportExportTask.md",
+      "category_l1": "亚马逊源表数据",
+      "category_l2": "报告导出-报告下载链接续期",
+      "category_l3": ""
+    },
+    {
+      "title": "查询采购报表列表 - 采购员",
+      "api_path": "/basicOpen/report/purchase/buyer/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/PurchaseReportBuyerList.md",
+      "category_l1": "统计",
+      "category_l2": "查询采购报表列表-采购员",
+      "category_l3": ""
+    },
+    {
+      "title": "查询采购报表列表 - 产品",
+      "api_path": "/basicOpen/report/purchase/product/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/PurchaseReportProductList.md",
+      "category_l1": "统计",
+      "category_l2": "查询采购报表列表-产品",
+      "category_l3": ""
+    },
+    {
+      "title": "查询采购报表列表 - 供应商",
+      "api_path": "/basicOpen/report/purchase/supplier/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/PurchaseReportSupplierList.md",
+      "category_l1": "统计",
+      "category_l2": "查询采购报表列表-供应商",
+      "category_l3": ""
+    },
+    {
+      "title": "报告导出 - 创建导出任务",
+      "api_path": "/basicOpen/report/create/reportExportTask",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/reportCreateReportExportTask.md",
+      "category_l1": "亚马逊源表数据",
+      "category_l2": "报告导出-创建导出任务",
+      "category_l3": ""
+    },
+    {
+      "title": "报告导出-查询导出任务结果",
+      "api_path": "/basicOpen/report/query/reportExportTask",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/reportQueryReportExportTask.md",
+      "category_l1": "亚马逊源表数据",
+      "category_l2": "报告导出-查询导出任务结果",
+      "category_l3": ""
+    }
+  ],
+  "/bd/productPerformance": [
+    {
+      "title": "查询产品表现",
+      "api_path": "/bd/productPerformance/openApi/asinList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/AsinListNew.md",
+      "category_l1": "统计",
+      "category_l2": "查询产品表现",
+      "category_l3": ""
+    }
+  ],
+  "/openReport/report": [
+    {
+      "title": "创建报告",
+      "api_path": "/openReport/report/task/createReport",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/CreateReport.md",
+      "category_l1": "统计",
+      "category_l2": "创建报告",
+      "category_l3": ""
+    },
+    {
+      "title": "查询报告",
+      "api_path": "/openReport/report/task/getReport",
+      "method": "GET",
+      "doc_path": "docs_raw/docs/Statistics/GetReport.md",
+      "category_l1": "统计",
+      "category_l2": "查询报告",
+      "category_l3": ""
+    }
+  ],
+  "/inventory/center": [
+    {
+      "title": "库存报表-本地仓-新报表-汇总",
+      "api_path": "/inventory/center/openapi/storageReport/local/aggregate/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/LocalAggregateListNew.md",
+      "category_l1": "统计",
+      "category_l2": "库存报表-本地仓-新报表-汇总",
+      "category_l3": ""
+    },
+    {
+      "title": "库存报表-本地仓-新报表-明细",
+      "api_path": "/inventory/center/openapi/storageReport/local/detail/page",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/LocalDetailListNew.md",
+      "category_l1": "统计",
+      "category_l2": "库存报表-本地仓-新报表-明细",
+      "category_l3": ""
+    },
+    {
+      "title": "库存报表-海外仓-新报表-汇总",
+      "api_path": "/inventory/center/openapi/storageReport/overseas/aggregate/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/OverseasAggregateListNew.md",
+      "category_l1": "统计",
+      "category_l2": "库存报表-海外仓-新报表-汇总",
+      "category_l3": ""
+    },
+    {
+      "title": "库存报表-海外仓-新报表-明细",
+      "api_path": "/inventory/center/openapi/storageReport/overseas/detail/page",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/OverseasDetailListNew.md",
+      "category_l1": "统计",
+      "category_l2": "库存报表-海外仓-新报表-明细",
+      "category_l3": ""
+    }
+  ],
+  "/basicOpen/platformStatisticsV2": [
+    {
+      "title": "查询销量统计列表v2",
+      "api_path": "/basicOpen/platformStatisticsV2/saleStat/pageList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/PlatformStatisticsSaleStatPageListV2.md",
+      "category_l1": "多平台",
+      "category_l2": "查询多平台销量统计v2",
+      "category_l3": ""
+    }
+  ],
+  "/basicOpen/salesAnalysis": [
+    {
+      "title": "统计-查询退货分析",
+      "api_path": "/basicOpen/salesAnalysis/returnOrder/analysisLists",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/ReturnOrderAnalysisLists.md",
+      "category_l1": "统计",
+      "category_l2": "查询退货分析",
+      "category_l3": ""
+    },
+    {
+      "title": "查询asin360小时数据",
+      "api_path": "/basicOpen/salesAnalysis/productPerformance/performanceTrendByHour",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/performanceTrendByHour.md",
+      "category_l1": "统计",
+      "category_l2": "查询asin360小时数据",
+      "category_l3": ""
+    }
+  ],
+  "/basicOpen/operateManage": [
+    {
+      "title": "查询运营日志",
+      "api_path": "/basicOpen/operateManage/operateLog/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/operateLogList.md",
+      "category_l1": "统计",
+      "category_l2": "查询运营日志",
+      "category_l3": ""
+    },
+    {
+      "title": "查询运营日志(新)",
+      "api_path": "/basicOpen/operateManage/operateLog/list/v2",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/operateLogV2List.md",
+      "category_l1": "统计",
+      "category_l2": "查询运营日志(新)",
+      "category_l3": ""
+    }
+  ],
+  "/basicOpen/vc": [
+    {
+      "title": "VC报表-库存报表",
+      "api_path": "/basicOpen/vc/report/inventory/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/vcInventoryList.md",
+      "category_l1": "VC",
+      "category_l2": "VC报表-库存报表",
+      "category_l3": ""
+    },
+    {
+      "title": "VC报表-产品利润率报表",
+      "api_path": "/basicOpen/vc/report/nppm/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/vcNppmList.md",
+      "category_l1": "VC",
+      "category_l2": "VC报表-产品利润率报表",
+      "category_l3": ""
+    },
+    {
+      "title": "VC报表-实时销量报表",
+      "api_path": "/basicOpen/vc/report/realtimeSales/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/vcRealtimeSalesList.md",
+      "category_l1": "VC",
+      "category_l2": "VC报表-实时销量报表",
+      "category_l3": ""
+    },
+    {
+      "title": "VC报表-销量报表",
+      "api_path": "/basicOpen/vc/report/sales/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/vcSalesList.md",
+      "category_l1": "VC",
+      "category_l2": "VC报表-销量报表",
+      "category_l3": ""
+    },
+    {
+      "title": "VC报表-流量报表",
+      "api_path": "/basicOpen/vc/report/traffic/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Statistics/vcTrafficList.md",
+      "category_l1": "VC",
+      "category_l2": "VC报表-流量报表",
+      "category_l3": ""
+    }
+  ],
+  "/bd/goal": [
+    {
+      "title": "店铺维度-批量删除目标",
+      "api_path": "/bd/goal/management/open/store/batchDelete",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/TargetManage/StoreBatchDelete.md",
+      "category_l1": "目标管理",
+      "category_l2": "店铺维度-批量删除目标",
+      "category_l3": ""
+    },
+    {
+      "title": "店铺维度-批量新增/更新目标",
+      "api_path": "/bd/goal/management/open/store/batchOperate",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/TargetManage/StoreBatchOperate.md",
+      "category_l1": "目标管理",
+      "category_l2": "店铺维度-批量新增/更新目标",
+      "category_l3": ""
+    },
+    {
+      "title": "店铺维度-批量查询目标",
+      "api_path": "/bd/goal/management/open/store/batchSelect",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/TargetManage/StoreBatchSelect.md",
+      "category_l1": "目标管理",
+      "category_l2": "店铺维度-批量查询目标",
+      "category_l3": ""
+    },
+    {
+      "title": "组织维度-批量删除目标",
+      "api_path": "/bd/goal/management/open/user/batchDelete",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/TargetManage/UserBatchDelete.md",
+      "category_l1": "目标管理",
+      "category_l2": "组织维度-批量删除目标",
+      "category_l3": ""
+    },
+    {
+      "title": "组织维度-批量新增/更新目标",
+      "api_path": "/bd/goal/management/open/user/batchOperate",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/TargetManage/UserBatchOperate.md",
+      "category_l1": "目标管理",
+      "category_l2": "组织维度-批量新增/更新目标",
+      "category_l3": ""
+    },
+    {
+      "title": "组织维度-批量查询目标",
+      "api_path": "/bd/goal/management/open/user/batchSelect",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/TargetManage/UserBatchSelect.md",
+      "category_l1": "目标管理",
+      "category_l2": "组织维度-批量查询目标",
+      "category_l3": ""
+    }
+  ],
+  "/basicOpen/tool": [
+    {
+      "title": "查询竞品监控列表",
+      "api_path": "/basicOpen/tool/competitiveMonitor/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Tools/CompetitiveMonitorList.md",
+      "category_l1": "工具",
+      "category_l2": "查询竞品监控列表",
+      "category_l3": ""
+    }
+  ],
+  "/basicOpen/platformAuth": [
+    {
+      "title": "查询VC店铺列表",
+      "api_path": "/basicOpen/platformAuth/vcSeller/pageList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/VC/platformAuthVcSellerPageList.md",
+      "category_l1": "VC",
+      "category_l2": "查询VC店铺列表",
+      "category_l3": ""
+    }
+  ],
+  "/basicOpen/adjustOrder": [
+    {
+      "title": "调整单确认调整",
+      "api_path": "/basicOpen/adjustOrder/adjust/setAdjust",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/AdjustOrderConfirm.md",
+      "category_l1": "仓库",
+      "category_l2": "出入库",
+      "category_l3": "调整单确认调整"
+    },
+    {
+      "title": "查询调整单确认调整异步结果",
+      "api_path": "/basicOpen/adjustOrder/adjust/getAdjustStatus",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/GetAdjustOrderConfirmResult.md",
+      "category_l1": "仓库",
+      "category_l2": "出入库",
+      "category_l3": "查询调整单确认调整结果"
+    }
+  ],
+  "/basicOpen/storageAllocationList": [
+    {
+      "title": "撤销调拨单",
+      "api_path": "/basicOpen/storageAllocationList/cancel",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/CancelStorageAllocationList.md",
+      "category_l1": "仓库",
+      "category_l2": "出入库",
+      "category_l3": "撤销调拨单"
+    },
+    {
+      "title": "删除调拨单",
+      "api_path": "/basicOpen/storageAllocationList/delete",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/DeleteStorageAllocationList.md",
+      "category_l1": "仓库",
+      "category_l2": "出入库",
+      "category_l3": "删除调拨单"
+    }
+  ],
+  "/basicOpen/overSeaWarehouse": [
+    {
+      "title": "删除备货单",
+      "api_path": "/basicOpen/overSeaWarehouse/stockOrder/delete",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/DeleteOverSeaStockOrder.md",
+      "category_l1": "仓库",
+      "category_l2": "海外仓",
+      "category_l3": "删除备货单"
+    },
+    {
+      "title": "查询备货单详情",
+      "api_path": "/basicOpen/overSeaWarehouse/stockOrder/detail",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/OverSeasStockDetail.md",
+      "category_l1": "仓库",
+      "category_l2": "海外仓",
+      "category_l3": "查询海外仓备货单详情"
+    },
+    {
+      "title": "备货单分配库存",
+      "api_path": "/basicOpen/overSeaWarehouse/stockOrder/allocate",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/overseaStockOrderAllocate.md",
+      "category_l1": "仓库",
+      "category_l2": "海外仓",
+      "category_l3": "备货单分配库存"
+    }
+  ],
+  "/basicOpen/inboundOrder": [
+    {
+      "title": "入库单确认入库",
+      "api_path": "/basicOpen/inboundOrder/inbound/setInbound",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/InboundOrderConfirm.md",
+      "category_l1": "仓库",
+      "category_l2": "出入库",
+      "category_l3": "入库单确认入库"
+    },
+    {
+      "title": "撤销入库单",
+      "api_path": "/basicOpen/inboundOrder/inbound/setOrderRevoke",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/SetInboundOrderRevoke.md",
+      "category_l1": "仓库",
+      "category_l2": "出入库",
+      "category_l3": "撤销入库单"
+    }
+  ],
+  "/basicOpen/outboundOrder": [
+    {
+      "title": "出库单确认出库",
+      "api_path": "/basicOpen/outboundOrder/outbound/setOutbound",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/OutboundOrderConfirm.md",
+      "category_l1": "仓库",
+      "category_l2": "出入库",
+      "category_l3": "出库单确认出库"
+    },
+    {
+      "title": "撤销出库单",
+      "api_path": "/basicOpen/outboundOrder/outbound/setOrderRevoke",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/SetOutboundOrderRevoke.md",
+      "category_l1": "仓库",
+      "category_l2": "出入库",
+      "category_l3": "撤销出库单"
+    },
+    {
+      "title": "删除出库单",
+      "api_path": "/basicOpen/outboundOrder/outbound/delete",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/outboundOrderDelete.md",
+      "category_l1": "仓库",
+      "category_l2": "出入库",
+      "category_l3": "删除出库单"
+    }
+  ],
+  "/basicOpen/overseaWarehouseSetting": [
+    {
+      "title": "查询海外仓sku配对列表",
+      "api_path": "/basicOpen/overseaWarehouseSetting/matchList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/OverseaWarehouseMatchList.md",
+      "category_l1": "仓库",
+      "category_l2": "海外仓",
+      "category_l3": "查询海外仓sku配对列表"
+    },
+    {
+      "title": "海外仓sku配对",
+      "api_path": "/basicOpen/overseaWarehouseSetting/productMatch",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/OverseaWarehouseProductMatch.md",
+      "category_l1": "仓库",
+      "category_l2": "仓库设置",
+      "category_l3": "海外仓sku配对"
+    },
+    {
+      "title": "海外仓sku取消配对",
+      "api_path": "/basicOpen/overseaWarehouseSetting/productUnMatch",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/OverseaWarehouseProductUnMatch.md",
+      "category_l1": "仓库",
+      "category_l2": "仓库设置",
+      "category_l3": "海外sku取消配对"
+    }
+  ],
+  "/basicOpen/packingTask": [
+    {
+      "title": "装箱任务-生成装箱任务",
+      "api_path": "/basicOpen/packingTask/addTask",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/PackingTaskAdd.md",
+      "category_l1": "仓库",
+      "category_l2": "装箱管理",
+      "category_l3": "装箱任务-生成装箱任务"
+    },
+    {
+      "title": "装箱任务-批量编辑装箱信息",
+      "api_path": "/basicOpen/packingTask/batchEditPackingBox",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/PackingTaskBatchEdit.md",
+      "category_l1": "仓库",
+      "category_l2": "装箱管理",
+      "category_l3": "装箱任务-批量编辑装箱信息"
+    },
+    {
+      "title": "装箱任务-删除装箱任务",
+      "api_path": "/basicOpen/packingTask/delTask",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/PackingTaskDel.md",
+      "category_l1": "仓库",
+      "category_l2": "装箱管理",
+      "category_l3": "装箱任务-删除装箱任务"
+    },
+    {
+      "title": "装箱任务-任务详情",
+      "api_path": "/basicOpen/packingTask/taskDetail",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/PackingTaskDetail.md",
+      "category_l1": "仓库",
+      "category_l2": "装箱管理",
+      "category_l3": "装箱任务-任务详情"
+    },
+    {
+      "title": "装箱任务-标记已完成",
+      "api_path": "/basicOpen/packingTask/finishTask",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/PackingTaskFinish.md",
+      "category_l1": "仓库",
+      "category_l2": "装箱管理",
+      "category_l3": "装箱任务-标记已完成"
+    },
+    {
+      "title": "装箱任务-单据列表",
+      "api_path": "/basicOpen/packingTask/getRelateSnList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/PackingTaskRelateSnList.md",
+      "category_l1": "仓库",
+      "category_l2": "装箱管理",
+      "category_l3": "装箱任务-单据列表"
+    }
+  ],
+  "/basicOpen/wmsOrder": [
+    {
+      "title": "查询销售出库单详情",
+      "api_path": "/basicOpen/wmsOrder/getWmsOrdersByOrderNumbers",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/WmsOrderDetail.md",
+      "category_l1": "仓库",
+      "category_l2": "出入库",
+      "category_l3": "查询销售出库单详情"
+    },
+    {
+      "title": "销售出库单截单",
+      "api_path": "/basicOpen/wmsOrder/cancel",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/cancelWmsOrder.md",
+      "category_l1": "仓库",
+      "category_l2": "发货",
+      "category_l3": "销售出库单截单"
+    }
+  ],
+  "/basicOpen/warehouseConfig": [
+    {
+      "title": "查询产品仓位列表",
+      "api_path": "/basicOpen/warehouseConfig/warehouseBin/getEntryRecommendBinList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/getEntryRecommendBinList.md",
+      "category_l1": "仓库",
+      "category_l2": "仓库设置",
+      "category_l3": "查询产品仓位列表"
+    }
+  ],
+  "/basicOpen/qualityInspectionOrder": [
+    {
+      "title": "查询质检单详情",
+      "api_path": "/basicOpen/qualityInspectionOrder/detail",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/qualityInspectionOrderDetail.md",
+      "category_l1": "仓库",
+      "category_l2": "收货质检",
+      "category_l3": "查询质检单详情"
+    }
+  ],
+  "/basicOpen/return": [
+    {
+      "title": "待收货退货单快捷入库",
+      "api_path": "/basicOpen/return/order/fastStorageIn",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/returnOrderFastStorageIn.md",
+      "category_l1": "仓库",
+      "category_l2": "收货质检",
+      "category_l3": "待收货退货单快捷入库"
+    }
+  ],
+  "/basicOpen/logisticsOrdering": [
+    {
+      "title": "物流下单 - 编辑运单号/跟踪号",
+      "api_path": "/basicOpen/logisticsOrdering/setTrackingNo",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/Warehouse/setTrackingNo.md",
+      "category_l1": "仓库",
+      "category_l2": "发货",
+      "category_l3": "物流下单 - 编辑运单号/跟踪号"
+    }
+  ],
+  "/basicOpen/adReport": [
+    {
+      "title": "调整sp广告组",
+      "api_path": "/basicOpen/adReport/manage/putSpAdGroup",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/adReportManagePutSpAdGroup.md",
+      "category_l1": "广告",
+      "category_l2": "广告管理",
+      "category_l3": "修改SP广告组"
+    },
+    {
+      "title": "修改SP广告活动和广告位",
+      "api_path": "/basicOpen/adReport/manage/putSpCampaign",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/adReportManagePutSpCampaign.md",
+      "category_l1": "广告",
+      "category_l2": "广告管理",
+      "category_l3": "修改SP广告活动和广告位"
+    },
+    {
+      "title": "修改广告商品状态",
+      "api_path": "/basicOpen/adReport/manage/putSpProductAds",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/adReportManagePutSpProductAds.md",
+      "category_l1": "广告",
+      "category_l2": "广告管理",
+      "category_l3": "修改广告商品状态"
+    },
+    {
+      "title": "广告分析-关键词分析",
+      "api_path": "/basicOpen/adReport/analyze/keyword",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/AdAnalyzeKeyword.md",
+      "category_l1": "广告",
+      "category_l2": "分析",
+      "category_l3": "广告分析-关键词分析"
+    },
+    {
+      "title": "广告分析-搜索词分析",
+      "api_path": "/basicOpen/adReport/analyze/searchTerm",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/AdAnalyzeSearchTerm.md",
+      "category_l1": "广告",
+      "category_l2": "分析",
+      "category_l3": "广告分析-搜索词分析"
+    },
+    {
+      "title": "出单时段分析（产品）",
+      "api_path": "/basicOpen/adReport/productOrderAnalysis/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/ProductAnalysisList.md",
+      "category_l1": "广告",
+      "category_l2": "报告",
+      "category_l3": "出单时段分析-产品"
+    },
+    {
+      "title": "SP广告添加关键词",
+      "api_path": "/basicOpen/adReport/spTarget/addKeywords",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/SpAddKeywords.md",
+      "category_l1": "广告",
+      "category_l2": "广告管理",
+      "category_l3": "添加SP关键词"
+    },
+    {
+      "title": "SP广告添加否定关键词",
+      "api_path": "/basicOpen/adReport/spTarget/addNegativeKeywords",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/SpAddNegativeKeywords.md",
+      "category_l1": "广告",
+      "category_l2": "广告管理",
+      "category_l3": "添加SP否定关键词"
+    },
+    {
+      "title": "SP广告否定投放（ASIN）",
+      "api_path": "/basicOpen/adReport/spTarget/addNegativeTargets",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/SpAddNegativeTargets.md",
+      "category_l1": "广告",
+      "category_l2": "广告管理",
+      "category_l3": "添加SP否定商品"
+    },
+    {
+      "title": "SP广告否定词归档",
+      "api_path": "/basicOpen/adReport/spTarget/archiveNegatives",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/SpArchiveNegatives.md",
+      "category_l1": "广告",
+      "category_l2": "广告管理",
+      "category_l3": "归档SP否定投放"
+    },
+    {
+      "title": "查询沃尔玛广告主列表",
+      "api_path": "/basicOpen/adReport/advertiser/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/WalmartQueryAdvertiserList.md",
+      "category_l1": "",
+      "category_l2": "",
+      "category_l3": ""
+    }
+  ],
+  "/pb/openapi": [
+    {
+      "title": "操作日志（新）",
+      "api_path": "/pb/openapi/newad/apiLogStandard",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/apiLogStandard.md",
+      "category_l1": "广告",
+      "category_l2": "操作日志（新）",
+      "category_l3": ""
+    },
+    {
+      "title": "SB广告组",
+      "api_path": "/pb/openapi/newad/hsaAdGroups",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/baseData/hsaAdGroups.md",
+      "category_l1": "广告",
+      "category_l2": "基础数据",
+      "category_l3": "SB广告组"
+    },
+    {
+      "title": "SB广告活动",
+      "api_path": "/pb/openapi/newad/hsaCampaigns",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/baseData/hsaCampaigns.md",
+      "category_l1": "广告",
+      "category_l2": "基础数据",
+      "category_l3": "SB广告活动"
+    },
+    {
+      "title": "SB否定关键词",
+      "api_path": "/pb/openapi/newad/hsaNegativeKeywords",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/baseData/hsaNegativeKeywords.md",
+      "category_l1": "广告",
+      "category_l2": "基础数据",
+      "category_l3": "SB否定关键词"
+    },
+    {
+      "title": "SB否定商品投放",
+      "api_path": "/pb/openapi/newad/hsaNegativeTargets",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/baseData/hsaNegativeTargets.md",
+      "category_l1": "广告",
+      "category_l2": "基础数据",
+      "category_l3": "SB否定商品投放"
+    },
+    {
+      "title": "SB分摊",
+      "api_path": "/pb/openapi/newad/sbDivideAsinReports",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/baseData/newadsbDivideAsinReports.md",
+      "category_l1": "广告",
+      "category_l2": "报告",
+      "category_l3": "SB分摊"
+    },
+    {
+      "title": "广告组合",
+      "api_path": "/pb/openapi/newad/portfolios",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/baseData/portfolios.md",
+      "category_l1": "广告",
+      "category_l2": "基础数据",
+      "category_l3": "广告组合"
+    },
+    {
+      "title": "SB广告创意",
+      "api_path": "/pb/openapi/newad/hsaProductAds",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/baseData/sbAdHasProductAds.md",
+      "category_l1": "广告",
+      "category_l2": "基础数据",
+      "category_l3": "SB广告创意"
+    },
+    {
+      "title": "SB广告的投放",
+      "api_path": "/pb/openapi/newad/sbTargeting",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/baseData/sbTargeting.md",
+      "category_l1": "广告",
+      "category_l2": "基础数据",
+      "category_l3": "SB广告的投放"
+    },
+    {
+      "title": "SD广告组",
+      "api_path": "/pb/openapi/newad/sdAdGroups",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/baseData/sdAdGroups.md",
+      "category_l1": "广告",
+      "category_l2": "基础数据",
+      "category_l3": "SD广告组"
+    },
+    {
+      "title": "SD广告活动",
+      "api_path": "/pb/openapi/newad/sdCampaigns",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/baseData/sdCampaigns.md",
+      "category_l1": "广告",
+      "category_l2": "基础数据",
+      "category_l3": "SD广告活动"
+    },
+    {
+      "title": "SD否定商品定位",
+      "api_path": "/pb/openapi/newad/sdNegativeTargets",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/baseData/sdNegativeTargets.md",
+      "category_l1": "广告",
+      "category_l2": "基础数据",
+      "category_l3": "SD否定商品定位"
+    },
+    {
+      "title": "SD广告商品",
+      "api_path": "/pb/openapi/newad/sdProductAds",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/baseData/sdProductAds.md",
+      "category_l1": "广告",
+      "category_l2": "基础数据",
+      "category_l3": "SD广告商品"
+    },
+    {
+      "title": "SD商品定位",
+      "api_path": "/pb/openapi/newad/sdTargets",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/baseData/sdTargets.md",
+      "category_l1": "广告",
+      "category_l2": "基础数据",
+      "category_l3": "SD商品定位"
+    },
+    {
+      "title": "SP广告组",
+      "api_path": "/pb/openapi/newad/spAdGroups",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/baseData/spAdGroups.md",
+      "category_l1": "广告",
+      "category_l2": "基础数据",
+      "category_l3": "SP广告组"
+    },
+    {
+      "title": "SP广告活动",
+      "api_path": "/pb/openapi/newad/spCampaigns",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/baseData/spCampaigns.md",
+      "category_l1": "广告",
+      "category_l2": "基础数据",
+      "category_l3": "SP广告活动"
+    },
+    {
+      "title": "SP关键词",
+      "api_path": "/pb/openapi/newad/spKeywords",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/baseData/spKeywords.md",
+      "category_l1": "广告",
+      "category_l2": "基础数据",
+      "category_l3": "SP关键词"
+    },
+    {
+      "title": "SP否定投放",
+      "api_path": "/pb/openapi/newad/spNegativeTargetsOrKeywords",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/baseData/spNegativeTargetsOrKeywords.md",
+      "category_l1": "广告",
+      "category_l2": "基础数据",
+      "category_l3": "SP否定投放"
+    },
+    {
+      "title": "SP广告商品",
+      "api_path": "/pb/openapi/newad/spProductAds",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/baseData/spProductAds.md",
+      "category_l1": "广告",
+      "category_l2": "基础数据",
+      "category_l3": "SP广告商品"
+    },
+    {
+      "title": "SP商品定位",
+      "api_path": "/pb/openapi/newad/spTargets",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/baseData/spTargets.md",
+      "category_l1": "广告",
+      "category_l2": "基础数据",
+      "category_l3": "SP商品定位"
+    },
+    {
+      "title": "SB广告组报表",
+      "api_path": "/pb/openapi/newad/hsaAdGroupReports",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/hsaAdGroupReports.md",
+      "category_l1": "广告",
+      "category_l2": "报告",
+      "category_l3": "SB广告组报表"
+    },
+    {
+      "title": "SB广告活动报表",
+      "api_path": "/pb/openapi/newad/hsaCampaignReports",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/hsaCampaignReports.md",
+      "category_l1": "广告",
+      "category_l2": "报告",
+      "category_l3": "SB广告活动报表"
+    },
+    {
+      "title": "SB广告归因于广告的购买报告",
+      "api_path": "/pb/openapi/newad/hsaPurchasedAsinReports",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/hsaPurchasedAsinReports.md",
+      "category_l1": "广告",
+      "category_l2": "报告",
+      "category_l3": "SB广告归因于广告的购买报告"
+    },
+    {
+      "title": "SB关键词-广告位报告",
+      "api_path": "/pb/openapi/newad/listHsaKeywordPlacementReport",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/listHsaKeywordPlacementReport.md",
+      "category_l1": "广告",
+      "category_l2": "报告",
+      "category_l3": "SB关键词-广告位报告"
+    },
+    {
+      "title": "SB广告创意报告",
+      "api_path": "/pb/openapi/newad/listHsaProductAdReport",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/listHsaProductAdReport.md",
+      "category_l1": "广告",
+      "category_l2": "报告",
+      "category_l3": "SB广告创意报告"
+    },
+    {
+      "title": "SB广告的投放报告",
+      "api_path": "/pb/openapi/newad/listHsaTargetingReport",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/listHsaTargetingReport.md",
+      "category_l1": "广告",
+      "category_l2": "报告",
+      "category_l3": "SB广告的投放报告"
+    },
+    {
+      "title": "SB广告组小时数据",
+      "api_path": "/pb/openapi/newad/sbAdGroupHourData",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/sbAdGroupHourData.md",
+      "category_l1": "广告",
+      "category_l2": "报告",
+      "category_l3": "SB广告组小时数据"
+    },
+    {
+      "title": "SB广告位小时数据",
+      "api_path": "/pb/openapi/newad/sbAdPlacementHourData",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/sbAdPlacementHourData.md",
+      "category_l1": "广告",
+      "category_l2": "报告",
+      "category_l3": "SB广告位小时数据"
+    },
+    {
+      "title": "SB广告活动小时数据",
+      "api_path": "/pb/openapi/newad/sbCampaignHourData",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/sbCampaignHourData.md",
+      "category_l1": "广告",
+      "category_l2": "报告",
+      "category_l3": "SB广告活动小时数据"
+    },
+    {
+      "title": "SB投放小时数据",
+      "api_path": "/pb/openapi/newad/sbTargetHourData",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/sbTargetHourData.md",
+      "category_l1": "广告",
+      "category_l2": "报告",
+      "category_l3": "SB投放小时数据"
+    },
+    {
+      "title": "SD广告组小时数据",
+      "api_path": "/pb/openapi/newad/sdAdGroupHourData",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/sdAdGroupHourData.md",
+      "category_l1": "广告",
+      "category_l2": "报告",
+      "category_l3": "SD广告组小时数据"
+    },
+    {
+      "title": "SD广告组报表",
+      "api_path": "/pb/openapi/newad/sdAdGroupReports",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/sdAdGroupReports.md",
+      "category_l1": "广告",
+      "category_l2": "报告",
+      "category_l3": "SD广告组报表"
+    },
+    {
+      "title": "SD广告小时数据",
+      "api_path": "/pb/openapi/newad/sdAdvertiseHourData",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/sdAdvertiseHourData.md",
+      "category_l1": "广告",
+      "category_l2": "报告",
+      "category_l3": "SD广告小时数据"
+    },
+    {
+      "title": "SD广告活动小时数据",
+      "api_path": "/pb/openapi/newad/sdCampaignHourData",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/sdCampaignHourData.md",
+      "category_l1": "广告",
+      "category_l2": "报告",
+      "category_l3": "SD广告活动小时数据"
+    },
+    {
+      "title": "SD广告活动报表",
+      "api_path": "/pb/openapi/newad/sdCampaignReports",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/sdCampaignReports.md",
+      "category_l1": "广告",
+      "category_l2": "报告",
+      "category_l3": "SD广告活动报表"
+    },
+    {
+      "title": "SD广告商品报表",
+      "api_path": "/pb/openapi/newad/sdProductAdReports",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/sdProductAdReports.md",
+      "category_l1": "广告",
+      "category_l2": "报告",
+      "category_l3": "SD广告商品报表"
+    },
+    {
+      "title": "SD投放小时数据",
+      "api_path": "/pb/openapi/newad/sdTargetHourData",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/sdTargetHourData.md",
+      "category_l1": "广告",
+      "category_l2": "报告",
+      "category_l3": "SD投放小时数据"
+    },
+    {
+      "title": "SD商品定位报表",
+      "api_path": "/pb/openapi/newad/sdTargetReports",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/sdTargetReports.md",
+      "category_l1": "广告",
+      "category_l2": "报告",
+      "category_l3": "SD商品定位报表"
+    },
+    {
+      "title": "SP广告组小时数据",
+      "api_path": "/pb/openapi/newad/spAdGroupHourData",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/spAdGroupHourData.md",
+      "category_l1": "广告",
+      "category_l2": "报告",
+      "category_l3": "SP广告组小时数据"
+    },
+    {
+      "title": "SP广告组报表",
+      "api_path": "/pb/openapi/newad/spAdGroupReports",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/spAdGroupReports.md",
+      "category_l1": "广告",
+      "category_l2": "报告",
+      "category_l3": "SP广告组报表"
+    },
+    {
+      "title": "SP广告位小时数据",
+      "api_path": "/pb/openapi/newad/spAdPlacementHourData",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/spAdPlacementHourData.md",
+      "category_l1": "广告",
+      "category_l2": "报告",
+      "category_l3": "SP广告位小时数据"
+    },
+    {
+      "title": "SP广告小时数据",
+      "api_path": "/pb/openapi/newad/spAdvertiseHourData",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/spAdvertiseHourData.md",
+      "category_l1": "广告",
+      "category_l2": "报告",
+      "category_l3": "SP广告小时数据"
+    },
+    {
+      "title": "SP广告活动小时数据",
+      "api_path": "/pb/openapi/newad/spCampaignHourData",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/spCampaignHourData.md",
+      "category_l1": "广告",
+      "category_l2": "报告",
+      "category_l3": "SP广告活动小时数据"
+    },
+    {
+      "title": "SP广告活动报表",
+      "api_path": "/pb/openapi/newad/spCampaignReports",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/spCampaignReports.md",
+      "category_l1": "广告",
+      "category_l2": "报告",
+      "category_l3": "SP广告活动报表"
+    },
+    {
+      "title": "SP关键词报表",
+      "api_path": "/pb/openapi/newad/spKeywordReports",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/spKeywordReports.md",
+      "category_l1": "广告",
+      "category_l2": "报告",
+      "category_l3": "SP关键词报表"
+    },
+    {
+      "title": "SP广告商品报表",
+      "api_path": "/pb/openapi/newad/spProductAdReports",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/spProductAdReports.md",
+      "category_l1": "广告",
+      "category_l2": "报告",
+      "category_l3": "SP广告商品报表"
+    },
+    {
+      "title": "SP投放小时数据",
+      "api_path": "/pb/openapi/newad/spTargetHourData",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/spTargetHourData.md",
+      "category_l1": "广告",
+      "category_l2": "报告",
+      "category_l3": "SP投放小时数据"
+    },
+    {
+      "title": "SP商品定位报表",
+      "api_path": "/pb/openapi/newad/spTargetReports",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/spTargetReports.md",
+      "category_l1": "广告",
+      "category_l2": "报告",
+      "category_l3": "SP商品定位报表"
+    },
+    {
+      "title": "ABA搜索词报告-按周维度",
+      "api_path": "/pb/openapi/newad/abaReport",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/reportDownload/abaReport.md",
+      "category_l1": "广告",
+      "category_l2": "报表下载",
+      "category_l3": "ABA搜索词报告-按周维度"
+    }
+  ],
+  "/basicOpen/baseData": [
+    {
+      "title": "查询广告账号列表",
+      "api_path": "/basicOpen/baseData/account/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/baseData/dspAccountList.md",
+      "category_l1": "广告",
+      "category_l2": "基础数据",
+      "category_l3": "查询广告账号列表"
+    }
+  ],
+  "/newad/dspAdvertiserList": [
+    {
+      "title": "查询DSP广告主列表",
+      "api_path": "/newad/dspAdvertiserList",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/dspAdvertiserList.md",
+      "category_l1": "广告",
+      "category_l2": "报告",
+      "category_l3": "查询DSP广告主列表"
+    }
+  ],
+  "/basicOpen/dspReport": [
+    {
+      "title": "查询DSP报告列表-订单",
+      "api_path": "/basicOpen/dspReport/order/list",
+      "method": "POST",
+      "doc_path": "docs_raw/docs/newAd/report/dspReportOrderList.md",
+      "category_l1": "广告",
+      "category_l2": "报告",
+      "category_l3": "查询DSP报告列表-订单"
+    }
+  ]
+}
