@@ -1,0 +1,93 @@
+---
+title: ClickHouse 数据连接
+doc_id: 1102
+url: https://help.fanruan.com/finebi6.X/doc-view-1102.html
+source: FineBI 帮助文档
+crawled_at: 2026-07-02 15:07:10
+---
+
+> 1. 概述1.1 版本FineBI 版本功能变动6.0-1.2 介绍ClickHouse 是面向列的数据库管理系统（DBMS），用于对查询进行联机分析处理（OLAP）。本文将介绍 FineBI 如何连接
+
+![](./view/2022finebi6/images/info_fill.png) 您正在浏览的是 FineBI6.X 帮助文档，点击跳转至： [FineBI7.X帮助文档](<https://help.fanruan.com/finebi/>)
+# ClickHouse 数据连接
+对此内容反馈
+* _
+__
+  * 使用此篇文档遇到问题，可寻求帆软技术支持协助定位原因，若为帆软产品本身缺陷则对应给出解决方案。  
+详情：[《帆软技术支持基础服务范围》](<https://bbs.fanruan.com/thread-135893-1-1.html>)
+
+
+产品级协助_
+* * 文档创建者： _[Lily.Wang](<user-space-337243.html>)_
+* 历史版本：[20](<edition-list-1102.html>)
+* 最近更新：[TW](<user-space-1900999.html>) 于 2025-05-19 
+[](<javascript:;>) [](<javascript:>)
+## 1\. 概述
+### 1.1 版本
+FineBI 版本  
+| 功能变动  
+---|---  
+6.0| -  
+  
+### 1.2 介绍
+ClickHouse 是面向列的数据库管理系统（DBMS），用于对查询进行联机分析处理（OLAP）。
+本文将介绍 FineBI 如何连接 ClickHouse 。
+## 2\. 准备工作
+### 2.1 版本和驱动
+下载驱动，并将其上传至 FineBI，如何上传可参见：[驱动管理](<https://help.fanruan.com/finebi6.0/doc-view-1540.html>) 2.1 节。
+支持的数据库版本| 驱动下载  
+| 驱动  
+---|---|---  
+20.1.8.41| [clickhouse 需解压.zip](<doc-download-/finebi6.X/uploads/file/20250123/clickhouse 需解压.zip> "下载资料")| cc.blynk.clickhouse.ClickHouseDriver  
+### 2.2 收集连接信息
+在连接数据库之前，请收集以下信息：
+  * 数据库所在服务器的 IP 地址和端口号；
+  * 数据库的用户名和密码；
+  * 需要连接的数据库模式；
+
+
+## 3\. 具体连接步骤
+1）以管理员身份登录 FineBI ，点击「管理系统>数据连接>数据连接管理」，点击「新建数据连接」，如下图所示：  
+
+注：如果非管理员用户想要配置数据连接，需要管理员给其分配管理系统下数据连接节点的权限，具体操作请查看 [数据连接权限](<https://help.fanruan.com/finebi6.0/doc-view-488.html?source=4>)
+![](/core/style/lod.png)
+![](/core/style/lod.png)
+2）找到 clickhouse 图标，如下图所示：
+![](/core/style/lod.png)
+3）驱动切换为「自定义」选择 2.1 节上传的驱动，然后输入 2.2 节的连接信息。
+点击「点击连接数据库」连接成功后，便可以选择模式，如下图所示：
+注：若用户使用的是 5.1.19 之前的版本，用户需要手动更改驱动的名字为 cc.blynk.clickhouse.ClickHouseDriver
+![](/core/style/lod.png)  
+
+注：用户可以选择性修改高级设置，详细请参见 [配置数据连接](<https://help.fanruan.com/finebi6.0/doc-view-94.html>) 4.3 节
+4）点击「保存」保存该数据连接。
+## 4\. 注意事项
+若连接时出现报错ClickHouse response without column names，用户可以在 URL 后加上后缀?compress=false，如下图所示：
+![](/core/style/lod.png)
+## 5\. 添加数据库的表至 FineBI 
+有两种方式可以将数据库中的表添加至 FineBI ：
+  * [添加数据库表](<https://help.fanruan.com/finebi6.0/doc-view-887.html?source=4>)
+  * [添加SQL数据集](<https://help.fanruan.com/finebi6.0/doc-view-890.html>)
+
+
+![](/core/style/lod.png)
+### 附件列表 
+  
+下载次数：：0
+    
+**主题：** [数据管理](<category-view-285>)
+[![](/core/style/back.png)上一篇：Apache Phoenix数据连接](<index.php?doc-view-294.html>)
+[下一篇：Microsoft SQL Server数据连接 ![](/core/style/forward.png) ](<index.php?doc-view-100.html>)
+  * 有帮助
+  * 没帮助
+  * 只是浏览
+
+
+[中文（繁體）](<https://help.fanruan.com/finebi-tw/>) [English](<https://help.fanruan.com/finebi-en/>) [日本語](<https://help.fanruan.com/finebi-jp/>)
+中文（简体）
+
+
+__
+[](<javascript:void\(0\)>)
+提交页面反馈
+仅适用于当前网页的意见收集，帆软产品问题请在 [问答板块提问](<https://bbs.fanruan.com/wenda>) 或 [前往服务平台](<https://service.fanruan.com/>) 获取技术支持 

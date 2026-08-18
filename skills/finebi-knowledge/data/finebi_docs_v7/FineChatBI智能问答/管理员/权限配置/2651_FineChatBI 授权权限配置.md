@@ -1,0 +1,123 @@
+---
+title: FineChatBI 授权权限配置
+doc_id: 2651
+url: https://help.fanruan.com/finebi/doc-view-2651.html
+source: FineBI 7.X 帮助文档
+crawled_at: 2026-07-16 17:25:32
+version: "7.X"
+---
+
+> 1. 概述1.1 版本FineChatBI 版本功能简介V3.26.0支持授权预加载数据1.2 应用场景用户拥有授权权限后，在FineBI系统「管理系统&gt;权限管理」中，可将该智能问答的相关权限分配
+
+![](./view/finebi70_2025/images/info_fill.png) 您正在浏览的是 FineBI7.X 帮助文档，点击跳转至： [FineBI6.X帮助文档](<https://help.fanruan.com/finebi6.X/>)
+# FineChatBI 授权权限配置
+[__](<doc-edit-2651.html>)
+对此内容反馈
+* _
+__
+  * 使用此篇文档遇到问题，可寻求帆软技术支持协助定位原因，若为帆软产品本身缺陷则对应给出解决方案。  
+详情：[《帆软技术支持基础服务范围》](<https://bbs.fanruan.com/thread-135893-1-1.html>)
+
+
+产品级协助_
+* * 文档创建者： _[Lily.Wang](<user-space-337243.html>)_
+* 历史版本：[8](<edition-list-2651.html>)
+* 最近更新：[Lily.Wang](<user-space-337243.html>) 于 2026-02-27 
+[](<javascript:;>) [](<javascript:>)
+## 1\. 概述
+### 1.1 版本
+FineChatBI 版本  
+| 功能简介  
+---|---  
+V3.26.0  
+| 支持授权预加载数据  
+### 1.2 应用场景
+用户拥有授权权限后，在FineBI系统「管理系统>权限管理」中，可将该智能问答的相关权限分配给可管理的用户。
+示例  
+| 示例场景| 配置方法  
+---|---|---  
+智能问答授权| 让 echo 可以给部门「销售部」分配「智能问答」的使用权限| 1）开启分级授权2）配置智能问答的授权权限3）配置人员管理的授权权限4）配置「管理系统>权限管理」的使用权限  
+智能问答配置授权| 让 echo 可以给部门「销售部」分配「智能问答配置」的使用权限| 1）开启分级授权2）配置智能问答配置的授权权限3）配置人员管理的授权权限4）配置「管理系统>权限管理」的使用权限  
+预加载数据授权| 让 echo 可以给部门「销售部」分配「预加载数据」的使用权限| 1）开启分级授权2）配置预加载数据的授权权限3）配置人员管理的授权权限4）配置「管理系统>权限管理」的使用权限  
+## 2\. 智能问答授权
+示例场景：给予 echo 智能问答的授权权限，让 echo 可以给部门「销售部」分配「智能问答」的使用权限。
+### 2.1 开启分级授权
+超级管理员登录FineBI系统，点击「管理系统>权限管理>全局设置」，开启「分级授权」按钮，点击「保存」。如下图所示：
+![](https://help.fanruan.com/core/style/lod.png)
+### 2.2 分配智能问答的授权权限
+管理员登录 FineBI 系统，点击「管理系统>权限管理>授权权限配置」，选择权限载体「部门/角色/用户」，这里载体选择用户 echo。
+选择「管理系统」，为 echo 分配智能问答的授权权限，如下图所示：
+![](https://help.fanruan.com/core/style/lod.png)  
+
+### 2.3 配置人员管理授权权限
+管理员登录 FineBI 系统，点击「管理系统>权限管理>授权权限配置」，选择权限载体「部门/角色/用户」，这里载体选择用户 echo。
+选择「人员管理」，为 echo 分配部门「销售部」的授权权限，如下图所示：
+![](https://help.fanruan.com/core/style/lod.png)  
+
+### 2.4 配置管理系统使用权限
+管理员登录 FineBI 系统，点击「管理系统>权限管理>普通权限配置」，选择权限载体「部门/角色/用户」，这里载体选择用户 echo。
+选择「管理系统」，为 echo 配置模块「权限管理」的「使用」权限，如下图所示：
+![](https://help.fanruan.com/core/style/lod.png)
+### 2.5 效果查看
+echo 登录 FineBI 工程，点击「管理系统>权限管理>普通权限配置」，可给部门「销售部」分配「智能问答」的使用权限。如下图所示：
+![](https://help.fanruan.com/core/style/lod.png)
+## 3\. 智能问答配置授权
+示例场景：给予 echo 智能问答配置的授权权限，让 echo 可以给部门「销售部」分配「智能问答配置」的使用权限。
+### 3.1 开启分级授权
+超级管理员登录 FineBI 系统，点击「管理系统>权限管理>全局设置」，开启「分级授权」和「数据连接控制」按钮，点击「保存」。如下图所示：
+![](https://help.fanruan.com/core/style/lod.png)
+### 3.2 分配智能问答配置的授权权限
+管理员登录 FineBI 系统，点击「管理系统>权限管理>授权权限配置」，选择权限载体「部门/角色/用户」，这里选择用户 echo 。
+选择「管理系统」，为 echo 分配智能问答配置的授权权限，如下图所示：
+![](https://help.fanruan.com/core/style/lod.png)
+### 3.3 配置人员管理授权权限
+管理员登录 FineBI 系统，点击「管理系统>权限管理>授权权限配置」，选择权限载体「部门/角色/用户」，这里选择用户 echo。
+选择「人员管理」，为 echo 分配部门「销售部」的授权权限，如下图所示：
+![](https://help.fanruan.com/core/style/lod.png)
+### 3.4 配置管理系统使用权限
+管理员登录 FineBI 系统，点击「管理系统>权限管理>普通权限配置」，选择权限载体「部门/角色/用户」。
+选择「管理系统」Tab，为 echo 配置模块「权限管理」的「使用」权限，如下图所示：
+![](https://help.fanruan.com/core/style/lod.png)
+### 3.5 效果查看
+echo 登录 FineBI 工程，点击「管理系统>权限管理>普通权限配置」，可给部门「销售部」分配「智能问答配置」的使用权限。如下图所示：
+![](https://help.fanruan.com/core/style/lod.png)
+## 4\. 预加载数据授权
+示例场景：给予 echo 预加载数据的授权权限，让 echo 可以给部门「销售部」分配「预加载数据」的使用权限。
+### 4.1 开启分级授权
+超级管理员登录 FineBI 系统，点击「管理系统>权限管理>全局设置」，开启「分级授权」按钮，点击「保存」。如下图所示：
+![](https://help.fanruan.com/core/style/lod.png)
+### 4.2 分配预加载数据的授权
+管理员登录 FineBI 系统，点击「管理系统>权限管理>授权权限配置」，选择权限载体「部门/角色/用户」，这里选择用户 echo 。
+选择「管理系统」，为 echo 分配预加载数据「连锁经营分析」的授权权限，如下图所示：
+![](https://help.fanruan.com/core/style/lod.png)
+### 4.3 配置人员管理授权权限
+管理员登录 FineBI 系统，点击「管理系统>权限管理>授权权限配置」，选择权限载体「部门/角色/用户」，这里选择用户 echo。
+选择「人员管理」，为 echo 分配部门「销售部」的授权权限，如下图所示：
+![](https://help.fanruan.com/core/style/lod.png)
+### 4.4 配置管理系统使用权限
+管理员登录 FineBI 系统，点击「管理系统>权限管理>普通权限配置」，选择权限载体「部门/角色/用户」。
+选择「管理系统」Tab，为 echo 配置模块「权限管理」的「使用」权限，如下图所示：
+![](https://help.fanruan.com/core/style/lod.png)
+### 4.5 效果查看
+echo 登录 FineBI 工程，点击「管理系统>权限管理>普通权限配置」，可给部门「销售部」分配「连锁经营分析」的问答权限。如下图所示：
+![](https://help.fanruan.com/core/style/lod.png)
+### 附件列表 
+  
+下载次数：：0
+    
+**主题：** [FineChatBI智能问答](<category-view-763>)
+[![](https://help.fanruan.com/core/style/back.png)上一篇：FineChatBI 使用权限配置](<index.php?doc-view-2590.html>)
+[下一篇：数据管理简介 ![](https://help.fanruan.com/core/style/forward.png) ](<index.php?doc-view-2357.html>)
+  * 有帮助
+  * 没帮助
+  * 只是浏览
+
+
+[中文（繁體）](<https://help.fanruan.com/finebi-tw/>) [English](<https://help.fanruan.com/finebi-en/>) [日本語](<https://help.fanruan.com/finebi-jp/>)
+中文（简体）
+
+
+__
+[](<javascript:void\(0\)>)
+提交页面反馈
+仅适用于当前网页的意见收集，帆软产品问题请在 [问答板块提问](<https://bbs.fanruan.com/wenda>) 或 [前往服务平台](<https://service.fanruan.com/>) 获取技术支持 

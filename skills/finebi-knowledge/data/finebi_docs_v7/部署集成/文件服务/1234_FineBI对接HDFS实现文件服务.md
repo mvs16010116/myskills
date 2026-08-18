@@ -1,0 +1,115 @@
+---
+title: FineBI对接HDFS实现文件服务
+doc_id: 1234
+url: https://help.fanruan.com/finebi/doc-view-1234.html
+source: FineBI 7.X 帮助文档
+crawled_at: 2026-07-16 17:30:41
+version: "7.X"
+---
+
+> 1.&nbsp;概述1.1&nbsp;版本FineBI 版本JAR&nbsp;包&nbsp; HDFS 资源仓库插件新增功能5.02019-01-18&nbsp; V1.1-5.1.92021-01-0
+
+![](./view/finebi70_2025/images/info_fill.png) 您正在浏览的是 FineBI7.X 帮助文档，点击跳转至： [FineBI6.X帮助文档](<https://help.fanruan.com/finebi6.X/>)
+# FineBI对接HDFS实现文件服务
+[__](<doc-edit-1234.html>)
+对此内容反馈
+* _
+__
+  * 此方案由番薯贡献。  
+若完全参照文档中场景与步骤操作，出现问题可咨询帆软技术支持团队，提供服务范围内的指导。（注：文档场景可能无法兼容所有客户场景）  
+其他情况，可到帆软社区提问（问题响应快，解决率超80%），[立即提问](<https://bbs.fanruan.com/wenda>)。  
+详情：[《关于帆软社区提问的相关说明》](<https://bbs.fanruan.com/thread-117166-1-1.html>)  
+技术支持服务范围详见：[《帆软技术支持基础服务范围》](<https://bbs.fanruan.com/thread-135893-1-1.html>)
+
+
+社区级协助_
+* * 文档创建者： _[Wendy123456](<user-space-240644.html>)_
+* 历史版本：[11](<edition-list-1234.html>)
+* 最近更新：[Carly](<user-space-222366.html>) 于 2026-01-14 
+[](<javascript:;>) [](<javascript:>)
+## 1\. 概述
+### 1.1 版本
+FineBI 版本| JAR 包|  HDFS 资源仓库插件| 新增功能  
+---|---|---|---  
+5.0| 2019-01-18|  V1.1| -  
+5.1.9| 2021-01-06| V1.14  
+| 新增 HA HDFS 协议，可配置多个节点，实现高可用  
+### 1.2 应用场景
+  * 用户实际环境中已有文件系统 HDFS ，配置集群时可下载「 HDFS 资源仓库」插件，设置文件服务器为 HDFS 。
+  * 用户希望 HDFS 文件服务器实现高可用，一个节点宕机后，文件服务器仍能使用，可将 FineBI 版本升级到 5.1.9 及之后，安装 V1.14.及之后的 HDFS 插件实现。
+
+
+### 1.3 功能简介
+帆软工程支持接入 Hadoop 分布式 HDFS 文件系统。「 HDFS 资源仓库」插件用于支持使用 HDFS 作为文件服务器，保证模板等资源文件分布式存储，实现高可用。插件介绍如下所示：
+  * 插件支持单机和 Web 集群环境下的使用。
+  * 用于存放模板、日志、图片、地图数据等资源文件。
+  * 具备高吞吐量、高容错性，适用于需要更高并发和系统可用性的系统服务器使用。
+  * 具备高可用性，一个节点宕机后，文件服务器仍能使用。
+
+
+注：该插件仅支持 3.1 版本的 HDFS 文件系统。
+## 2\. 操作步骤
+### 2.1 安装插件
+插件下载请点击：[HDFS 资源仓库插件](<https://market.fanruan.com/plugin/0fe643d4-d9db-4102-bae8-151b7aca2a30>)
+插件安装方法请参见：[插件管理](<https://help.fanruan.com/finebi7.0/doc-view-459.html>) [](<https://help.fanruan.com/finereport/doc-view-2220.html>)
+### 2.2 集群环境准备
+  * 在进行 HDFS 文件服务器配置之前请准备集群环境，具体可参见： [Web集群环境准备](<https://help.fanruan.com/finebi7.0/doc-view-1574.html>)
+  * 如果开启了 [Kerberos 认证](<https://help.fanruan.com/finebi7.0/doc-view-282.html>)，需要拷贝 krb5.conf 文件和 keyTab 文件到各个节点的同一位置
+
+
+### 2.3 配置 HDFS 文件服务器
+1）将主节点工程的%BI_HOME%\webapps\webroot\WEB-INF文件夹拷贝到文件服务器中，拷贝后 WEB-INF 所在文件夹需要赋予权限，Linux 系统中为 777 权限。
+2）管理员进入数据决策系统，点击「管理系统>智能运维>集群配置>文件服务共享」，如下图所示：
+![1611545422542230.png](https://help.fanruan.com/core/style/lod.png)
+#### 2.3.1 HDFS协议
+选择 HDFS 协议的配置界面如下图所示：  
+
+![9.png](https://help.fanruan.com/core/style/lod.png)
+各设置项介绍如下表所示：  
+
+字段 | 值 |  描述|  是否必要  
+---|---|---|---  
+主机| HDFS 的访问主机| 一般是 Hadoop 的访问主机| 是  
+端口| HDFS 的数据端口| 默认为 9000| 是  
+Principal| Kerberos 认证的用户|  一般格式为[primary]/[instance]@[REALM]| 是  
+kerberos配置文件| Kerberos 的配置文件| krb5.conf 文件路径| 开启 Kerberos 认证时需要  
+keyTab| keyTab 文件| 一般是 hdfs.keytab 的文件路径| 开启 Kerberos 认证时需要  
+路径| HDFS 中的资源文件目录 |  注：不是机器的文件路径| 是  
+#### 2.3.2 HA HDFS 协议
+选择 HA HDFS 协议的配置界面如下图所示：
+![4.png](https://help.fanruan.com/core/style/lod.png)
+各设置项介绍如下表所示：
+注：协议选择 HA HDFS 时，至少配置 2 个节点。
+字段 | 值 |  描述|  是否必要  
+---|---|---|---  
+主机| HDFS 的访问主机| 一般是 Hadoop 的访问主机| 是  
+端口| HDFS 的数据端口| 默认为 8020  
+| 是  
+Principal| Kerberos 认证的用户|  一般格式为[primary]/[instance]@[REALM]| 是  
+kerberos配置文件| Kerberos 的配置文件| krb5.conf 文件路径| 开启 Kerberos 认证时需要  
+keyTab| keyTab 文件|  一般是 hdfs.keytab 的文件路径| 开启 Kerberos 认证时需要  
+路径| HDFS 中的资源文件目录 | 注：不是机器的文件路径| 是  
+### 2.4 测试连接并保存
+点击「测试连接并保存」，提示连接成功，如下图所示：
+![8.png](https://help.fanruan.com/core/style/lod.png)
+注：配置集群的后续步骤请参见：[平台集群配置](<https://help.fanruan.com/finebi7.0/doc-view-436.html>)
+### 附件列表 
+  
+下载次数：：0
+    
+**主题：** [部署集成](<category-view-101>)
+[![](https://help.fanruan.com/core/style/back.png)上一篇：FineBI对接FTP实现文件服务](<index.php?doc-view-1564.html>)
+[下一篇：安全漏洞声明 ![](https://help.fanruan.com/core/style/forward.png) ](<index.php?doc-view-1868.html>)
+  * 有帮助
+  * 没帮助
+  * 只是浏览
+
+
+[中文（繁體）](<https://help.fanruan.com/finebi-tw/>) [English](<https://help.fanruan.com/finebi-en/>) [日本語](<https://help.fanruan.com/finebi-jp/>)
+中文（简体）
+
+
+__
+[](<javascript:void\(0\)>)
+提交页面反馈
+仅适用于当前网页的意见收集，帆软产品问题请在 [问答板块提问](<https://bbs.fanruan.com/wenda>) 或 [前往服务平台](<https://service.fanruan.com/>) 获取技术支持 

@@ -1,0 +1,197 @@
+2026-07-16 18:28:12,953 [INFO] ============================================================
+2026-07-16 18:28:12,954 [INFO] FineBI RAG 索引构建器 - 启动
+2026-07-16 18:28:12,954 [INFO] 文档目录: ['C:\\Users\\user\\.trae-cn\\skills\\finebi-knowledge\\data\\finebi_docs', 'C:\\Users\\user\\.trae-cn\\skills\\finebi-knowledge\\data\\finebi_docs_v7']
+2026-07-16 18:28:12,954 [INFO] 索引目录: C:\Users\user\.trae-cn\skills\finebi-knowledge\data\chroma_db
+2026-07-16 18:28:12,954 [INFO] ============================================================
+2026-07-16 18:28:12,954 [INFO] [1/4] 扫描文档...
+2026-07-16 18:28:13,071 [INFO]     找到 2632 个文档
+2026-07-16 18:28:13,072 [INFO] [2/4] 分割文档为 chunks...
+2026-07-16 18:28:14,000 [INFO]     共生成 18317 个 chunks
+2026-07-16 18:28:14,001 [INFO] [3/4] 创建 ChromaDB 集合...
+2026-07-16 18:28:16,125 [INFO]     已删除旧集合
+2026-07-16 18:28:24,582 [INFO] No device provided, using cpu
+2026-07-16 18:28:25,318 [INFO] HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-16 18:28:25,318 [WARNING] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-07-16 18:28:25,476 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/modules.json "HTTP/1.1 200 OK"
+2026-07-16 18:28:25,708 [INFO] HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/config_sentence_transformers.json "HTTP/1.1 404 Not Found"
+2026-07-16 18:28:25,710 [INFO] Loading SentenceTransformer model from shibing624/text2vec-base-chinese.
+2026-07-16 18:28:25,936 [INFO] HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/config_sentence_transformers.json "HTTP/1.1 404 Not Found"
+2026-07-16 18:28:26,172 [INFO] HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-07-16 18:28:26,331 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/README.md "HTTP/1.1 200 OK"
+2026-07-16 18:28:26,560 [INFO] HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-16 18:28:26,717 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/modules.json "HTTP/1.1 200 OK"
+2026-07-16 18:28:26,953 [INFO] HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-16 18:28:27,111 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-07-16 18:28:27,337 [INFO] HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-07-16 18:28:27,563 [INFO] HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-16 18:28:27,721 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/config.json "HTTP/1.1 200 OK"
+2026-07-16 18:28:28,120 [INFO] HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-07-16 18:28:28,350 [INFO] HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-07-16 18:28:28,580 [INFO] HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-07-16 18:28:28,810 [INFO] HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-07-16 18:28:29,036 [INFO] HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-16 18:28:29,193 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-07-16 18:28:29,424 [INFO] HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-16 18:28:29,583 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/config.json "HTTP/1.1 200 OK"
+2026-07-16 18:28:29,813 [INFO] HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-16 18:28:29,971 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/config.json "HTTP/1.1 200 OK"
+2026-07-16 18:28:30,200 [INFO] HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-16 18:28:30,359 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-07-16 18:28:30,596 [INFO] HTTP Request: GET https://huggingface.co/api/models/shibing624/text2vec-base-chinese/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-07-16 18:28:30,828 [INFO] HTTP Request: GET https://huggingface.co/api/models/shibing624/text2vec-base-chinese/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-07-16 18:28:31,072 [INFO] HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-16 18:28:31,231 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-07-16 18:28:31,460 [INFO] HTTP Request: GET https://huggingface.co/api/models/shibing624/text2vec-base-chinese "HTTP/1.1 200 OK"
+2026-07-16 18:28:31,473 [INFO] [4/4] 预编码所有 chunks（共 18317 条，使用 text2vec-base-chinese）...
+2026-07-16 18:49:32,882 [INFO]     编码完成，维度: 768
+2026-07-16 18:49:32,883 [INFO]     写入 ChromaDB 索引...
+2026-07-16 18:49:33,054 [INFO]     已写入 128/18317
+2026-07-16 18:49:33,287 [INFO]     已写入 256/18317
+2026-07-16 18:49:33,610 [INFO]     已写入 384/18317
+2026-07-16 18:49:34,027 [INFO]     已写入 512/18317
+2026-07-16 18:49:34,368 [INFO]     已写入 640/18317
+2026-07-16 18:49:34,588 [INFO]     已写入 768/18317
+2026-07-16 18:49:34,855 [INFO]     已写入 896/18317
+2026-07-16 18:49:35,149 [INFO]     已写入 1024/18317
+2026-07-16 18:49:35,278 [INFO]     已写入 1152/18317
+2026-07-16 18:49:35,435 [INFO]     已写入 1280/18317
+2026-07-16 18:49:35,612 [INFO]     已写入 1408/18317
+2026-07-16 18:49:35,817 [INFO]     已写入 1536/18317
+2026-07-16 18:49:36,110 [INFO]     已写入 1664/18317
+2026-07-16 18:49:36,341 [INFO]     已写入 1792/18317
+2026-07-16 18:49:36,662 [INFO]     已写入 1920/18317
+2026-07-16 18:49:36,961 [INFO]     已写入 2048/18317
+2026-07-16 18:49:37,095 [INFO]     已写入 2176/18317
+2026-07-16 18:49:37,255 [INFO]     已写入 2304/18317
+2026-07-16 18:49:37,445 [INFO]     已写入 2432/18317
+2026-07-16 18:49:37,644 [INFO]     已写入 2560/18317
+2026-07-16 18:49:37,872 [INFO]     已写入 2688/18317
+2026-07-16 18:49:38,092 [INFO]     已写入 2816/18317
+2026-07-16 18:49:38,312 [INFO]     已写入 2944/18317
+2026-07-16 18:49:38,658 [INFO]     已写入 3072/18317
+2026-07-16 18:49:38,796 [INFO]     已写入 3200/18317
+2026-07-16 18:49:38,954 [INFO]     已写入 3328/18317
+2026-07-16 18:49:39,105 [INFO]     已写入 3456/18317
+2026-07-16 18:49:39,272 [INFO]     已写入 3584/18317
+2026-07-16 18:49:39,486 [INFO]     已写入 3712/18317
+2026-07-16 18:49:39,720 [INFO]     已写入 3840/18317
+2026-07-16 18:49:39,969 [INFO]     已写入 3968/18317
+2026-07-16 18:49:40,272 [INFO]     已写入 4096/18317
+2026-07-16 18:49:40,406 [INFO]     已写入 4224/18317
+2026-07-16 18:49:40,545 [INFO]     已写入 4352/18317
+2026-07-16 18:49:40,836 [INFO]     已写入 4480/18317
+2026-07-16 18:49:41,220 [INFO]     已写入 4608/18317
+2026-07-16 18:49:41,543 [INFO]     已写入 4736/18317
+2026-07-16 18:49:41,767 [INFO]     已写入 4864/18317
+2026-07-16 18:49:42,015 [INFO]     已写入 4992/18317
+2026-07-16 18:49:42,324 [INFO]     已写入 5120/18317
+2026-07-16 18:49:42,465 [INFO]     已写入 5248/18317
+2026-07-16 18:49:42,617 [INFO]     已写入 5376/18317
+2026-07-16 18:49:42,805 [INFO]     已写入 5504/18317
+2026-07-16 18:49:43,010 [INFO]     已写入 5632/18317
+2026-07-16 18:49:43,230 [INFO]     已写入 5760/18317
+2026-07-16 18:49:43,540 [INFO]     已写入 5888/18317
+2026-07-16 18:49:43,799 [INFO]     已写入 6016/18317
+2026-07-16 18:49:44,114 [INFO]     已写入 6144/18317
+2026-07-16 18:49:44,252 [INFO]     已写入 6272/18317
+2026-07-16 18:49:44,399 [INFO]     已写入 6400/18317
+2026-07-16 18:49:44,573 [INFO]     已写入 6528/18317
+2026-07-16 18:49:44,744 [INFO]     已写入 6656/18317
+2026-07-16 18:49:44,916 [INFO]     已写入 6784/18317
+2026-07-16 18:49:45,111 [INFO]     已写入 6912/18317
+2026-07-16 18:49:45,383 [INFO]     已写入 7040/18317
+2026-07-16 18:49:45,677 [INFO]     已写入 7168/18317
+2026-07-16 18:49:45,814 [INFO]     已写入 7296/18317
+2026-07-16 18:49:45,956 [INFO]     已写入 7424/18317
+2026-07-16 18:49:46,115 [INFO]     已写入 7552/18317
+2026-07-16 18:49:46,316 [INFO]     已写入 7680/18317
+2026-07-16 18:49:46,503 [INFO]     已写入 7808/18317
+2026-07-16 18:49:46,720 [INFO]     已写入 7936/18317
+2026-07-16 18:49:46,966 [INFO]     已写入 8064/18317
+2026-07-16 18:49:47,328 [INFO]     已写入 8192/18317
+2026-07-16 18:49:47,475 [INFO]     已写入 8320/18317
+2026-07-16 18:49:47,616 [INFO]     已写入 8448/18317
+2026-07-16 18:49:47,758 [INFO]     已写入 8576/18317
+2026-07-16 18:49:47,956 [INFO]     已写入 8704/18317
+2026-07-16 18:49:48,137 [INFO]     已写入 8832/18317
+2026-07-16 18:49:48,336 [INFO]     已写入 8960/18317
+2026-07-16 18:49:48,556 [INFO]     已写入 9088/18317
+2026-07-16 18:49:48,855 [INFO]     已写入 9216/18317
+2026-07-16 18:49:48,974 [INFO]     已写入 9344/18317
+2026-07-16 18:49:49,234 [INFO]     已写入 9472/18317
+2026-07-16 18:49:49,477 [INFO]     已写入 9600/18317
+2026-07-16 18:49:49,764 [INFO]     已写入 9728/18317
+2026-07-16 18:49:49,991 [INFO]     已写入 9856/18317
+2026-07-16 18:49:50,227 [INFO]     已写入 9984/18317
+2026-07-16 18:49:50,469 [INFO]     已写入 10112/18317
+2026-07-16 18:49:50,800 [INFO]     已写入 10240/18317
+2026-07-16 18:49:50,950 [INFO]     已写入 10368/18317
+2026-07-16 18:49:51,109 [INFO]     已写入 10496/18317
+2026-07-16 18:49:51,288 [INFO]     已写入 10624/18317
+2026-07-16 18:49:51,554 [INFO]     已写入 10752/18317
+2026-07-16 18:49:51,782 [INFO]     已写入 10880/18317
+2026-07-16 18:49:52,008 [INFO]     已写入 11008/18317
+2026-07-16 18:49:52,276 [INFO]     已写入 11136/18317
+2026-07-16 18:49:52,601 [INFO]     已写入 11264/18317
+2026-07-16 18:49:52,748 [INFO]     已写入 11392/18317
+2026-07-16 18:49:52,903 [INFO]     已写入 11520/18317
+2026-07-16 18:49:53,117 [INFO]     已写入 11648/18317
+2026-07-16 18:49:53,340 [INFO]     已写入 11776/18317
+2026-07-16 18:49:53,584 [INFO]     已写入 11904/18317
+2026-07-16 18:49:53,826 [INFO]     已写入 12032/18317
+2026-07-16 18:49:54,155 [INFO]     已写入 12160/18317
+2026-07-16 18:49:54,485 [INFO]     已写入 12288/18317
+2026-07-16 18:49:54,643 [INFO]     已写入 12416/18317
+2026-07-16 18:49:54,792 [INFO]     已写入 12544/18317
+2026-07-16 18:49:54,953 [INFO]     已写入 12672/18317
+2026-07-16 18:49:55,137 [INFO]     已写入 12800/18317
+2026-07-16 18:49:55,329 [INFO]     已写入 12928/18317
+2026-07-16 18:49:55,540 [INFO]     已写入 13056/18317
+2026-07-16 18:49:55,793 [INFO]     已写入 13184/18317
+2026-07-16 18:49:56,134 [INFO]     已写入 13312/18317
+2026-07-16 18:49:56,264 [INFO]     已写入 13440/18317
+2026-07-16 18:49:56,487 [INFO]     已写入 13568/18317
+2026-07-16 18:49:56,656 [INFO]     已写入 13696/18317
+2026-07-16 18:49:56,837 [INFO]     已写入 13824/18317
+2026-07-16 18:49:57,073 [INFO]     已写入 13952/18317
+2026-07-16 18:49:57,292 [INFO]     已写入 14080/18317
+2026-07-16 18:49:57,552 [INFO]     已写入 14208/18317
+2026-07-16 18:49:57,887 [INFO]     已写入 14336/18317
+2026-07-16 18:49:58,032 [INFO]     已写入 14464/18317
+2026-07-16 18:49:58,184 [INFO]     已写入 14592/18317
+2026-07-16 18:49:58,357 [INFO]     已写入 14720/18317
+2026-07-16 18:49:58,584 [INFO]     已写入 14848/18317
+2026-07-16 18:49:58,909 [INFO]     已写入 14976/18317
+2026-07-16 18:49:59,272 [INFO]     已写入 15104/18317
+2026-07-16 18:49:59,595 [INFO]     已写入 15232/18317
+2026-07-16 18:49:59,929 [INFO]     已写入 15360/18317
+2026-07-16 18:50:00,067 [INFO]     已写入 15488/18317
+2026-07-16 18:50:00,213 [INFO]     已写入 15616/18317
+2026-07-16 18:50:00,384 [INFO]     已写入 15744/18317
+2026-07-16 18:50:00,591 [INFO]     已写入 15872/18317
+2026-07-16 18:50:00,796 [INFO]     已写入 16000/18317
+2026-07-16 18:50:01,046 [INFO]     已写入 16128/18317
+2026-07-16 18:50:01,309 [INFO]     已写入 16256/18317
+2026-07-16 18:50:01,615 [INFO]     已写入 16384/18317
+2026-07-16 18:50:01,759 [INFO]     已写入 16512/18317
+2026-07-16 18:50:01,892 [INFO]     已写入 16640/18317
+2026-07-16 18:50:02,058 [INFO]     已写入 16768/18317
+2026-07-16 18:50:02,265 [INFO]     已写入 16896/18317
+2026-07-16 18:50:02,474 [INFO]     已写入 17024/18317
+2026-07-16 18:50:02,701 [INFO]     已写入 17152/18317
+2026-07-16 18:50:02,956 [INFO]     已写入 17280/18317
+2026-07-16 18:50:03,245 [INFO]     已写入 17408/18317
+2026-07-16 18:50:03,441 [INFO]     已写入 17536/18317
+2026-07-16 18:50:03,618 [INFO]     已写入 17664/18317
+2026-07-16 18:50:03,802 [INFO]     已写入 17792/18317
+2026-07-16 18:50:03,977 [INFO]     已写入 17920/18317
+2026-07-16 18:50:04,164 [INFO]     已写入 18048/18317
+2026-07-16 18:50:04,387 [INFO]     已写入 18176/18317
+2026-07-16 18:50:04,586 [INFO]     已写入 18304/18317
+2026-07-16 18:50:04,720 [INFO]     已写入 18317/18317
+2026-07-16 18:50:04,720 [INFO] ============================================================
+2026-07-16 18:50:04,720 [INFO] 索引构建完成!
+2026-07-16 18:50:04,720 [INFO] 总计: 18317 个 chunks | 2632 个文档
+2026-07-16 18:50:04,720 [INFO] 集合: finebi_docs
+2026-07-16 18:50:04,721 [INFO] 存储: C:\Users\user\.trae-cn\skills\finebi-knowledge\data\chroma_db
+2026-07-16 18:50:04,721 [INFO] ============================================================

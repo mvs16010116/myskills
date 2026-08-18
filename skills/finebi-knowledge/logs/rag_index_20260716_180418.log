@@ -1,0 +1,5 @@
+2026-07-16 18:04:18,656 [DEBUG] Building prefix dict from the default dictionary ...
+2026-07-16 18:04:18,658 [DEBUG] Loading model from cache C:\Users\user\AppData\Local\Temp\jieba.cache
+2026-07-16 18:04:19,365 [DEBUG] Loading model cost 0.708 seconds.
+2026-07-16 18:04:19,375 [DEBUG] Prefix dict has been built successfully.
+2026-07-16 18:04:19,382 [INFO] 搜索: '修改维度名称' 关键词: ['维度', '名称']

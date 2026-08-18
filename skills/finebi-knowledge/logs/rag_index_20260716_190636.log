@@ -1,0 +1,59 @@
+2026-07-16 19:06:44,019 [INFO] No device provided, using cpu
+2026-07-16 19:06:44,568 [INFO] HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-16 19:06:44,568 [WARNING] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-07-16 19:06:44,725 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/modules.json "HTTP/1.1 200 OK"
+2026-07-16 19:06:44,955 [INFO] HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/config_sentence_transformers.json "HTTP/1.1 404 Not Found"
+2026-07-16 19:06:44,955 [INFO] Loading SentenceTransformer model from shibing624/text2vec-base-chinese.
+2026-07-16 19:06:45,183 [INFO] HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/config_sentence_transformers.json "HTTP/1.1 404 Not Found"
+2026-07-16 19:06:45,411 [INFO] HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-07-16 19:06:45,568 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/README.md "HTTP/1.1 200 OK"
+2026-07-16 19:06:45,793 [INFO] HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-16 19:06:45,951 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/modules.json "HTTP/1.1 200 OK"
+2026-07-16 19:06:46,178 [INFO] HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-16 19:06:46,336 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-07-16 19:06:46,568 [INFO] HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-07-16 19:06:46,798 [INFO] HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-16 19:06:46,957 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/config.json "HTTP/1.1 200 OK"
+2026-07-16 19:06:47,327 [INFO] HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-07-16 19:06:47,558 [INFO] HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-07-16 19:06:47,785 [INFO] HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-07-16 19:06:48,016 [INFO] HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-07-16 19:06:48,244 [INFO] HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-16 19:06:48,401 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-07-16 19:06:48,631 [INFO] HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-16 19:06:48,788 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/config.json "HTTP/1.1 200 OK"
+2026-07-16 19:06:49,019 [INFO] HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-16 19:06:49,176 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/config.json "HTTP/1.1 200 OK"
+2026-07-16 19:06:49,406 [INFO] HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-16 19:06:49,565 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-07-16 19:06:49,798 [INFO] HTTP Request: GET https://huggingface.co/api/models/shibing624/text2vec-base-chinese/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-07-16 19:06:50,028 [INFO] HTTP Request: GET https://huggingface.co/api/models/shibing624/text2vec-base-chinese/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-07-16 19:06:50,267 [INFO] HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-16 19:06:50,424 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-07-16 19:06:50,667 [INFO] HTTP Request: GET https://huggingface.co/api/models/shibing624/text2vec-base-chinese "HTTP/1.1 200 OK"
+2026-07-16 19:06:50,792 [DEBUG] Building prefix dict from the default dictionary ...
+2026-07-16 19:06:50,793 [DEBUG] Loading model from cache C:\Users\user\AppData\Local\Temp\jieba.cache
+2026-07-16 19:06:51,423 [DEBUG] Loading model cost 0.630 seconds.
+2026-07-16 19:06:51,423 [DEBUG] Prefix dict has been built successfully.
+2026-07-16 19:06:51,423 [INFO] 搜索: '如何创建仪表板' 关键词: ['仪表板']
+2026-07-16 19:06:52,447 [INFO] 搜索: '如何添加图表' 关键词: ['添加', '图表']
+2026-07-16 19:06:53,165 [INFO] 搜索: '格式刷怎么用' 关键词: ['格式']
+2026-07-16 19:06:53,800 [INFO] 搜索: 'DEF函数用法' 关键词: ['DEF', '函数', '用法']
+2026-07-16 19:06:54,451 [INFO] 搜索: 'SUM_AG函数' 关键词: ['SUM_AG', '函数']
+2026-07-16 19:06:55,091 [INFO] 搜索: '如何创建KPI指标卡' 关键词: ['KPI', '指标']
+2026-07-16 19:06:55,778 [INFO] 搜索: '如何制作地图' 关键词: ['制作', '地图']
+2026-07-16 19:06:56,415 [INFO] 搜索: 'Excel数据导入' 关键词: ['Excel', '数据', '导入']
+2026-07-16 19:06:57,469 [INFO] 搜索: '如何连接数据库' 关键词: ['连接', '数据库']
+2026-07-16 19:06:58,214 [INFO] 搜索: '如何创建数据集' 关键词: ['数据集']
+2026-07-16 19:06:58,861 [INFO] 搜索: '如何创建自助数据集' 关键词: ['自助数据集']
+2026-07-16 19:06:59,453 [INFO] 搜索: '如何配置用户权限' 关键词: ['用户', '权限']
+2026-07-16 19:07:00,227 [INFO] 搜索: '如何设置数据权限' 关键词: ['数据权限']
+2026-07-16 19:07:00,815 [INFO] 搜索: '如何计算环比' 关键词: ['环比']
+2026-07-16 19:07:01,398 [INFO] 搜索: '如何计算同比' 关键词: ['同比']
+2026-07-16 19:07:01,985 [INFO] 搜索: '如何计算占比' 关键词: ['占比']
+2026-07-16 19:07:02,586 [INFO] 搜索: '如何计算累计值' 关键词: ['累计']
+2026-07-16 19:07:03,174 [INFO] 搜索: '如何计算同比环比' 关键词: ['同比', '环比']
+2026-07-16 19:07:03,760 [INFO] 搜索: '如何设置过滤条件' 关键词: ['过滤', '条件']
+2026-07-16 19:07:04,447 [INFO] 搜索: 'FineBI安装' 关键词: ['FineBI', '安装']
+2026-07-16 19:07:05,172 [INFO] 搜索: '数据预警' 关键词: ['数据预警']
+2026-07-16 19:07:05,737 [INFO] 搜索: '如何设置数据预警' 关键词: ['数据预警']

@@ -1,0 +1,83 @@
+---
+title: 阿里云AnalyticDB数据连接
+doc_id: 291
+url: https://help.fanruan.com/finebi6.X/doc-view-291.html
+source: FineBI 帮助文档
+crawled_at: 2026-07-02 15:07:13
+---
+
+> 1. 概述1.1 版本FineBI 版本功能变动6.0-1.2 功能简介本章将介绍如何在 FineBI 中连接阿里云 AnalyticDB 数据连接。2. 连接前准备2.1 数据库版本和驱动驱动下载链接
+
+![](./view/2022finebi6/images/info_fill.png) 您正在浏览的是 FineBI6.X 帮助文档，点击跳转至： [FineBI7.X帮助文档](<https://help.fanruan.com/finebi/>)
+# 阿里云AnalyticDB数据连接
+对此内容反馈
+* _
+__
+  * 使用此篇文档遇到问题，可寻求帆软技术支持协助定位原因，若为帆软产品本身缺陷则对应给出解决方案。  
+详情：[《帆软技术支持基础服务范围》](<https://bbs.fanruan.com/thread-135893-1-1.html>)
+
+
+产品级协助_
+* * 文档创建者： _[doreen0813](<user-space-83193.html>)_
+* 历史版本：[14](<edition-list-291.html>)
+* 最近更新：[帆软用户aEcMI0N7Gz](<user-space-3206309.html>) 于 2025-06-04 
+[](<javascript:;>) [](<javascript:>)
+## 1\. 概述
+### 1.1 版本
+FineBI 版本  
+| 功能变动  
+---|---  
+6.0| -  
+### 1.2 功能简介
+本章将介绍如何在 FineBI 中连接阿里云 AnalyticDB 数据连接。
+## 2\. 连接前准备
+### 2.1 数据库版本和驱动
+驱动下载链接| 支持的数据库版本   
+---|---  
+已内置  
+| 2.0（直连适配版本：3.0）  
+数据连接 URL 格式：jdbc:mysql://hostname:port/database
+### 2.2 准备工作
+在连接数据库之前，请收集以下信息：
+  * 数据库所在服务器的 IP 地址和端口号；
+  * 数据库的用户名和密码；
+  * 需要连接的数据库模式；
+
+
+## 3\. 具体连接操作
+1）点击「管理系统>数据连接>数据连接管理」，如下图所示：
+![](/core/style/lod.png)
+2）找到「阿里云AnalyticDB」的图标，如下图所示：
+![](/core/style/lod.png)
+3）输入 2.2 节收集的连接信息。如下图所示：
+注：用户可以选择性修改页面上其他高级设置，详细请参见 [配置数据连接](<https://help.fanruan.com/finebi6.X/doc-view-94.html>) 4.2 节。
+![](/core/style/lod.png)
+4）点击「测试连接」，若连接成功则点击「保存」，如下图所示：
+![](/core/style/lod.png)
+## 3\. 注意事项
+1）select * from () limit x 不支持。
+limit 超过 10000 ，会有报错超出限制。 数据库默认最大就是 10000 ，可以通过修改 ADS 数据库端配置更改这个值。
+2）开启实时数据情况下，不支持记录数去重这个功能，原因是 distinct count 不能与 group by 同时使用。
+3）不支持 top N 语句。
+  
+
+### 附件列表 
+  
+下载次数：：0
+    
+**主题：** [数据管理](<category-view-285>)
+[![](/core/style/back.png)上一篇：Microsoft SQL Server数据连接](<index.php?doc-view-100.html>)
+[下一篇：阿里云MaxCompute数据连接 ![](/core/style/forward.png) ](<index.php?doc-view-1127.html>)
+  * 有帮助
+  * 没帮助
+  * 只是浏览
+
+
+[中文（繁體）](<https://help.fanruan.com/finebi-tw/>) [English](<https://help.fanruan.com/finebi-en/>) [日本語](<https://help.fanruan.com/finebi-jp/>)
+中文（简体）
+
+
+__
+[](<javascript:void\(0\)>)
+提交页面反馈
+仅适用于当前网页的意见收集，帆软产品问题请在 [问答板块提问](<https://bbs.fanruan.com/wenda>) 或 [前往服务平台](<https://service.fanruan.com/>) 获取技术支持 

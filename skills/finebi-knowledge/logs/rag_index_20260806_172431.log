@@ -1,0 +1,7 @@
+2026-08-06 17:24:39,512 [INFO] No device provided, using cpu
+2026-08-06 17:24:39,525 [INFO] Loading SentenceTransformer model from shibing624/text2vec-base-chinese.
+2026-08-06 17:24:40,853 [DEBUG] Building prefix dict from the default dictionary ...
+2026-08-06 17:24:41,517 [DEBUG] Dumping model to file cache C:\Users\user\AppData\Local\Temp\jieba.cache
+2026-08-06 17:24:41,578 [DEBUG] Loading model cost 0.725 seconds.
+2026-08-06 17:24:41,579 [DEBUG] Prefix dict has been built successfully.
+2026-08-06 17:24:41,579 [INFO] 搜索: '数据集历史版本还原' 关键词: ['数据集', '历史', '版本', '还原']

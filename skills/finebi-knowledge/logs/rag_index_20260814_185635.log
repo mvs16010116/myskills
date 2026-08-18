@@ -1,0 +1,28 @@
+2026-08-14 18:56:43,428 [INFO] No device provided, using cpu
+2026-08-14 18:57:24,502 [WARNING] '[WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。' thrown while requesting HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/./config_sentence_transformers.json
+2026-08-14 18:57:24,502 [WARNING] Retrying in 1s [Retry 1/5].
+2026-08-14 18:57:46,560 [WARNING] '[WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。' thrown while requesting HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/./config_sentence_transformers.json
+2026-08-14 18:57:46,560 [WARNING] Retrying in 2s [Retry 2/5].
+2026-08-14 18:58:09,605 [WARNING] '[WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。' thrown while requesting HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/./config_sentence_transformers.json
+2026-08-14 18:58:09,606 [WARNING] Retrying in 4s [Retry 3/5].
+2026-08-14 18:58:34,656 [WARNING] '[WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。' thrown while requesting HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/./config_sentence_transformers.json
+2026-08-14 18:58:34,656 [WARNING] Retrying in 8s [Retry 4/5].
+2026-08-14 18:59:03,706 [WARNING] '[WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。' thrown while requesting HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/./config_sentence_transformers.json
+2026-08-14 18:59:03,706 [WARNING] Retrying in 8s [Retry 5/5].
+2026-08-14 18:59:32,728 [WARNING] '[WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。' thrown while requesting HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/./config_sentence_transformers.json
+2026-08-14 18:59:32,728 [INFO] Loading SentenceTransformer model from shibing624/text2vec-base-chinese.
+2026-08-14 19:00:03,793 [WARNING] '[WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。' thrown while requesting HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/./config_sentence_transformers.json
+2026-08-14 19:00:03,793 [WARNING] Retrying in 1s [Retry 1/5].
+2026-08-14 19:00:25,820 [WARNING] '[WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。' thrown while requesting HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/./config_sentence_transformers.json
+2026-08-14 19:00:25,820 [WARNING] Retrying in 2s [Retry 2/5].
+2026-08-14 19:00:48,866 [WARNING] '[WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。' thrown while requesting HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/./config_sentence_transformers.json
+2026-08-14 19:00:48,867 [WARNING] Retrying in 4s [Retry 3/5].
+2026-08-14 19:01:13,918 [WARNING] '[WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。' thrown while requesting HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/./config_sentence_transformers.json
+2026-08-14 19:01:13,919 [WARNING] Retrying in 8s [Retry 4/5].
+2026-08-14 19:01:42,949 [WARNING] '[WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。' thrown while requesting HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/./config_sentence_transformers.json
+2026-08-14 19:01:42,949 [WARNING] Retrying in 8s [Retry 5/5].
+2026-08-14 19:02:11,983 [WARNING] '[WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。' thrown while requesting HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/./config_sentence_transformers.json
+2026-08-14 19:03:13,047 [WARNING] '[WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。' thrown while requesting HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/adapter_config.json
+2026-08-14 19:03:13,048 [WARNING] Retrying in 1s [Retry 1/5].
+2026-08-14 19:03:35,103 [WARNING] '[WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。' thrown while requesting HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/adapter_config.json
+2026-08-14 19:03:35,103 [WARNING] Retrying in 2s [Retry 2/5].
