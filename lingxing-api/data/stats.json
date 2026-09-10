@@ -1,0 +1,23 @@
+{
+  "total_apis": 611,
+  "data_files": {
+    "apis_clean.json": "精简元数据",
+    "apis_detailed.json": "完整详情（入参/出参/示例）",
+    "api_path_index.json": "api_path 索引",
+    "api_title_index.json": "title 索引",
+    "biz_key_index.json": "37 个业务键索引",
+    "category_index.json": "20 个一级分类索引",
+    "path_prefix_index.json": "70 个路径前缀索引",
+    "desc_index.json": "51 个中文关键词索引"
+  },
+  "fetch_date": "2026-08-12",
+  "detail_coverage": {
+    "has_in_params": 596,
+    "has_out_params": 609,
+    "has_request_example": 584,
+    "has_response_success_example": 542,
+    "has_request_curl_example": 203,
+    "total_in_param_entries": 5435,
+    "total_out_param_entries": 23840
+  }
+}

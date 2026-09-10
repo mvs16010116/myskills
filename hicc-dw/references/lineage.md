@@ -1,0 +1,443 @@
+# dbt 模型血缘总览（来自 target/manifest.json）
+
+共 153 个模型，165 个 source 节点
+
+
+## 01_trd / dwd
+- **dwd_trd_channel_sku_sales_di** (`dwd.dwd_trd_channel_sku_sales_di`, table)
+  - 上游: dim_exchange_rates, dim_prd_bundle_info, dwd_trd_tob_hktvmall_order_item_di, dwd_trd_toc_amazon_order_item_di, dwd_trd_toc_lazada_order_item_di, dwd_trd_toc_shopee_order_item_di, dwd_trd_toc_shopify_order_item_di, dwd_trd_toc_tk_order_item_di, dwd_trd_toc_walmart_order_item_di, hiccpet-481303.ods.import_dim_channel, hiccpet-481303.ods.import_sales_manual_order
+- **dwd_trd_tob_hktvmall_order_item_di** (`dwd.dwd_trd_tob_hktvmall_order_item_di`, table)
+  - 上游: dim_exchange_rates, dim_product_skus_sales, hiccpet-481303.ods.hktvmall_3r_orders, hiccpet-481303.ods.hktvmall_order_details
+- **dwd_trd_toc_amazon_order_item_di** (`dwd.dwd_trd_toc_amazon_order_item_di`, table)
+  - 上游: dim_product_skus_sales, hiccpet-481303.ods.import_dim_shop, hiccpet-481303.ods.lingxing_amazon_api_order_detail_i_static, hiccpet-481303.ods.lingxing_amazon_api_order_detail_i_v
+  - 说明: Amazon 订单行项明细表（lingxing 订单接口两源合并 + item_list 行项展开，关联商品/店铺维度）
+- **dwd_trd_toc_lazada_order_item_di** (`dwd.dwd_trd_toc_lazada_order_item_di`, table)
+  - 上游: dim_product_skus_sales, hiccpet-481303.ods.lazada_order_items
+- **dwd_trd_toc_shopee_order_item_di** (`dwd.dwd_trd_toc_shopee_order_item_di`, table)
+  - 上游: dim_product_skus_sales, hiccpet-481303.ods.shopee_order_detail
+  - 说明: Shopee 订单行项明细表（shopee_order_detail 订单主表 + item_list 行项展开，关联商品维度）
+- **dwd_trd_toc_shopify_order_item_di** (`dwd.dwd_trd_toc_shopify_order_item_di`, table)
+  - 上游: hiccpet-481303.ods.shopify_orders, hiccpet-481303.pdt_ods.product_skus_sales
+  - 说明: Shopify 订单行项明细表（shopify_orders 订单主表 + line_items 行项展开，variant_id + p010 关联商品维度；金额区分 shop 店铺币种 / presentment 买家支付币种两套）
+- **dwd_trd_toc_tk_order_item_di** (`dwd.dwd_trd_toc_tk_order_item_di`, table)
+  - 上游: dim_product_skus_sales, hiccpet-481303.ods.tk_order_details
+  - 说明: TikTok Shop 订单行项明细表（tk_order_details 订单主表 + line_items 行项展开，关联商品维度）
+- **dwd_trd_toc_walmart_order_item_di** (`dwd.dwd_trd_toc_walmart_order_item_di`, table)
+  - 上游: hiccpet-481303.ods.walmart_orders
+
+## 01_trd / dws
+- **dws_trd_channel_sku_sales_di** (`dws.dws_trd_channel_sku_sales_di`, table)
+  - 上游: dwd_trd_channel_sku_sales_di
+  - 说明: 全渠道 SKU 销售明细（7 渠道订单行项 union 汇总透传，含 bundle 拆分，供 FineBI 直接出数）
+
+## 02_mkt / dim
+- **dim_mkt_amazon_sb_campaign_config** (`dim.dim_mkt_amazon_sb_campaign_config`, table)
+  - 上游: hiccpet-481303.ods.lingxing_amazon_api_sb_campaign_config
+- **dim_mkt_campaign** (`dim.dim_mkt_campaign`, table)
+  - 上游: hiccpet-481303.ods.shopee_campaign_setting_info
+
+## 02_mkt / dwd
+- **dwd_mkt_amazon_ad_perf_di** (`dwd.dwd_mkt_amazon_ad_perf_di`, table)
+  - 上游: dim_channel_lingxing_account, hiccpet-481303.ods.import_dim_shop, hiccpet-481303.ods.lingxing_amazon_api_sd_product_ad_reports_i, hiccpet-481303.ods.lingxing_amazon_api_sp_product_ad_reports_i, hiccpet-481303.ods.lingxing_amazon_api_sp_product_ad_reports_i_v, hiccpet-481303.ods.lingxing_amazon_sb_divide_asin_reports, hiccpet-481303.pdt_ods.product_skus_sales
+  - 说明: 亚马逊广告花费明细表（SB + SD 广告类型）
+- **dwd_mkt_campaign_product_perf_di** (`dwd.dwd_mkt_campaign_product_perf_di`, table)
+  - 上游: dim_prd_bundle_info, dwd_mkt_petco_ad_spend_di, hiccpet-481303.ods.chew_campaign_product_performance_from_sidebar, hiccpet-481303.ods.chewy_offsite_products_sidebar, hiccpet-481303.ods.import_dim_vendor_sku_mapping, hiccpet-481303.ods.walmart_compaign_item_performance_rpa
+  - 说明: Chewy 广告商品粒度表现明细表，含 onsite（站内）+ offsite（站外）+ Walmart 广告数据
+- **dwd_mkt_chewy_ad_spend_di** (`dwd.dwd_mkt_chewy_ad_spend_di`, table)
+  - 上游: hiccpet-481303.ods.chewy_offsite_promoted_products, hiccpet-481303.ods.chewy_promoted_products, hiccpet-481303.ods.import_dim_sps_vendor, hiccpet-481303.ods.import_dim_vendor_sku_mapping
+  - 说明: Chewy 广告花费明细表，含 onsite（站内）+ offsite（站外）
+- **dwd_mkt_chewy_campaign_perf_di** (`dwd.dwd_mkt_chewy_campaign_perf_di`, table)
+  - 上游: dwd_mkt_chewy_offsite_campaign_perf_di, dwd_mkt_chewy_onsite_campaign_perf_di
+  - 说明: 数据日期
+- **dwd_mkt_chewy_campaign_sidebar_di** (`dwd.dwd_mkt_chewy_campaign_sidebar_di`, table)
+  - 上游: hiccpet-481303.ods.chew_campaign_product_performance_from_sidebar, hiccpet-481303.ods.chewy_offsite_products_sidebar, hiccpet-481303.ods.import_dim_vendor_sku_mapping
+  - 说明: Chewy 广告商品粒度表现明细表（含 onsite + offsite）
+- **dwd_mkt_chewy_keyword_perf_di** (`dwd.dwd_mkt_chewy_keyword_perf_di`, table)
+  - 上游: hiccpet-481303.ods.chew_campaign_keyword_performance
+  - 说明: Chewy 关键词广告表现明细表
+- **dwd_mkt_chewy_offsite_campaign_perf_di** (`dwd.dwd_mkt_chewy_offsite_campaign_perf_di`, table)
+  - 上游: hiccpet-481303.ods.chewy_offsite_campaign_performance_from_sidebar
+  - 说明: 数据日期
+- **dwd_mkt_chewy_onsite_campaign_perf_di** (`dwd.dwd_mkt_chewy_onsite_campaign_perf_di`, table)
+  - 上游: hiccpet-481303.ods.chewy_onsite_campaign_performance_from_sidebar
+  - 说明: 数据日期
+- **dwd_mkt_lazada_adgroup_perf_di** (`dwd.dwd_mkt_lazada_adgroup_perf_di`, table)
+  - 上游: dim_exchange_rates, hiccpet-481303.ods.import_dim_country, hiccpet-481303.ods.lazada_adgroup_report
+  - 说明: Lazada 广告组粒度表现明细表
+- **dwd_mkt_petco_ad_spend_di** (`dwd.dwd_mkt_petco_ad_spend_di`, table)
+  - 上游: dim_mkt_petco_creative_mapping, hiccpet-481303.ods.import_dim_sps_vendor, hiccpet-481303.ods.petco_ads_creative_v, hiccpet-481303.ods.petco_ads_item_v, hiccpet-481303.pdt_ods.product_skus_purchase
+  - 说明: Petco 广告花费明细表，按 creative_id 分摊
+- **dwd_mkt_shopee_campaign_perf_di** (`dwd.dwd_mkt_shopee_campaign_perf_di`, table)
+  - 上游: dim_exchange_rates, hiccpet-481303.ods.import_dim_country, hiccpet-481303.ods.shopee_campaign_daily_performance
+  - 说明: Shopee 广告活动日粒度表现明细表
+- **dwd_mkt_shopify_ga4_spend_di** (`dwd.dwd_mkt_shopify_ga4_spend_di`, table)
+  - 上游: dim_sku_mapping, hiccpet-481303.ods.ga4_ad_spend, hiccpet-481303.ods.ga4_channel_items
+  - 说明: Shopify GA4 广告花费明细表
+- **dwd_mkt_tk_item_group_perf_di** (`dwd.dwd_mkt_tk_item_group_perf_di`, table)
+  - 上游: dim_product_skus_sales, hiccpet-481303.ods.tk_ads_store, hiccpet-481303.ods.tk_product_item_group_reports, hiccpet-481303.ods.tk_products
+  - 说明: TikTok 广告商品组粒度表现明细表
+- **dwd_mkt_walmart_campaign_perf_di** (`dwd.dwd_mkt_walmart_campaign_perf_di`, table)
+  - 上游: hiccpet-481303.ods.walmart_compaign_item_performance_rpa
+  - 说明: 记录 ID
+
+## 02_mkt / dws
+- **dws_mkt_global_ad_spend_di** (`dws.dws_mkt_global_ad_spend_di`, table)
+  - 上游: dwd_mkt_amazon_ad_perf_di, dwd_mkt_chewy_campaign_sidebar_di, dwd_mkt_petco_ad_spend_di, dwd_mkt_shopify_ga4_spend_di, dwd_mkt_tk_item_group_perf_di, dwd_mkt_walmart_campaign_perf_di, dws_mkt_lazada_adgroup_perf_di, dws_mkt_shopee_campaign_perf_di
+- **dws_mkt_lazada_adgroup_perf_di** (`dws.dws_mkt_lazada_adgroup_perf_di`, table)
+  - 上游: dim_product_skus, dim_product_skus_sales, dwd_mkt_lazada_adgroup_perf_di, hiccpet-481303.ods.lazada_order_items
+- **dws_mkt_shopee_campaign_perf_di** (`dws.dws_mkt_shopee_campaign_perf_di`, table)
+  - 上游: dim_mkt_campaign, dim_product_skus_sales, dwd_mkt_shopee_campaign_perf_di, hiccpet-481303.ods.shopee_order_detail, hiccpet-481303.pdt_ods.product_skus_purchase
+
+## 03_prd / dim
+- **dim_prd_lazada_products** (`dim.dim_prd_lazada_products`, table)
+  - 上游: hiccpet-481303.ods.lazada_products_list
+  - 说明: 提供给商品主数据的SKU 映射表
+- **dim_prd_lingxing_amazon_product** (`dim.dim_prd_lingxing_amazon_product`, table)
+  - 上游: hiccpet-481303.ods.lingxing_amazon_product_info
+  - 说明: 领星亚马逊产品信息维度表
+- **dim_prd_shipout_product** (`dim.dim_prd_shipout_product`, table)
+  - 上游: dim_product_skus, dim_product_skus_warehouse, hiccpet-481303.ods.shipout_product
+- **dim_prd_shopee_model** (`dim.dim_prd_shopee_model`, table)
+  - 上游: hiccpet-481303.ods.shopee_model_list
+  - 说明: 提供给商品主数据的SKU 映射表
+- **dim_prd_shopify_variants** (`dim.dim_prd_shopify_variants`, table)
+  - 上游: hiccpet-481303.ods.shopify_products
+  - 说明: 提供给商品主数据的SKU 映射表
+- **dim_prd_tk_products** (`dim.dim_prd_tk_products`, table)
+  - 上游: hiccpet-481303.ods.tk_products
+  - 说明: 提供给商品主数据的SKU 映射表
+
+## 03_prd / dwd
+- **dwd_prd_amazon_product_perf_di** (`dwd.dwd_prd_amazon_product_perf_di`, table)
+  - 上游: hiccpet-481303.ods.lingxing_amazon_product_performance, hiccpet-481303.ods.lingxing_amazon_product_performance_v
+- **dwd_prd_amazon_seller_sku_di** (`dwd.dwd_prd_amazon_seller_sku_di`, table)
+  - 上游: dim_product_skus_sales, dwd_prd_amazon_seller_sku_snap
+  - 说明: 亚马逊 Listing 商品加工表，在快照基础上通过 LAG 窗口函数计算日销环比、BSR 7日滚动均值及排名变化，供 DWS 使用。
+- **dwd_prd_amazon_seller_sku_snap** (`dwd.dwd_prd_amazon_seller_sku_snap`, incremental)
+  - 上游: hiccpet-481303.ods.lingxing_amazon_seller_sku_list
+  - 说明: 领星亚马逊 Listing 商品增量快照，原为 ods.lingxing_amazon_seller_sku_list_partition，
+
+## 04_ful / dwd
+- **dwd_ful_amazon_shipment_di** (`dwd.dwd_ful_amazon_shipment_di`, table)
+  - 上游: hiccpet-481303.ods.lingxing_amazon_shipment_list, hiccpet-481303.pdt_ods.product_skus_sales
+
+## 05_inv / dim
+- **dim_amazon_shop_mapping** (`dim.dim_amazon_shop_mapping`, table)
+  - 上游: (无依赖)
+  - 说明: Amazon FBA 库存多站点仓库 → 店铺名称映射配置表
+- **dim_inv_warehouse_attr** (`dim.dim_inv_warehouse_attr`, table)
+  - 上游: hiccpet-481303.ods.import_dim_warehouse
+  - 说明: 公共仓分类维表（仓库类型/服务商归属），全链路仓库分类唯一权威来源
+
+## 05_inv / dwd
+- **dwd_inv_amazon_fba_stock_di** (`dwd.dwd_inv_amazon_fba_stock_di`, table)
+  - 上游: dim_warehouse_sku_mapping, dwd_inv_amazon_fba_stock_snap, hiccpet-481303.ods.import_dim_shop, hiccpet-481303.ods.lingxing_amazon_product_info
+  - 说明: FBA 可用/在途库存明细表，在快照基础上关联商品采购价、店铺信息、
+- **dwd_inv_amazon_fba_stock_snap** (`dwd.dwd_inv_amazon_fba_stock_snap`, incremental)
+  - 上游: hiccpet-481303.ods.lingxing_amazon_fba_inventory
+  - 说明: 亚马逊 FBA 库存增量快照，原为 ods.lingxing_amazon_fba_inventory_partition，
+- **dwd_inv_amazon_fba_stock_v2_snap** (`dwd.dwd_inv_amazon_fba_stock_v2_snap`, table)
+  - 上游: dim_amazon_shop_mapping, dim_product_skus_warehouse, dim_warehouse_sku_mapping, hiccpet-481303.ods.import_dim_shop, hiccpet-481303.ods.lingxing_amazon_fba_inventory
+  - 说明: 干净的 ODS —— 只做内容规范化/JSON 展开/synctime 统一/注释补全, 保留 ODS 原字段名与顺序, 不建模
+- **dwd_inv_amazon_inbound_txn_di** (`dwd.dwd_inv_amazon_inbound_txn_di`, table)
+  - 上游: dim_product_skus_warehouse, hiccpet-481303.ods.lingxing_amazon_shipment_list
+  - 说明: 仓库sku映射ID
+- **dwd_inv_amazon_removal_shipment_di** (`dwd.dwd_inv_amazon_removal_shipment_di`, table)
+  - 上游: dwd_inv_amazon_removal_shipment_snap
+  - 说明: 亚马逊退货移除订单加工表，直接透传 snap 表全部字段，仅新增 dim_data_source
+- **dwd_inv_amazon_removal_shipment_snap** (`dwd.dwd_inv_amazon_removal_shipment_snap`, incremental)
+  - 上游: hiccpet-481303.ods.amazon_return_betterxpr, hiccpet-481303.ods.amazon_return_betterxpr_out_order, hiccpet-481303.ods.amazon_return_stglobal, hiccpet-481303.ods.amazon_return_stglobal_us, hiccpet-481303.ods.import_return_warehouse_records, hiccpet-481303.ods.lingxing_amazon_removal_shipment_list
+  - 说明: dwd_inv_amazon_removal_shipment_snap
+- **dwd_inv_amazon_removal_shipment_v2_snap** (`dwd.dwd_inv_amazon_removal_shipment_v2_snap`, table)
+  - 上游: dim_product_skus_warehouse, dim_warehouse_sku_mapping, hiccpet-481303.ods.amazon_return_betterxpr, hiccpet-481303.ods.amazon_return_betterxpr_out_order, hiccpet-481303.ods.amazon_return_stglobal, hiccpet-481303.ods.amazon_return_stglobal_us, hiccpet-481303.ods.import_return_warehouse_records, hiccpet-481303.ods.lingxing_amazon_removal_shipment_list
+  - 说明: 亚马逊退货移除订单加工，含单号炸裂/数量分摊/仓库归属判断
+- **dwd_inv_chinese_stock_di** (`dwd.dwd_inv_chinese_stock_di`, table)
+  - 上游: dwd_inv_chinese_stock_snap
+- **dwd_inv_chinese_stock_snap** (`dwd.dwd_inv_chinese_stock_snap`, incremental)
+  - 上游: hiccpet-481303.ods.import_chinese_stock, hiccpet-481303.pdt_ods.dim_country
+- **dwd_inv_chinese_stock_v2_snap** (`dwd.dwd_inv_chinese_stock_v2_snap`, table)
+  - 上游: dim_product_skus_warehouse, hiccpet-481303.ods.import_chinese_stock
+  - 说明: 干净的 ODS —— 只做内容规范化/JSON 展开/synctime 统一/注释补全, 保留 ODS 原字段名与顺序, 不建模
+- **dwd_inv_dbeehk_available_stock_di** (`dwd.dwd_inv_dbeehk_available_stock_di`, table)
+  - 上游: dim_product_skus, dwd_inv_dbeehk_stock_snap
+  - 说明: 提取 dbeehk 香港仓的可用库存数据，
+- **dwd_inv_dbeehk_inbound_details_snap** (`dwd.dwd_inv_dbeehk_inbound_details_snap`, incremental)
+  - 上游: hiccpet-481303.ods.dbeehk_inbound_details
+  - 说明: 提取 dbeehk 海外仓在途入库单（状态为"待入倉"）的 SKU 数据，
+- **dwd_inv_dbeehk_inbound_txn_di** (`dwd.dwd_inv_dbeehk_inbound_txn_di`, table)
+  - 上游: dim_product_skus_warehouse, hiccpet-481303.ods.dbeehk_inbound_details, hiccpet-481303.ods.dbeehk_inbound_list
+  - 说明: 入库单号/运单号
+- **dwd_inv_dbeehk_inbound_v2_snap** (`dwd.dwd_inv_dbeehk_inbound_v2_snap`, table)
+  - 上游: dim_product_skus, dim_product_skus_warehouse, hiccpet-481303.ods.dbeehk_inbound_details
+  - 说明: 干净的 ODS —— 只做内容规范化/JSON 展开/synctime 统一/注释补全, 保留 ODS 原字段名与顺序, 不建模
+- **dwd_inv_dbeehk_intransit_stock_di** (`dwd.dwd_inv_dbeehk_intransit_stock_di`, table)
+  - 上游: dim_product_skus, dwd_inv_dbeehk_inbound_details_snap, hiccpet-481303.ods.dbeehk_product
+  - 说明: 提取 dbeehk 海外仓在途入库单（状态为"待入倉"）的 SKU 数据，
+- **dwd_inv_dbeehk_stock_snap** (`dwd.dwd_inv_dbeehk_stock_snap`, incremental)
+  - 上游: hiccpet-481303.ods.dbeehk_stock
+  - 说明: dbeehk 仓库存快照，原为 ods.dbeehk_stock_partition，现移至 DWD。
+- **dwd_inv_dbeehk_stock_v2_snap** (`dwd.dwd_inv_dbeehk_stock_v2_snap`, table)
+  - 上游: dim_product_skus, dim_product_skus_warehouse, hiccpet-481303.ods.dbeehk_stock
+  - 说明: 干净的 ODS —— 只做内容规范化/JSON 展开/synctime 统一/注释补全, 保留 ODS 原字段名与顺序, 不建模
+- **dwd_inv_feishu_warehouse_sg_value_snap** (`dwd.dwd_inv_feishu_warehouse_sg_value_snap`, incremental)
+  - 上游: hiccpet-481303.ods.import_feishu_warehouse_sg_value
+- **dwd_inv_global_detail_v2_snap** (`dwd.dwd_inv_global_detail_v2_snap`, table)
+  - 上游: dim_product_skus_warehouse, dwd_inv_amazon_fba_stock_v2_snap, dwd_inv_amazon_removal_shipment_v2_snap, dwd_inv_chinese_stock_v2_snap, dwd_inv_dbeehk_inbound_v2_snap, dwd_inv_dbeehk_stock_v2_snap, dwd_inv_locad_stock_v2_snap, dwd_inv_loho_inbound_v2_snap, dwd_inv_loho_stock_v2_snap, dwd_inv_maple_stock_v2_snap, dwd_inv_shipout_inbound_v2_snap, dwd_inv_tk_fbt_stock_v2_snap, dwd_inv_walmart_wfs_stock_v2_snap, dwd_inv_winit_stock_v2_snap
+  - 说明: 汇总所有仓库/平台的库存信息，统一字段口径，构建全局库存明细视图
+- **dwd_inv_inbound_shipment_status_di** (`dwd.dwd_inv_inbound_shipment_status_di`, table)
+  - 上游: dws_inv_global_stock_snap, dws_inv_inbound_shipment_info_di, hiccpet-481303.dim.dim_scm_shipment_exclusive, hiccpet-481303.ods.import_dim_shop, hiccpet-481303.ods.import_dim_warehouse
+  - 说明: 在途入库状态追踪明细（DWD层）
+- **dwd_inv_locad_inbound_txn_di** (`dwd.dwd_inv_locad_inbound_txn_di`, table)
+  - 上游: dim_product_skus_warehouse, hiccpet-481303.ods.locad_inbound_details, hiccpet-481303.ods.locad_inbound_list, hiccpet-481303.ods.locad_inbound_product_list
+  - 说明: 运单号/发货单号
+- **dwd_inv_locad_stock_di** (`dwd.dwd_inv_locad_stock_di`, table)
+  - 上游: dim_product_skus_warehouse, dwd_inv_locad_stock_snap
+  - 说明: 提取 Locad 海外仓（SG/MY）的可用库存数据，
+- **dwd_inv_locad_stock_snap** (`dwd.dwd_inv_locad_stock_snap`, incremental)
+  - 上游: hiccpet-481303.ods.locad_stock
+  - 说明: Locad 仓库存增量快照，原为 ods.locad_stock_partition，
+- **dwd_inv_locad_stock_v2_snap** (`dwd.dwd_inv_locad_stock_v2_snap`, table)
+  - 上游: dim_product_skus_warehouse, hiccpet-481303.ods.locad_stock
+  - 说明: 干净的 ODS —— 只做内容规范化/JSON 展开/synctime 统一/注释补全, 保留 ODS 原字段名与顺序, 不建模
+- **dwd_inv_loho_available_stock_di** (`dwd.dwd_inv_loho_available_stock_di`, table)
+  - 上游: dim_product_skus_warehouse, dwd_inv_loho_stock_snap
+  - 说明: 提取 Loho 海外仓（SG）的可用库存数据，
+- **dwd_inv_loho_inbound_list_snap** (`dwd.dwd_inv_loho_inbound_list_snap`, incremental)
+  - 上游: hiccpet-481303.ods.loho_inbound_list
+  - 说明: 提取 Loho 海外仓在途入库单（状态 0/1/2/3）的 SKU 数据，
+- **dwd_inv_loho_inbound_txn_di** (`dwd.dwd_inv_loho_inbound_txn_di`, table)
+  - 上游: dim_product_skus_warehouse, hiccpet-481303.ods.loho_inbound_list
+- **dwd_inv_loho_inbound_v2_snap** (`dwd.dwd_inv_loho_inbound_v2_snap`, table)
+  - 上游: dim_product_skus_warehouse, hiccpet-481303.ods.loho_inbound_list
+  - 说明: 干净的 ODS —— 只做内容规范化/JSON 展开/synctime 统一/注释补全, 保留 ODS 原字段名与顺序, 不建模
+- **dwd_inv_loho_intransit_stock_di** (`dwd.dwd_inv_loho_intransit_stock_di`, table)
+  - 上游: dim_product_skus_warehouse, dwd_inv_loho_inbound_list_snap
+  - 说明: 提取 Loho 海外仓在途入库单（状态 0/1/2/3）的 SKU 数据，
+- **dwd_inv_loho_stock_snap** (`dwd.dwd_inv_loho_stock_snap`, incremental)
+  - 上游: hiccpet-481303.ods.loho_stock
+  - 说明: Loho 仓库存增量快照，原为 ods.loho_stock_partition，
+- **dwd_inv_loho_stock_v2_snap** (`dwd.dwd_inv_loho_stock_v2_snap`, table)
+  - 上游: dim_product_skus_warehouse, hiccpet-481303.ods.loho_stock
+  - 说明: 干净的 ODS —— 只做内容规范化/JSON 展开/synctime 统一/注释补全, 保留 ODS 原字段名与顺序, 不建模
+- **dwd_inv_maple_inbound_txn_di** (`dwd.dwd_inv_maple_inbound_txn_di`, table)
+  - 上游: hiccpet-481303.ods.maple_inbound_order, hiccpet-481303.ods.maple_inbound_order_detail
+  - 说明: 入库单号
+- **dwd_inv_maple_stock_di** (`dwd.dwd_inv_maple_stock_di`, table)
+  - 上游: dim_product_skus_warehouse, dwd_inv_maple_stock_snap
+  - 说明: 提取 Maple 加拿大仓的可用库存和运输中库存数据，
+- **dwd_inv_maple_stock_snap** (`dwd.dwd_inv_maple_stock_snap`, incremental)
+  - 上游: hiccpet-481303.ods.maple_stock
+  - 说明: Maple 仓库存增量快照，原为 ods.maple_stock_partition，
+- **dwd_inv_maple_stock_v2_snap** (`dwd.dwd_inv_maple_stock_v2_snap`, table)
+  - 上游: dim_product_skus_warehouse, hiccpet-481303.ods.maple_stock
+  - 说明: 干净的 ODS —— 只做内容规范化/JSON 展开/synctime 统一/注释补全, 保留 ODS 原字段名与顺序, 不建模
+- **dwd_inv_scm_undelivered_order_details_snap** (`dwd.dwd_inv_scm_undelivered_order_details_snap`, incremental)
+  - 上游: hiccpet-481303.ods.import_scm_undelivered_order_details
+- **dwd_inv_shipout_inbound_order_di** (`dwd.dwd_inv_shipout_inbound_order_di`, table)
+  - 上游: dim_prd_shipout_product, dim_product_skus, dim_product_skus_warehouse, dwd_inv_shipout_inbound_order_snap
+  - 说明: 提取 shipout 发货单中状态为"待入库(2)"和"入库接收中(4)"的 SKU，
+- **dwd_inv_shipout_inbound_order_snap** (`dwd.dwd_inv_shipout_inbound_order_snap`, incremental)
+  - 上游: hiccpet-481303.ods.shipout_inbound_order
+  - 说明: 提取 shipout 发货单中状态为"待入库(2)"和"入库接收中(4)"的 SKU，
+- **dwd_inv_shipout_inbound_stock_di** (`dwd.dwd_inv_shipout_inbound_stock_di`, table)
+  - 上游: dim_prd_shipout_product, dwd_inv_shipout_inbound_stock_snap
+- **dwd_inv_shipout_inbound_stock_snap** (`dwd.dwd_inv_shipout_inbound_stock_snap`, incremental)
+  - 上游: hiccpet-481303.ods.shipout_inbound_stock
+- **dwd_inv_shipout_inbound_txn_di** (`dwd.dwd_inv_shipout_inbound_txn_di`, table)
+  - 上游: dim_prd_shipout_product, dim_product_skus_warehouse, hiccpet-481303.ods.shipout_inbound_order
+  - 说明: 入库单号
+- **dwd_inv_shipout_inbound_v2_snap** (`dwd.dwd_inv_shipout_inbound_v2_snap`, table)
+  - 上游: dim_prd_shipout_product, dim_product_skus_warehouse, hiccpet-481303.ods.shipout_inbound_stock
+  - 说明: 干净的 ODS —— 只做内容规范化/JSON 展开/synctime 统一/注释补全, 保留 ODS 原字段名与顺序, 不建模
+- **dwd_inv_tk_fbt_stock_di** (`dwd.dwd_inv_tk_fbt_stock_di`, table)
+  - 上游: dim_product_skus_warehouse, dwd_inv_tk_fbt_stock_snap, hiccpet-481303.ods.import_dim_warehouse, hiccpet-481303.pdt_ods.product_skus_purchase
+  - 说明: 提取 TK 店铺的可用库存和在途库存数据，
+- **dwd_inv_tk_fbt_stock_snap** (`dwd.dwd_inv_tk_fbt_stock_snap`, incremental)
+  - 上游: hiccpet-481303.ods.tk_fbt_stock
+  - 说明: TikTok FBT 仓库存快照，每天生成全量快照，使用执行当天日期作为分区。
+- **dwd_inv_tk_fbt_stock_v2_snap** (`dwd.dwd_inv_tk_fbt_stock_v2_snap`, table)
+  - 上游: dim_product_skus_warehouse, hiccpet-481303.ods.tk_fbt_stock
+  - 说明: 干净的 ODS —— 只做内容规范化/JSON 展开/synctime 统一/注释补全, 保留 ODS 原字段名与顺序, 不建模
+- **dwd_inv_tk_inbound_txn_di** (`dwd.dwd_inv_tk_inbound_txn_di`, table)
+  - 上游: dim_product_skus, hiccpet-481303.ods.import_dim_shop, hiccpet-481303.ods.tk_inbound_orders
+  - 说明: 店铺编码
+- **dwd_inv_walmart_inbound_txn_di** (`dwd.dwd_inv_walmart_inbound_txn_di`, table)
+  - 上游: dim_product_skus_warehouse, dim_warehouse_sku_mapping, hiccpet-481303.ods.walmart_inbound_shipment_items, hiccpet-481303.ods.walmart_inbound_shipments
+  - 说明: 运单号/入库单号
+- **dwd_inv_walmart_wfs_stock_di** (`dwd.dwd_inv_walmart_wfs_stock_di`, table)
+  - 上游: dwd_inv_walmart_wfs_stock_snap, hiccpet-481303.pdt_ods.product_skus_purchase
+  - 说明: 包含 Walmart WFS 库存的复杂 JSON 解析和采购价关联计算，供 DWS 使用。
+- **dwd_inv_walmart_wfs_stock_snap** (`dwd.dwd_inv_walmart_wfs_stock_snap`, incremental)
+  - 上游: hiccpet-481303.ods.walmart_wfs_inventory
+  - 说明: Walmart WFS库存快照，每天生成全量快照，使用执行当天日期作为分区。
+- **dwd_inv_walmart_wfs_stock_v2_snap** (`dwd.dwd_inv_walmart_wfs_stock_v2_snap`, table)
+  - 上游: dim_product_skus_warehouse, hiccpet-481303.ods.walmart_wfs_inventory
+  - 说明: 干净的 ODS —— 只做内容规范化/JSON 展开/synctime 统一/注释补全, 保留 ODS 原字段名与顺序, 不建模
+- **dwd_inv_warehouse_outbound_di** (`dwd.dwd_inv_warehouse_outbound_di`, table)
+  - 上游: dim_product_skus_warehouse, dwd_scm_shipout_outbound_txn_di, dwd_scm_winit_outbound_di, hiccpet-481303.ods.dbeehk_outbound_list, hiccpet-481303.ods.dbeehk_outbound_order_detail, hiccpet-481303.ods.locad_outbound_list
+- **dwd_inv_winit_inbound_order_di** (`dwd.dwd_inv_winit_inbound_order_di`, table)
+  - 上游: dim_product_skus_warehouse, hiccpet-481303.ods.winit_inbound_order_details, hiccpet-481303.ods.winit_inbound_orders
+  - 说明: 万邑通入库单明细（SKU 粒度），
+- **dwd_inv_winit_inbound_txn_di** (`dwd.dwd_inv_winit_inbound_txn_di`, table)
+  - 上游: dim_product_skus_warehouse, hiccpet-481303.ods.winit_inbound_order_details
+  - 说明: 运单号
+- **dwd_inv_winit_inventory_by_organization_snap** (`dwd.dwd_inv_winit_inventory_by_organization_snap`, incremental)
+  - 上游: hiccpet-481303.ods.winit_inventory_by_organization
+  - 说明: 万邑通组织级库存快照（按分区日期覆盖）
+- **dwd_inv_winit_inventory_by_type_snap** (`dwd.dwd_inv_winit_inventory_by_type_snap`, incremental)
+  - 上游: hiccpet-481303.ods.winit_inventory_by_type
+  - 说明: Winit 万邑通商品级库存快照，每天生成全量快照，使用执行当天日期作为分区。
+- **dwd_inv_winit_org_stock_di** (`dwd.dwd_inv_winit_org_stock_di`, table)
+  - 上游: dim_product_skus, dim_product_skus_warehouse, dwd_inv_winit_inventory_by_organization_snap
+  - 说明: 提取万邑通仓库（WYT美西USWC、WYT美东USKY5）的组织级可用库存和在途库存数据，
+- **dwd_inv_winit_stock_v2_snap** (`dwd.dwd_inv_winit_stock_v2_snap`, table)
+  - 上游: dim_product_skus, dim_product_skus_warehouse, hiccpet-481303.ods.winit_inventory_by_organization
+  - 说明: 干净的 ODS —— 只做内容规范化/JSON 展开/synctime 统一/注释补全, 保留 ODS 原字段名与顺序, 不建模
+- **dwd_inv_winit_type_stock_di** (`dwd.dwd_inv_winit_type_stock_di`, table)
+  - 上游: dim_product_skus, dim_product_skus_warehouse, dwd_inv_winit_inventory_by_type_snap
+  - 说明: 提取万邑通仓库（WYT美西USWC、WYT美东USKY5）的可用库存和在途库存数据，
+- **dwd_scm_winit_outbound_di** (`dwd.dwd_scm_winit_outbound_di`, table)
+  - 上游: dim_product_skus, dim_product_skus_warehouse, hiccpet-481303.ods.sps_commerce_orders, hiccpet-481303.ods.winit_outbound_orders
+
+## 05_inv / dws
+- **dws_inv_global_inbound_txn_di** (`dws.dws_inv_global_inbound_txn_di`, table)
+  - 上游: dwd_inv_amazon_inbound_txn_di, dwd_inv_dbeehk_inbound_txn_di, dwd_inv_locad_inbound_txn_di, dwd_inv_shipout_inbound_txn_di, dwd_inv_tk_inbound_txn_di, dwd_inv_walmart_inbound_txn_di, dwd_inv_winit_inbound_txn_di
+  - 说明: 库存平台名称
+- **dws_inv_global_stock_snap** (`dws.dws_inv_global_stock_snap`, table)
+  - 上游: dim_product_skus, dim_product_skus_warehouse, dim_warehouse_sku_mapping, dwd_inv_amazon_fba_stock_di, dwd_inv_amazon_removal_shipment_di, dwd_inv_chinese_stock_snap, dwd_inv_dbeehk_available_stock_di, dwd_inv_dbeehk_intransit_stock_di, dwd_inv_locad_stock_di, dwd_inv_loho_available_stock_di, dwd_inv_loho_intransit_stock_di, dwd_inv_maple_stock_di, dwd_inv_shipout_inbound_order_di, dwd_inv_shipout_inbound_stock_di, dwd_inv_tk_fbt_stock_di, dwd_inv_walmart_wfs_stock_di, dwd_inv_winit_org_stock_di, hiccpet-481303.ods.import_dim_warehouse, hiccpet-481303.pdt_ods.dim_channel, hiccpet-481303.pdt_ods.dim_country
+  - 说明: 可用库存_在途库存
+- **dws_inv_inbound_shipment_info_di** (`dws.dws_inv_inbound_shipment_info_di`, table)
+  - 上游: dwd_scm_shipment_order_extend_di, dwd_scm_shipment_track_node_di, dws_inv_global_inbound_txn_di, dws_scm_shipping_sla_percentile_snap, hiccpet-481303.dim.dim_scm_inbound_close_manual
+  - 说明: 入库单所属平台名称
+
+## 06_voc / dwd
+- **dwd_voc_amazon_return_di** (`dwd.dwd_voc_amazon_return_di`, table)
+  - 上游: dim_exchange_rates, dim_product_skus_sales, hiccpet-481303.ods.import_dim_country, hiccpet-481303.ods.import_dim_shop, hiccpet-481303.ods.lingxing_amazon_after_sale_list
+  - 说明: 亚马逊售后明细表 - 从 lingxing 售后单中展开商品行项，包含退货/退款/换货类型标记
+- **dwd_voc_hktvmall_return_di** (`dwd.dwd_voc_hktvmall_return_di`, table)
+  - 上游: hiccpet-481303.ods.hktvmall_3r_orders
+  - 说明: HKTVMall退货明细表 - 从 hktvmall_3r_orders 解析，每行对应一个商品退货记录
+- **dwd_voc_lazada_return_di** (`dwd.dwd_voc_lazada_return_di`, table)
+  - 上游: dim_exchange_rates, dim_product_skus_sales, hiccpet-481303.ods.import_dim_country, hiccpet-481303.ods.lazada_reverse_orders_list
+  - 说明: Lazada退货明细表 - 从 Lazada Reverse Orders List 展开退货行项，每行对应一个商品退货记录
+- **dwd_voc_shopee_return_di** (`dwd.dwd_voc_shopee_return_di`, table)
+  - 上游: dim_exchange_rates, dim_product_skus_sales, hiccpet-481303.ods.import_dim_shop, hiccpet-481303.ods.shopee_return_list
+- **dwd_voc_shopify_return_di** (`dwd.dwd_voc_shopify_return_di`, table)
+  - 上游: dim_exchange_rates, dim_product_skus_sales, hiccpet-481303.ods.shopify_orders
+  - 说明: Shopify退货明细表 - 记录每笔退款单中的商品退货信息，含 restock_type 区分是否实际退货
+- **dwd_voc_walmart_return_di** (`dwd.dwd_voc_walmart_return_di`, table)
+  - 上游: dwd_trd_toc_walmart_order_item_di, hiccpet-481303.ods.walmart_returns, hiccpet-481303.ods.walmart_returns_his
+
+## 06_voc / dws
+- **dws_voc_global_return_di** (`dws.dws_voc_global_return_di`, table)
+  - 上游: dwd_trd_tob_hktvmall_order_item_di, dwd_voc_amazon_return_di, dwd_voc_lazada_return_di, dwd_voc_shopee_return_di, dwd_voc_shopify_return_di, dwd_voc_walmart_return_di
+
+## 07_fnc / dwd
+- **dwd_fnc_chewy_rebate_di** (`dwd.dwd_fnc_chewy_rebate_di`, table)
+  - 上游: hiccpet-481303.ods.sps_chewy_rebate
+- **dwd_fnc_ezzeship_postfee_di** (`dwd.dwd_fnc_ezzeship_postfee_di`, table)
+  - 上游: hiccpet-481303.ods.ezzeship_postfee_deal_detail
+- **dwd_fnc_quickbooks_invoice_allocated_di** (`dwd.dwd_fnc_quickbooks_invoice_allocated_di`, table)
+  - 上游: dwd_fnc_quickbooks_invoice_di, dwd_fnc_quickbooks_invoice_item_di
+- **dwd_fnc_quickbooks_invoice_di** (`dwd.dwd_fnc_quickbooks_invoice_di`, table)
+  - 上游: hiccpet-481303.ods.quickbooks_transactions
+- **dwd_fnc_quickbooks_invoice_item_di** (`dwd.dwd_fnc_quickbooks_invoice_item_di`, table)
+  - 上游: hiccpet-481303.ods.quickbooks_invoice_details
+- **dwd_fnc_sps_invoice_detail_di** (`dwd.dwd_fnc_sps_invoice_detail_di`, table)
+  - 上游: hiccpet-481303.ods.sps_invoice_detail_i
+  - 说明: SPS 发票明细，从 sps_invoice_detail_i 提取 H 类型头记录
+- **dwd_fnc_subject_records_di** (`dwd.dwd_fnc_subject_records_di`, table)
+  - 上游: hiccpet-481303.ods.import_financial_subject_records
+
+## 07_fnc / dws
+- **dws_fnc_sps_order_flag_di** (`dws.dws_fnc_sps_order_flag_di`, table)
+  - 上游: dwd_fnc_quickbooks_invoice_allocated_di, dwd_scm_shipout_outbound_txn_di, dwd_scm_sps_po_detail_di, dwd_scm_winit_outbound_di
+  - 说明: SPS 采购订单发货与发票状态打标明细表
+
+## 08_scm / dim
+- **dim_scm_supplier** (`dim.dim_scm_supplier`, table)
+  - 上游: hiccpet-481303.ods.lingxing_amazon_po_order_list
+
+## 08_scm / dwd
+- **dwd_scm_amazon_po_order_di** (`dwd.dwd_scm_amazon_po_order_di`, table)
+  - 上游: dwd_scm_amazon_po_order_snap, hiccpet-481303.ods.import_scm_undelivered_order_details, hiccpet-481303.ods.lingxing_amazon_product_info, hiccpet-481303.ods.lingxing_purchase_plan, hiccpet-481303.pdt_ods.dim_channel, hiccpet-481303.pdt_ods.dim_country, hiccpet-481303.pdt_ods.product_skus_purchase, hiccpet-481303.pdt_ods.stockplan_list
+  - 说明: 数据日期分区
+- **dwd_scm_amazon_po_order_snap** (`dwd.dwd_scm_amazon_po_order_snap`, incremental)
+  - 上游: hiccpet-481303.ods.lingxing_amazon_po_order_list
+  - 说明: 领星亚马逊 PO 采购订单增量快照，原为 ods.lingxing_amazon_po_order_list_partition，
+- **dwd_scm_b2b_po_import_di** (`dwd.dwd_scm_b2b_po_import_di`, table)
+  - 上游: dim_exchange_rates, hiccpet-481303.ods.import_b2b_channel_hk_po_main, hiccpet-481303.ods.import_b2b_channel_sg_po, hiccpet-481303.ods.import_dim_sps_vendor, hiccpet-481303.ods.import_sps_hk_20260331_154520, hiccpet-481303.ods.import_sps_hk_20260410_185955
+- **dwd_scm_lingxing_purchase_receipt_di** (`dwd.dwd_scm_lingxing_purchase_receipt_di`, table)
+  - 上游: hiccpet-481303.ods.lingxing_purchase_receipt_order, hiccpet-481303.pdt_ods.product_skus_purchase
+  - 说明: 入库单主键ID
+- **dwd_scm_shipment_order_di** (`dwd.dwd_scm_shipment_order_di`, table)
+  - 上游: dwd_inv_winit_inbound_txn_di, hiccpet-481303.dim.dim_scm_shipment_mapping, hiccpet-481303.ods.debang_order_detail, hiccpet-481303.ods.debang_order_list, hiccpet-481303.ods.didadi_order_list, hiccpet-481303.ods.didadi_order_trace, hiccpet-481303.ods.import_dim_country, hiccpet-481303.ods.jcex_order_tracking_info, hiccpet-481303.ods.jcex_orders, hiccpet-481303.ods.kqgyl_order_tracking_v, hiccpet-481303.ods.kqgyl_orders, hiccpet-481303.ods.mqgj_workorder_detail, hiccpet-481303.ods.mqgj_workorder_list, hiccpet-481303.ods.mqgj_workorder_logistics_v, hiccpet-481303.ods.mt_order_list, hiccpet-481303.ods.mt_order_logistics, hiccpet-481303.ods.mygj_order_list, hiccpet-481303.ods.mygj_order_track_v, hiccpet-481303.ods.shipping_cargo_arch, hiccpet-481303.ods.skgj_order_list, hiccpet-481303.ods.skgj_order_tracking, hiccpet-481303.ods.sygj_logistics, hiccpet-481303.ods.sygj_order_list, hiccpet-481303.ods.ypl_order_detail_v, hiccpet-481303.ods.ypl_order_list
+  - 说明: 平台名称
+- **dwd_scm_shipment_order_extend_di** (`dwd.dwd_scm_shipment_order_extend_di`, table)
+  - 上游: dim_scm_shipping_time, dwd_inv_amazon_inbound_txn_di, dwd_inv_tk_inbound_txn_di, dwd_scm_shipment_order_di, hiccpet-481303.ods.shipping_cargo_arch
+  - 说明: 平台名称
+- **dwd_scm_shipment_track_dates_di** (`dwd.dwd_scm_shipment_track_dates_di`, table)
+  - 上游: hiccpet-481303.ods.jcex_dates_from_order_tracking_info, hiccpet-481303.ods.kqgyl_order_tracking_v, hiccpet-481303.ods.mqgj_workorder_logistics_v, hiccpet-481303.ods.mt_order_logistics, hiccpet-481303.ods.mygj_order_track_v, hiccpet-481303.ods.sygj_logistics, hiccpet-481303.ods.ypl_order_detail_v
+- **dwd_scm_shipment_track_node_di** (`dwd.dwd_scm_shipment_track_node_di`, table)
+  - 上游: dwd_scm_shipment_order_extend_di, hiccpet-481303.ods.didadi_order_trace, hiccpet-481303.ods.jcex_order_tracking_info, hiccpet-481303.ods.kqgyl_order_tracking_v, hiccpet-481303.ods.mqgj_workorder_logistics_v, hiccpet-481303.ods.mt_order_logistics, hiccpet-481303.ods.mygj_order_track_v, hiccpet-481303.ods.skgj_order_tracking, hiccpet-481303.ods.sygj_logistics, hiccpet-481303.ods.ypl_order_detail_v
+  - 说明: 平台名称
+- **dwd_scm_shipout_billing_txn_di** (`dwd.dwd_scm_shipout_billing_txn_di`, table)
+  - 上游: hiccpet-481303.ods.shipout_transactions
+- **dwd_scm_shipout_outbound_txn_di** (`dwd.dwd_scm_shipout_outbound_txn_di`, table)
+  - 上游: dim_exchange_rates, dim_prd_shipout_product, dwd_scm_sps_po_detail_di, hiccpet-481303.ods.import_scm_sku_first_leg_cost_config, hiccpet-481303.ods.shipout_freight_order, hiccpet-481303.ods.shipout_outbound_order
+  - 说明: 日期
+- **dwd_scm_sps_po_detail_di** (`dwd.dwd_scm_sps_po_detail_di`, table)
+  - 上游: dim_prd_sps_vendor_style, dim_product_skus, dwd_scm_b2b_po_import_di, hiccpet-481303.ods.import_dim_channel, hiccpet-481303.ods.import_dim_sps_vendor, hiccpet-481303.ods.sps_commerce_orders
+
+## 08_scm / dws
+- **dws_scm_shipment_abnormal_data_di** (`dws.dws_scm_shipment_abnormal_data_di`, table)
+  - 上游: dws_inv_inbound_shipment_info_di, hiccpet-481303.dim.dim_scm_shipment_exclusive
+- **dws_scm_shipping_sla_percentile_snap** (`dws.dws_scm_shipping_sla_percentile_snap`, table)
+  - 上游: dwd_scm_shipment_order_extend_di
+  - 说明: 标准运输方式（来自dim_scm_shipping_time）
+- **dws_scm_sps_po_detail_di** (`dws.dws_scm_sps_po_detail_di`, table)
+  - 上游: dwd_scm_sps_po_detail_di
+
+## 09_mdm / dim
+- **dim_business_channel_v2** (`dim.dim_business_channel_v2`, table)
+  - 上游: hiccpet-481303.ods.import_dim_channel
+- **dim_calendar_cn** (`dim.dim_calendar_cn`, table)
+  - 上游: dim_date
+- **dim_calendar_local** (`dim.dim_calendar_local`, table)
+  - 上游: dim_date
+- **dim_channel_lingxing_account** (`dim.dim_channel_lingxing_account`, table)
+  - 上游: hiccpet-481303.ods.lingxing_account_list
+- **dim_country_v2** (`dim.dim_country_v2`, table)
+  - 上游: hiccpet-481303.ods.import_dim_country
+- **dim_date** (`dim.dim_date`, table)
+  - 上游: hiccpet-481303.dim.dim_date
+- **dim_exchange_rates** (`dim.dim_exchange_rates`, table)
+  - 上游: hiccpet-481303.ods.exchange_rates
+- **dim_hicc_sku_mapping_v2** (`dim.dim_hicc_sku_mapping_v2`, table)
+  - 上游: dim_product_skus, dim_shop_v2, hiccpet-481303.ods.bundle_info, hiccpet-481303.ods.hktvmall_order_details, hiccpet-481303.ods.import_product_skus_sales, hiccpet-481303.ods.lazada_products_list, hiccpet-481303.ods.lingxing_amazon_seller_sku_list, hiccpet-481303.ods.shopee_model_list, hiccpet-481303.ods.shopify_products, hiccpet-481303.ods.tk_products, hiccpet-481303.ods.walmart_orders, hiccpet-481303.pdt_ods.product_skus_sales
+- **dim_import_sku_mapping** (`dim.dim_import_sku_mapping`, table)
+  - 上游: hiccpet-481303.ods.import_amazon_sku_info, hiccpet-481303.ods.import_dim_shop, hiccpet-481303.ods.import_sku_mapping
+- **dim_mkt_petco_creative_mapping** (`dim.dim_mkt_petco_creative_mapping`, table)
+  - 上游: hiccpet-481303.dim.dim_mkt_petco_creative_mapping
+- **dim_prd_bundle_info** (`dim.dim_prd_bundle_info`, table)
+  - 上游: hiccpet-481303.ods.bundle_info, hiccpet-481303.ods.bundle_item_mapping
+- **dim_prd_sps_vendor_style** (`dim.dim_prd_sps_vendor_style`, table)
+  - 上游: hiccpet-481303.dim.dim_prd_sps_vendor_style
+- **dim_product_categories** (`dim.dim_product_categories`, table)
+  - 上游: hiccpet-481303.pdt_ods.product_categories
+- **dim_product_skus** (`dim.dim_product_skus`, table)
+  - 上游: dim_product_categories, hiccpet-481303.ods.bundle_info, hiccpet-481303.ods.import_sku_info, hiccpet-481303.pdt_ods.product_brands, hiccpet-481303.pdt_ods.product_skus, hiccpet-481303.pdt_ods.product_spus
+- **dim_product_skus_purchase** (`dim.dim_product_skus_purchase`, table)
+  - 上游: hiccpet-481303.pdt_ods.product_skus_purchase
+- **dim_product_skus_sales** (`dim.dim_product_skus_sales`, table)
+  - 上游: hiccpet-481303.ods.import_product_skus_sales, hiccpet-481303.pdt_ods.product_skus_sales
+- **dim_product_skus_warehouse** (`dim.dim_product_skus_warehouse`, table)
+  - 上游: dim_warehouse_sku_mapping, hiccpet-481303.ods.import_dim_warehouse, hiccpet-481303.pdt_ods.product_skus_purchase, hiccpet-481303.pdt_ods.product_skus_warehouse
+- **dim_scm_shipping_time** (`dim.dim_scm_shipping_time`, table)
+  - 上游: hiccpet-481303.dim.dim_scm_shipping_time
+- **dim_shop_v2** (`dim.dim_shop_v2`, table)
+  - 上游: dim_country_v2, hiccpet-481303.ods.import_dim_shop
+- **dim_sku_mapping** (`dim.dim_sku_mapping`, table)
+  - 上游: dim_prd_lazada_products, dim_prd_shopee_model, dim_prd_shopify_variants, dim_prd_tk_products, dim_product_skus, hiccpet-481303.ods.hktvmall_order_details, hiccpet-481303.ods.import_dim_channel, hiccpet-481303.ods.import_dim_shop, hiccpet-481303.ods.lingxing_amazon_seller_sku_list, hiccpet-481303.ods.walmart_orders
+- **dim_warehouse_sku_mapping** (`dim.dim_warehouse_sku_mapping`, table)
+  - 上游: dim_prd_tk_products, dim_product_skus, hiccpet-481303.ods.dbeehk_product, hiccpet-481303.ods.import_dim_warehouse, hiccpet-481303.ods.lingxing_amazon_seller_sku_list, hiccpet-481303.ods.locad_product_inventory, hiccpet-481303.ods.loho_local_product, hiccpet-481303.ods.maple_product_sku_info, hiccpet-481303.ods.shipout_product, hiccpet-481303.ods.walmart_wfs_inventory, hiccpet-481303.ods.winit_sku_list
