@@ -39,7 +39,7 @@ python .trae/skills/windows-sh部署dbt/deploy_all.py --module dags --dry-run
 | `python deploy_all.py --file 某文件` | 单文件发布（自动识别归属模块） |
 | `python deploy_all.py --file airflow/dags/config/crawl_sources.yaml` | 发 crawl_sources.yaml → 自动 DTS 同步 |
 | `python deploy_all.py --module dags --skip-dts` | 紧急发布，跳过 DTS 变更 |
-| `python deploy_all.py --file xxx --verify` | 单文件发布 + **部署后自动校验 GCS 文件与本地 MD5 一致** |
+| `python deploy_all.py --file xxx` | 单文件发布（部署后自动 MD5 校验） |
 
 ## 安全执行模板（PowerShell）
 
@@ -67,27 +67,26 @@ python .trae/skills/windows-sh部署dbt/deploy_all.py --module dags
 | 匿名 401 | 需手动配 boto | `ensure_gsutil_auth()` 自动注入 |
 | CRLF 乱码 | 需 `sed -i 's/\r$//'` | Python 文件读写不受影响 |
 
-## 部署后文件校验（--verify，推荐）
+## 部署后文件校验（默认自动执行，必须通过）
 
-部署完成后，校验 GCS 上的文件是否**真的上传成功且内容与本地一致**（逐文件 MD5 对比），
-避免"上传成功但内容不对 / 未同步 / 传错版本"的隐患。
+**所有部署（`--file` 或 `--module`）完成后，脚本自动逐文件对比本地与 GCS 的 MD5**，
+保证文件确实部署成功，避免"上传成功但内容不对 / 未同步 / 传错版本"的隐患。
+任一文件 FAIL 立即以**非零退出码**中止部署。
 
-### 自动校验（部署 + 校验一步完成）
+- 校验方式：本地文件 Python 计算 base64 MD5，GCS 对象读取 `md5Hash` 对比
+- `--file` 场景：校验本次发布的所有文件；含 dbt 源文件时自动追加校验 `manifest.json`
+- `--module` 场景：校验整个模块目录（dbt 模块为全部源文件 + manifest.json）
+- `--dry-run` 时不校验（未实际部署，无意义）
+- `--verify` 参数已默认开启，保留仅为向后兼容，无需手动加
 
 ```powershell
-# 单文件发布后自动校验（含 dbt 源文件时自动追加校验 manifest.json）
-python .trae/skills/windows-sh部署dbt/deploy_all.py --file hicc_data_platform/models/08_scm/dws/dws_scm_shipment_abnormal_data_di.sql --verify
+# 部署（无论哪种方式，最后都会自动输出逐文件 [PASS]/[FAIL] 校验结果）
+python .trae/skills/windows-sh部署dbt/deploy_all.py --module dbt
 
-# 多个文件
-python .trae/skills/windows-sh部署dbt/deploy_all.py --file a.sql --file b.yml --verify
+# 输出示例（全部 PASS 才算部署成功）
+#   [OK] 182 个文件均与 GCS 一致 ✅
+#   [PASS] gs://.../data/hicc_data_platform/target/manifest.json
 ```
-
-校验逻辑（`deploy_all.py` 内置，无需外部工具）：
-- 本地文件：Python 计算 base64 MD5
-- GCS 对象：`gsutil ls -L` 读取 `Hash (md5)` 对比
-- 校验范围：本次 `--file` 指定的全部文件；若含 dbt 源文件，自动追加校验 `manifest.json`
-
-输出 `[PASS]` / `[FAIL]`；任一 FAIL 会以非零退出码终止并显示本地/GCS 两侧 MD5 便于排查。
 
 ### 单独校验已部署文件（不重新部署）
 
@@ -103,7 +102,7 @@ gcloud storage cp gs://asia-southeast1-hicc-e1a70e20-bucket/data/hicc_data_platf
 # 1. 确认 gsutil 可访问 bucket
 gsutil ls gs://asia-southeast1-hicc-e1a70e20-bucket
 
-# 2. 文件级校验（见上节，--verify 或手动 MD5 对比）
+# 2. 部署时已自动执行 MD5 校验，确认最后输出 [OK] 全部 PASS 即可
 
 # 3. 等待 Composer 同步（约 2-5 分钟）
 # 4. 在 Airflow UI 检查 DAG 是否加载成功；如有需要 Unpause 对应 DAG

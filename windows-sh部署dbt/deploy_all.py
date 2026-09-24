@@ -39,6 +39,7 @@ import hashlib
 import os
 import re
 import shutil
+import shlex
 import subprocess
 import sys
 import tempfile
@@ -83,12 +84,42 @@ def _which(name: str) -> str | None:
     return shutil.which(name)
 
 
+def _cmd_to_py(cmd_path: str) -> str | None:
+    """.cmd/.bat -> 同 SDK 的 .py 入口（gcloud/gsutil/bq 均有对应 python 脚本）。
+
+    Windows 下经 cmd /c 执行 .cmd 有引号陷阱：cmd 对命令行的引号规则与
+    Python list2cmdline 转义冲突（参数内引号会被转义成 \\" 而 cmd 不识别），
+    且批处理 %* 展开会丢失引号（含 | 的 -x 正则被拆成管道）。
+    直接 python 调 .py 完全走 argv 传递，无上述问题。
+    """
+    stem = Path(cmd_path).stem.lower()
+    # gcloud.CMD 位于 .../google-cloud-sdk/bin, 上一级即 SDK 根
+    sdk_root = Path(cmd_path).resolve().parents[1]
+    candidates = {
+        "gcloud": sdk_root / "lib" / "gcloud.py",
+        "gsutil": sdk_root / "platform" / "gsutil" / "gsutil.py",
+        "bq": sdk_root / "bin" / "bootstrapping" / "bq.py",
+    }
+    if stem in candidates and candidates[stem].exists():
+        return str(candidates[stem])
+    same = Path(cmd_path).with_suffix(".py")
+    return str(same) if same.exists() else None
+
+
 def _wrap_windows_cmd(cmd: list[str]) -> list[str]:
-    """Windows 下 .cmd/.bat 需经 cmd /c 执行（subprocess 无法直接 CreateProcess .cmd）。"""
+    """Windows 下 .cmd/.bat 无法被 CreateProcess 直接执行。
+
+    优先解析为同 SDK 的 .py 入口并用 sys.executable 直调（见 _cmd_to_py），
+    完全绕过 cmd /c 的引号剥离规则与批处理 %* 引号丢失问题。
+    找不到 .py 时回退 cmd /c（仅对参数不含引号的命令安全）。
+    """
     if os.name != "nt":
         return cmd
     full = shutil.which(cmd[0])
     if full and full.lower().endswith((".cmd", ".bat")):
+        py = _cmd_to_py(full)
+        if py:
+            return [sys.executable, py] + cmd[1:]
         return ["cmd", "/c"] + [full] + cmd[1:]
     return cmd
 
@@ -151,6 +182,23 @@ def _find_gsutil() -> str:
     return exe
 
 
+def _split_cmd_str(s: str) -> list[str]:
+    """拆分命令行字符串为 argv（Windows 安全版）。
+
+    shlex.split 默认 POSIX 模式会把 Windows 路径反斜杠当转义符吃掉
+    （D:\\path -> D:path）；posix=False 保留反斜杠但保留引号字符，
+    故在此再剥掉首尾成对的引号（命令中的引号仅用于保护含空格的 token
+    或 | 等特殊字符，剥掉后由 python argv 原样传递）。
+    """
+    tokens = shlex.split(s, posix=False)
+    out = []
+    for t in tokens:
+        if len(t) >= 2 and t[0] == '"' and t[-1] == '"':
+            t = t[1:-1]
+        out.append(t)
+    return out
+
+
 def run_gsutil(cmd_str: str, dry_run: bool = False) -> int:
     """执行 gsutil 命令（注入 -o GSUtil:parallel_process_count=1、超时、重试）。
 
@@ -168,7 +216,9 @@ def run_gsutil(cmd_str: str, dry_run: bool = False) -> int:
     # 在 "gsutil" 之后注入并行进程数=1 参数
     assert cmd_str.startswith("gsutil"), f"仅支持 gsutil 命令，收到: {cmd_str}"
     rest = cmd_str[len("gsutil"):].strip()
-    base_cmd = _wrap_windows_cmd([gsutil, "-o", "GSUtil:parallel_process_count=1"] + rest.split())
+    # _split_cmd_str 正确处理引号分组（如 -x "target/.*|logs/.*"）且保留 Windows 路径反斜杠
+    rest_tokens = _split_cmd_str(rest)
+    base_cmd = _wrap_windows_cmd([gsutil, "-o", "GSUtil:parallel_process_count=1"] + rest_tokens)
 
     last_exit = -1
     for attempt in range(1, 4):
@@ -350,7 +400,7 @@ def deploy_dbt(dry_run: bool) -> int:
     if dry_run:
         run_gsutil(f"gsutil -m rsync -r -d -x \"target/.*|logs/.*|dbt_packages/.*|\\.dbt/.*\" {src}/ {dst}/", dry_run)
         run_gsutil(f"gsutil cp {manifest} {dst}/target/manifest.json", dry_run)
-        run_gsutil(f"gsutil -m rm {dst}/target/partial_parse.msgpack {dst}/target/graph.gpickle {dst}/target/run_results.json 2>nul || exit /b 0", dry_run)
+        run_gsutil(f"gsutil -m rm {dst}/target/partial_parse.msgpack {dst}/target/graph.gpickle {dst}/target/run_results.json", dry_run)
         print("  [OK] dbt 工程已发布（含 manifest.json，Cosmos DbtTaskGroup 依赖）")
         return 0
 
@@ -362,7 +412,7 @@ def deploy_dbt(dry_run: bool) -> int:
     if run_gsutil(f"gsutil cp {manifest} {dst}/target/manifest.json") != 0:
         return 1
     print("  [clean] 清理 target/ 下的旧编译缓存...")
-    run_gsutil(f"gsutil -m rm {dst}/target/partial_parse.msgpack {dst}/target/graph.gpickle {dst}/target/run_results.json 2>nul || exit /b 0")
+    run_gsutil(f"gsutil -m rm {dst}/target/partial_parse.msgpack {dst}/target/graph.gpickle {dst}/target/run_results.json")
     print("  [OK] ✅ 源代码 + manifest 已上传，旧缓存已清理")
     print("  [OK] dbt 工程已发布（含 manifest.json，Cosmos DbtTaskGroup 依赖）")
     return 0
@@ -556,6 +606,127 @@ def verify_uploaded_files(files: list[str], has_dbt_source: bool,
     return 0
 
 
+def get_gcs_md5_map(gcs_prefix: str) -> dict[str, str]:
+    """一次调用获取 GCS 前缀下所有对象的 md5Hash（相对路径 -> base64 md5）。
+
+    用 `gsutil -m ls -L <prefix>/**` 递归列出对象并解析 Hash (md5)，
+    避免逐文件 ls -L 的网络往返（大目录校验只需一次调用）。
+    失败返回空 dict（调用方将按"无法校验"处理）。
+    """
+    prefix = gcs_prefix.rstrip("/")
+    proc = subprocess.run(
+        _wrap_windows_cmd([_find_gsutil(), "-m", "ls", "-L", prefix + "/**"]),
+        text=True, encoding="utf-8", errors="replace",
+        stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=300,
+    )
+    if proc.returncode != 0:
+        print(f"    ⚠️  无法列出 GCS 目录: {prefix}/**（exit={proc.returncode}）",
+              file=sys.stderr)
+        return {}
+    result: dict[str, str] = {}
+    current: str | None = None
+    for line in proc.stdout.splitlines():
+        s = line.strip()
+        # 对象块首行: "gs://.../path/to/file:"；注意 "Creation time:" 不以 gs:// 开头
+        if s.startswith("gs://") and s.endswith(":"):
+            current = s[:-1]
+        elif current and "Hash (md5):" in s:
+            md5 = s.split(":", 1)[1].strip()
+            result[current[len(prefix) + 1:]] = md5
+    return result
+
+
+def local_md5_map(local_dir: Path, ignore_regex: str = "") -> dict[str, str]:
+    """递归计算本地目录文件的 base64 MD5（相对路径 -> md5），可按正则排除。"""
+    result: dict[str, str] = {}
+    for p in sorted(local_dir.rglob("*")):
+        if not p.is_file():
+            continue
+        rel = p.relative_to(local_dir).as_posix()
+        if ignore_regex and re.search(ignore_regex, rel):
+            continue
+        result[rel] = get_local_md5_base64(p)
+    return result
+
+
+def verify_uploaded_dir(local_dir: Path, gcs_dir: str,
+                        ignore_regex: str = "") -> int:
+    """校验整个目录：本地每个文件 MD5 vs GCS 同名对象。0=全部一致。"""
+    local_map = local_md5_map(local_dir, ignore_regex)
+    if not local_map:
+        print(f"  ⚠️  本地目录无文件可校验: {local_dir}", file=sys.stderr)
+        return 1
+    gcs_map = get_gcs_md5_map(gcs_dir)
+    failed = 0
+    for rel, lmd5 in local_map.items():
+        gmd5 = gcs_map.get(rel)
+        if gmd5 is None:
+            print(f"  [FAIL] {rel}  ← GCS 缺少该文件")
+            failed += 1
+        elif lmd5 != gmd5:
+            print(f"  [FAIL] {rel}")
+            print(f"        local: {lmd5}")
+            print(f"        gcs:   {gmd5}")
+            failed += 1
+        else:
+            print(f"  [PASS] {rel}")
+    if failed:
+        print(f"  ❌ {local_dir} → {gcs_dir} 有 {failed} 个文件不一致",
+              file=sys.stderr)
+        return 1
+    print(f"  [OK] {len(local_map)} 个文件均与 GCS 一致 ✅")
+    return 0
+
+
+def verify_single_file(abs_path: Path, gcs_path: str) -> int:
+    """校验单个文件（本地 MD5 vs GCS md5Hash）。0=一致。"""
+    return 0 if verify_file_md5(abs_path, gcs_path) else 1
+
+
+def verify_deployed_dags() -> int:
+    """dags 模块部署后校验：根目录 *.py + hicc_utils/ + config/。"""
+    print("  [verify] 校验 DAG 文件（根 *.py + hicc_utils/ + config/）...")
+    failed = 0
+    for p in sorted(DAGS_DIR.glob("*.py")):
+        failed += verify_single_file(p, f"gs://{BUCKET}/dags/{p.name}")
+    failed += verify_uploaded_dir(DAGS_DIR / "hicc_utils",
+                                  f"gs://{BUCKET}/dags/hicc_utils")
+    failed += verify_uploaded_dir(DAGS_DIR / "config",
+                                  f"gs://{BUCKET}/dags/config")
+    return 1 if failed else 0
+
+
+def verify_deployed_module(m: str) -> int:
+    """各模块部署后自动 MD5 校验（保证文件确实部署成功）。0=全部一致。"""
+    print(f"  [verify] 校验 {m} 模块文件（本地 MD5 vs GCS）...")
+    if m == "dags":
+        return verify_deployed_dags()
+    if m == "dbt":
+        # rsync 排除项与 deploy_dbt 保持一致
+        failed = verify_uploaded_dir(
+            PROJECT_ROOT / "hicc_data_platform",
+            f"gs://{BUCKET}/data/hicc_data_platform",
+            ignore_regex=r"target/.*|logs/.*|dbt_packages/.*|\.dbt/.*",
+        )
+        # manifest.json 在 target/ 下被 rsync 排除，单独 cp 上传，需单独校验
+        manifest = PROJECT_ROOT / "hicc_data_platform" / "target" / "manifest.json"
+        failed += verify_single_file(
+            manifest,
+            f"gs://{BUCKET}/data/hicc_data_platform/target/manifest.json",
+        )
+        return 1 if failed else 0
+    if m == "profiles":
+        return verify_single_file(
+            DEPLOY_DIR / "profiles_composer.yml", f"gs://{BUCKET}/data/profiles.yml")
+    if m in ("monitor", "shipment", "feishu"):
+        rel_dir = {"monitor": "airflow/data/monitor",
+                   "shipment": "airflow/data/shipment_model",
+                   "feishu": "airflow/data/feishu_sync"}[m]
+        return verify_uploaded_dir(PROJECT_ROOT / rel_dir,
+                                   f"gs://{BUCKET}/data/{m}")
+    return 0
+
+
 # ============================================================================
 # 主流程
 # ============================================================================
@@ -576,6 +747,9 @@ def main() -> None:
     #   python airflow/deploy/deploy_all.py --module dags --skip-dts # 紧急发布，跳过 DTS 变更
     #   python airflow/deploy/deploy_all.py --module dags --sync-variables
     #                                # 发布 + 同步 Airflow Variables（幂等）
+    #   ⚠️ 部署后自动 MD5 校验：所有部署（--file 或 --module）完成后，脚本自动
+    #     逐文件对比本地与 GCS 的 MD5，任一 FAIL 立即以非零退出码中止，保证文件
+    #     确实部署成功。--dry-run 时不校验（未实际部署）。--verify 已默认开启，保留兼容。
     #   组合示例：先预览再真发
     #     python airflow/deploy/deploy_all.py --module dags --dry-run      # 1. 预览
     #     python airflow/deploy/deploy_all.py --module dags                 # 2. 确认后真发
@@ -602,9 +776,9 @@ def main() -> None:
     # --skip-dts：跳过自动 DTS 变更（紧急发布用，仅确认 crawl_sources.yaml 无变更时使用）
     parser.add_argument("--skip-dts", action="store_true",
                         help="跳过自动 DTS 变更（紧急发布时用）")
-    # --verify：部署完成后校验 GCS 文件与本地内容一致（MD5 对比）
+    # --verify：已默认开启（部署后自动 MD5 校验，FAIL 即退出）。保留参数仅为向后兼容，无实际开关作用
     parser.add_argument("--verify", action="store_true",
-                        help="部署完成后校验 GCS 文件与本地 MD5 一致（--file/dbt 源文件场景）")
+                        help="部署后校验 GCS 文件与本地 MD5 一致（已默认开启，保留兼容）")
     args = parser.parse_args()
 
     modules = args.module
@@ -668,10 +842,10 @@ def main() -> None:
                 print("❌ dbt parse 或 manifest 上传失败，部署中止", file=sys.stderr)
                 sys.exit(1)
 
-        # 部署后文件校验（--verify）
-        if args.verify:
+        # 部署后文件校验（默认自动执行，保证文件确实部署成功）
+        if not dry_run:
             print("─" * 60)
-            print("部署后文件校验（--verify）")
+            print("部署后文件校验（本地 MD5 vs GCS）")
             print("─" * 60)
             if verify_uploaded_files(files, has_dbt_source, dry_run) != 0:
                 print("❌ 文件校验未通过，请检查 GCS 上传结果", file=sys.stderr)
@@ -706,6 +880,14 @@ def main() -> None:
                       file=sys.stderr)
                 print("    仅在确认 crawl_sources.yaml 无变更时使用此选项", file=sys.stderr)
             deploy_dags(dry_run)
+            # 部署后文件校验（默认自动执行）
+            if not dry_run:
+                print("─" * 60)
+                print("部署后文件校验（dags 模块）")
+                print("─" * 60)
+                if verify_deployed_dags() != 0:
+                    print("❌ dags 文件校验未通过，请检查上传", file=sys.stderr)
+                    sys.exit(1)
             print()
 
         for m in MODULE_ORDER:
@@ -716,6 +898,15 @@ def main() -> None:
                       "monitor": deploy_monitor, "shipment": deploy_shipment,
                       "feishu": deploy_feishu}[m]
                 fn(dry_run)
+                # 部署后文件校验（默认自动执行）
+                if not dry_run:
+                    print("─" * 60)
+                    print(f"部署后文件校验（{m} 模块）")
+                    print("─" * 60)
+                    if verify_deployed_module(m) != 0:
+                        print(f"❌ {m} 文件校验未通过，请检查上传",
+                              file=sys.stderr)
+                        sys.exit(1)
                 print()
 
     # ── 同步 Airflow Variables（可选）──
