@@ -25,6 +25,95 @@ Read the active ticket from `tickets.md`. Determine its type and dispatch to the
 
 If no `tickets.md` exists (independent invocation), assume `DM` type and create from scratch using the spec.
 
+## 0. Schema Trap Detection & Surrogate Key Audit
+
+> Before chiseling a single column, verify the model's structural integrity. This step catches anti-patterns that would cause incorrect query results (fan-out or row loss) at the design stage — much cheaper than fixing after deployment.
+
+### 0.1 Fan Trap Detection
+
+A **fan trap** occurs when a fact table joins through a N-to-1-to-N relationship chain, causing row count inflation.
+
+**Detection query** (run in BigQuery before writing the model):
+
+```sql
+-- Fan trap check: does joining the intermediate dimension multiply rows?
+-- Replace {fact_table}, {join_col}, {dim_table1}, {dim_table2} with actual names
+WITH base AS (
+  SELECT COUNT(1) AS base_rows
+  FROM `hiccpet-481303.{fact_table}`
+  WHERE {partition_date_col} = '{test_date}'
+),
+after_join1 AS (
+  SELECT COUNT(1) AS rows_after_join1
+  FROM `hiccpet-481303.{fact_table}` f
+  LEFT JOIN `hiccpet-481303.{dim_table1}` d1 ON f.{join_col} = d1.{join_col}
+  WHERE f.{partition_date_col} = '{test_date}'
+),
+after_join2 AS (
+  SELECT COUNT(1) AS rows_after_join2
+  FROM `hiccpet-481303.{fact_table}` f
+  LEFT JOIN `hiccpet-481303.{dim_table1}` d1 ON f.{join_col} = d1.{join_col}
+  LEFT JOIN `hiccpet-481303.{dim_table2}` d2 ON f.{join_col} = d2.{join_col}
+  WHERE f.{partition_date_col} = '{test_date}'
+)
+SELECT base_rows, rows_after_join1, rows_after_join2,
+       ROUND((rows_after_join2 - base_rows) / NULLIF(base_rows, 0) * 100, 2) AS fan_out_pct
+FROM base, after_join1, after_join2;
+```
+
+**Pass criteria**: rows_after_join2 = base_rows (fan_out_pct < 1%). If fan_out_pct > 10%, the model has a fan trap — redesign to join through a single path.
+
+### 0.2 Chasm Trap Detection
+
+A **chasm trap** occurs when a single fact table is JOINed to two fact tables simultaneously through the same dimension, causing row loss.
+
+**Detection rule** (design review, not SQL):
+
+```
+Chasm trap pattern:
+  dim_channel ──→ dwd_trd_toc_order_item    (transaction fact, measure=GMV)
+           ↓
+  dim_channel ──→ dwd_voc_return_order       (return fact, measure=return_amount)
+
+If a query joins dim_channel → dwd_trd_toc_order_item AND dim_channel → dwd_voc_return_order
+  in the same SELECT, the grain becomes ambiguous — BigQuery may silently drop rows.
+```
+
+**Resolution**:
+- ✅ Aggregate both facts in CTEs separately, then JOIN the aggregates at DWS level
+- ❌ JOIN both facts directly in one query
+
+```sql
+-- ✅ Correct: aggregate first, then join
+WITH gmv AS (
+  SELECT channel_id, date, SUM(amount) AS gmv
+  FROM {{ ref('dwd_trd_toc_order_item_di') }}
+  GROUP BY 1, 2
+),
+returns AS (
+  SELECT channel_id, date, SUM(amount) AS return_amount
+  FROM {{ ref('dwd_voc_return_order_di') }}
+  GROUP BY 1, 2
+)
+SELECT COALESCE(g.channel_id, r.channel_id) AS channel_id, ...
+FROM gmv g
+FULL OUTER JOIN returns r ON g.channel_id = r.channel_id AND g.date = r.date
+```
+
+### 0.3 Surrogate Key Audit
+
+Verify that the model's key design follows the surrogate key strategy declared in the spec (Section 4.4a):
+
+| Check | What to verify | Pass criteria |
+|-------|---------------|--------------|
+| SCD2 dimensions | Has `{entity}_sk` surrogate PK (INT64, NOT NULL) | ✅ `sku_sk`, `supplier_sk`, `customer_sk` etc. exist |
+| SCD2 dimensions | Has `effective_date`, `expiration_date`, `is_current` columns | ✅ metadata columns present |
+| Facts referencing SCD2 | Uses `sku_sk` not `sku_id` for JOIN | ✅ FK references surrogate, not natural key |
+| Degenerate dimensions | No surrogate key needed (marked `[degenerate]` in manifest) | ✅ explicitly classified |
+| Small dimensions (<100 rows) | Can skip surrogate key — document reason in comment | ✅ rationale documented |
+
+**Completion criterion**: fan trap and chasm trap checks pass. Every dimension's surrogate key strategy matches the spec. If the spec didn't declare one, flag it for the user and recommend a strategy. Chisel the schema integrity before writing a single column.
+
 ## 1. Source Inventory
 
 Before writing a single line of SQL, know what you are chiseling from.
@@ -60,13 +149,13 @@ List every column the model outputs with its lineage. This is written as a SQL c
 ```sql
 -- Grain: one row per order_id × line_item
 -- Columns:
---   order_id                ← src_orders.order_id
+--   order_id                ← src_orders.order_id                [degenerate]
 --   line_item_id            ← src_order_items.line_item_id
---   sku_id                  ← src_order_items.sku_id → dim_product_skus_sales.sku_id
+--   sku_id                  → dim_product_skus_sales.sku_id     [FK → dim_product_skus_sales] -- SCD2, uses surrogate
 --   order_date              ← src_orders.order_date
 --   unit_price_usd          ← src_order_items.unit_price / COALESCE(dim_exchange_rates.to_usd_rate, 1)
 --   quantity                ← src_order_items.quantity
---   total_amount_usd        ← unit_price_usd * quantity
+--   total_amount_usd        = unit_price_usd * quantity
 --   etl_time                 = CURRENT_TIMESTAMP() + 8h  -- Beijing time
 ```
 
@@ -159,11 +248,29 @@ GROUP BY 1, 2
 
 ### 4.6 Grain Integrity
 
-- Every model **must have a primary key** (natural or surrogate). If no single column is unique, concatenate: `CONCAT(order_id, '_', line_item_id) AS order_item_key`
+- Every model **must have a primary key** (surrogate or natural). Surrogate key priority:
+  - **SCD2 dimensions**: `FARM_FINGERPRINT(CONCAT(source, '_', business_key, '_', effect_date))` for INT64 surrogate
+  - **Large dimensions (>10K rows, non-SCD)**: `FARM_FINGERPRINT(CONCAT(source, '_', business_key))` — hash is faster than STRING JOIN
+  - **Small dimensions (<100 rows)**: Natural key is fine, no surrogate needed
+  - **Fact tables**: Natural composite key (e.g. `CONCAT(order_id, '_', line_item_id) AS order_item_key`) unless referencing SCD2 dimensions
 - For aggregate models, the grain IS the GROUP BY — verify that no GROUP BY produces fewer or more rows than the spec expects
-- **Surrogate keys**: use `FARM_FINGERPRINT(CONCAT(col1, '_', col2))` for large tables, or direct concatenation for small dimensions
+- **Degenerate dimensions** in facts are fine — they are identifiers with no dimension table, marked `[degenerate]` in the Column Manifest (see Step 3). No surrogate key needed for degenerate dimensions.
 
-### 4.7 HICC Canonical Patterns
+### 4.7 Degenerate Dimension Annotation in Column Manifest
+
+Extend the Column Manifest (Step 3) to classify each FK:
+
+```sql
+-- Columns:
+--   order_id         ← src_orders.order_id     [degenerate]       ← no dim table
+--   channel_id       ← src_orders.channel_id   [FK → dim_channel] ← conformed
+--   sku_id           → dim_product_skus_sales  [FK → dim_skus]    ← conformed, SCD2
+--   unit_price_usd   ← src_order_items.unit_price / COALESCE(dim_exchange_rates.to_usd_rate, 1)
+```
+
+Every FK must be annotated as either `[degenerate]` or `[FK → {dim_table}]`. No FK is left unclassified.
+
+### 4.8 HICC Canonical Patterns
 
 These patterns recur across the HICC data warehouse. Chisel them consistently.
 
@@ -202,9 +309,14 @@ Join on `er.month = DATE_TRUNC(src.event_date, MONTH)` — rates are monthly.
 
 **Completion criterion**: every field that needs SKU join, exchange rate, or timestamp follows the canonical pattern above. No inline `TO_USD_RATE` expressions — always join `dim_exchange_rates`.
 
-## 5. Data Quality
+## 5. Data Quality Validation
 
-After the model SQL, chisel the quality checks that prove the model is sound. Generate a companion quality-check block:
+> In DW engineering, a model is not done until you've run it against real data and confirmed the output is correct.
+> SQL compilation passes does not mean the data is right. This step chisels both the DQ SQL AND its execution results.
+
+### 5.1 Generate DQ Checks
+
+For each model type, generate the DQ SQL check:
 
 ```sql
 /*
@@ -218,17 +330,149 @@ DQ: dwd_trd_toc_order_item_di
 */
 ```
 
-Generate the actual SQL for each check — `SELECT COUNT(1)`, `SELECT COUNTIF(col IS NULL)/COUNT(*)`, etc.
-
 **Minimum DQ coverage per model type**:
 
 | Model Type | Required Checks |
 |---|---|
-| DIM | Uniqueness on key, Non-null on each column |
+| DIM | Uniqueness on key, Non-null on each attribute column |
 | DWD | Row count ±30% vs yesterday, Non-null on key columns, Referential integrity to referenced DIMs |
-| DWS | Row count ±10% vs yesterday, Non-null on grain, Metric range reasonability |
+| DWS | Row count ±10% vs yesterday, Non-null on grain, **Metric drift detection** (today vs yesterday vs last week), **Ratio comparison** (GMV/order_count vs expected range) |
 
-**Completion criterion**: every check in the coverage matrix above has executable SQL generated. Run it against a representative date range to confirm the SQL is valid. Chisel stops here if any check returns unexpected results.
+### 5.2 Execute DQ Checks
+
+Run each DQ SQL against a **representative date range** (last 3 consecutive days + 1 random day from last month). Record the actual results:
+
+```
+Check: row_count for 2026-09-08
+  SQL:    SELECT COUNT(1) FROM `hiccpet-481303.dwd.dwd_trd_toc_order_item_di` WHERE event_date_utc = '2026-09-08'
+  Result: 124,782  ← actual output
+  Pass:   ✅ (expected > 1,000)
+
+Check: row_count for 2026-09-09
+  SQL:    SELECT COUNT(1) FROM `hiccpet-481303.dwd.dwd_trd_toc_order_item_di` WHERE event_date_utc = '2026-09-09'
+  Result: 131,005  ← actual output
+  Pass:   ✅ (expected > 1,000)
+
+Check: null_rate unit_price_usd for 2026-09-08 ~ 2026-09-10
+  SQL:    SELECT COUNTIF(unit_price_usd IS NULL) / COUNT(1) * 100 FROM `hiccpet-481303.dwd.dwd_trd_toc_order_item_di` WHERE event_date_utc BETWEEN '2026-09-08' AND '2026-09-10'
+  Result: 0.02
+  Pass:   ✅ (expected < 1%)
+```
+
+For each failed check, record the findings and **stop the validation** — failed DQ means the model has a data quality defect that must be fixed before proceeding.
+
+### 5.3 Anomaly Detection Probe
+
+Run these ad-hoc probes that catch real-world data problems unreachable by DQ checks:
+
+```sql
+-- 1. 金额/数量异常值 (所有含金额的模型)
+SELECT {key_col}, {amount_col}
+FROM `hiccpet-481303.{dataset}.{model}`
+WHERE {partition_col} IN ('{date1}', '{date2}', '{date3}')
+  AND ({amount_col} > {upper_threshold} OR {amount_col} < {lower_threshold})
+ORDER BY {amount_col} DESC
+LIMIT 20;
+
+-- 2. 未来日期 (任何有日期列的模型)
+SELECT DISTINCT {partition_col}
+FROM `hiccpet-481303.{dataset}.{model}`
+WHERE {partition_col} > CURRENT_DATE()
+ORDER BY {partition_col};
+
+-- 3. 渠道/店铺维度分布突变 (DWS/DWD)
+SELECT channel_id, COUNT(1) AS row_count
+FROM `hiccpet-481303.{dataset}.{model}`
+WHERE {partition_col} = '{date1}'
+GROUP BY channel_id
+ORDER BY row_count DESC;
+```
+
+**Common anomaly thresholds**:
+
+| Column Type | Suspicious Threshold | Description |
+|-------------|-------------------|-------------|
+| gmv_usd | > 1,000,000 | Single transaction over $1M USD |
+| unit_price | > 100,000 OR < 0 | Unit price outside sane range |
+| quantity | > 10,000 | Single line item quantity |
+| discount_rate | > 1.0 OR < 0 | Discount > 100% or negative |
+| event_date_utc | > CURRENT_DATE() | Future dates (raw data errors) |
+| null_rate | > 5% on PK, > 50% on optional | Unexpected nulls on key columns |
+
+### 5.4 Source-vs-Target Reconciliation (DWS only)
+
+For aggregated models, verify the DWS output matches its DWD source:
+
+```sql
+SELECT
+    COALESCE(src.event_date_utc, tgt.event_date_utc) AS event_date_utc
+    , 'gmv_usd' AS metric
+    , ROUND(SUM(src.gmv_usd), 2) AS dwd_value
+    , ROUND(SUM(tgt.gmv_usd), 2) AS dws_value
+    , ROUND(SUM(COALESCE(src.gmv_usd, 0)) - SUM(COALESCE(tgt.gmv_usd, 0)), 2) AS diff
+    , ROUND(SAFE_DIVIDE(
+          SUM(COALESCE(src.gmv_usd, 0)) - SUM(COALESCE(tgt.gmv_usd, 0))
+          , SUM(COALESCE(src.gmv_usd, 1))
+      ) * 100, 4) AS diff_pct
+FROM `hiccpet-481303.dwd.{dwd_model}` src
+FULL OUTER JOIN `hiccpet-481303.dws.{dws_model}` tgt
+    ON src.event_date_utc = tgt.event_date_utc AND src.channel_id = tgt.channel_id
+WHERE COALESCE(src.event_date_utc, tgt.event_date_utc) BETWEEN '{start_date}' AND '{end_date}'
+GROUP BY event_date_utc
+HAVING ABS(diff) > 0.01
+ORDER BY event_date_utc;
+```
+
+**Pass criterion**: diff_pct < 0.1% on all metrics, all dates.
+
+### 5.5 Validation Report Output
+
+Chisel the complete validation report as structured YAML + human-readable summary:
+
+```yaml
+validation_report:
+  model: dwd_trd_toc_order_item_di
+  tier: dwd
+  run_date_range: ["2026-09-08", "2026-09-10"]
+  dq_checks:
+    row_count:
+      by_date:
+        "2026-09-08": {result: 124782, pass: true}
+        "2026-09-09": {result: 131005, pass: true}
+        "2026-09-10": {result: 118990, pass: true}
+    null_rate_unit_price_usd:
+      "2026-09-08_2026-09-10": {result: "0.02%", pass: true}
+    uniqueness_order_item_key:
+      "2026-09-08_2026-09-10": {result: "100.0%", pass: true}
+  anomaly_probes:
+    negative_prices:       {result: 0_rows, pass: true}
+    future_dates:          {result: 0_rows, pass: true}
+    channel_distribution:  {result: stable, pass: true}
+  summary:
+    total_passes:  5
+    total_fails:   0
+    verdict:       PASS 🟢
+```
+
+**Human-readable summary**:
+
+```markdown
+# Validation Report: dwd_trd_toc_order_item_di
+
+## Verdict: PASS 🟢
+
+| Check | Date Range | Result | Expected | Status |
+|-------|-----------|--------|----------|--------|
+| Row count | 2026-09-08 | 124,782 | > 1,000 | ✅ |
+| Row count | 2026-09-09 | 131,005 | > 1,000 | ✅ |
+| Row count | 2026-09-10 | 118,990 | > 1,000 | ✅ |
+| Null rate unit_price_usd | 09-08~09-10 | 0.02% | < 1% | ✅ |
+| Uniqueness order_item_key | 09-08~09-10 | 100.0% | = 100% | ✅ |
+| Negative prices | 09-08~09-10 | 0 rows | = 0 | ✅ |
+| Future dates | 09-08~09-10 | 0 rows | = 0 | ✅ |
+| Channel distribution | 09-08~09-10 | Stable | No sudden spike | ✅ |
+
+**Completion criterion**: every DQ check from 5.1 has a **pass/fail result** from actual execution against real data (5.2). Anomaly probes (5.3) return zero suspicious rows. For DWS models, reconciliation (5.4) passes with <0.1% diff. The validation report (5.5) is written. If any check fails, the model must be fixed before proceeding — chisel does not advance past a failed validation.
 
 ## 6. dbt Schema (YAML)
 
@@ -303,6 +547,55 @@ OPTIONS(
     partition_expiration_days={expiration_days}
     , description='{table_description}'
 );
+```
+
+### Surrogate Key DDL Patterns
+
+Follow the surrogate key strategy from spec Section 4.4a:
+
+| Dimension Type | DDL Pattern | Example |
+|----------------|-------------|---------|
+| **SCD2 dimension** | `{entity}_sk INT64 NOT NULL` + natural key + `effective_date/expiration_date/is_current` | `sku_sk INT64 NOT NULL, sku_id STRING NOT NULL, effective_date DATE, expiration_date DATE, is_current BOOLEAN DEFAULT TRUE` |
+| **SCD1 dimension** | `{entity}_sk INT64 NOT NULL` (generated from `FARM_FINGERPRINT`) | `supplier_sk INT64 NOT NULL, supplier_code STRING NOT NULL` |
+| **Small dimension (<100 rows)** | Natural key only, document in comment | `channel_id STRING NOT NULL` (no surrogate) |
+| **Degenerate dimension (in fact)** | Natural key as STRING, no surrogate | `order_id STRING NOT NULL` (no `order_sk` needed) |
+
+**DDL example for SCD2 dimension:**
+
+```sql
+CREATE OR REPLACE TABLE `hiccpet-481303.dim.dim_product_skus_sales`
+(
+      sku_sk           INT64       NOT NULL OPTIONS(description='代理键')
+    , sku_id           STRING      NOT NULL OPTIONS(description='SKU编码（业务键）')
+    , product_name     STRING           OPTIONS(description='商品名称')
+    , category_l1      STRING           OPTIONS(description='一级类目')
+    , category_l2      STRING           OPTIONS(description='二级类目')
+    , category_l3      STRING           OPTIONS(description='三级类目')
+    , brand            STRING           OPTIONS(description='品牌')
+    , effective_date   DATE        NOT NULL OPTIONS(description='版本生效日期（SCD2）')
+    , expiration_date  DATE             OPTIONS(description='版本过期日期（SCD2），NULL=当前版本')
+    , is_current       BOOLEAN     NOT NULL DEFAULT TRUE OPTIONS(description='是否为当前版本')
+    , etl_time         TIMESTAMP   NOT NULL OPTIONS(description='ETL时间（北京时间）')
+)
+CLUSTER BY sku_id;
+```
+
+**DDL example for fact table referencing SCD2 dimension:**
+
+```sql
+CREATE OR REPLACE TABLE `hiccpet-481303.dwd.dwd_trd_toc_order_item_di`
+(
+      order_item_key    STRING      NOT NULL OPTIONS(description='复合主键')
+    , order_id          STRING      NOT NULL OPTIONS(description='订单ID，退化维度')
+    , sku_sk            INT64       NOT NULL OPTIONS(description='商品代理键 → dim_product_skus_sales')
+    , channel_sk        INT64            OPTIONS(description='渠道代理键 → dim_channel')
+    , -- ... measures
+    , event_date_utc    DATE        NOT NULL OPTIONS(description='事件日期（分区字段）')
+    , etl_time          TIMESTAMP   NOT NULL OPTIONS(description='ETL时间（北京时间）')
+)
+PARTITION BY event_date_utc
+CLUSTER BY channel_sk, sku_sk
+OPTIONS(partition_expiration_days=365);
 ```
 
 ### Rules by Layer
@@ -409,6 +702,9 @@ SET target_partitions = GENERATE_DATE_ARRAY('{start_date}', '{end_date}');
 | Small model (<1M rows) | Full refresh | Cheaper than incremental logic |
 
 ### Validation: 1-Day Overlap Reconciliation
+
+> This check reuses the **Source-vs-Target Reconciliation** template from Step 5.4, scoped to the backfill boundary date.
+> If Step 5 already produced a validation report for the boundary date, this check can leverage those results directly.
 
 After backfill, run an overlap check to ensure old and new logic are consistent at the seam:
 
